@@ -6,12 +6,12 @@ description = "Complete technical reference for the x402 HTTP-native AI payment 
 src = "src"
 
 [build]
-build-dir = "book"
+build-dir = "docs"
 create-missing = true
 
 [output.html]
 default-theme = "navy"
 preferred-dark-theme = "navy"
-git-repository-url = "https://github.com/FTHTrading/UnyKorn-X402-aws"
+git-repository-url = "https://github.com/FTHTrading/Book"
 additional-css = ["src/custom.css"]
 no-section-label = false
