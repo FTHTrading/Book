@@ -11,7 +11,7 @@ Proof surfaces are publicly accessible endpoints and verification points for the
 | **Digital Twin** | [twin.unykorn.org](https://twin.unykorn.org) | Real-time agent mesh visualization, live transactions |
 | **Explorer** | [main.unykorn-explorer.pages.dev](https://main.unykorn-explorer.pages.dev) | Dashboard, blocks, transactions, agents, namespaces |
 | **ICO Site** | [ico.unykorn.org](https://ico.unykorn.org) | Token sale, tiers, tokenomics, roadmap |
-| **Gateway** | `fth-x402-gateway-staging.kevanbtc.workers.dev` | x402 route enforcement, 402 responses |
+| **Gateway** | `x402-gateway-staging.kevanbtc.workers.dev` | x402 route enforcement, 402 responses |
 | **GitHub** | [github.com/FTHTrading/UnyKorn-X402-aws](https://github.com/FTHTrading/UnyKorn-X402-aws) | All source code, commit history |
 | **Whitepaper** | [docs/WHITEPAPER.md](https://github.com/FTHTrading/UnyKorn-X402-aws/blob/main/docs/WHITEPAPER.md) | Full protocol specification |
 | **Tokenomics** | [docs/TOKENOMICS.md](https://github.com/FTHTrading/UnyKorn-X402-aws/blob/main/docs/TOKENOMICS.md) | Economic model |

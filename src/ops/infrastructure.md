@@ -8,7 +8,7 @@ The x402 protocol runs on AWS with Cloudflare DNS proxying.
 
 | Instance | ID | Type | Purpose |
 |----------|-----|------|---------|
-| **fth-pay-api** | `i-0a877d8aaaaa42b74` | t3.large | Apostle Chain + Agent Ecosystem + Digital Twin |
+| **x402-pay-api** | `i-0a877d8aaaaa42b74` | t3.large | Apostle Chain + Agent Ecosystem + Digital Twin |
 
 **Instance Details**:
 - **AMI**: Amazon Linux 2023

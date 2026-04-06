@@ -136,10 +136,10 @@ Query settlement receipts.
 ```json
 {
   "resource": "/api/v1/genesis/repro-pack/alpha",
-  "namespace": "fth.x402.route.genesis-repro",
+  "namespace": "x402.route.genesis-repro",
   "asset": "USDF",
   "amount": "0.50",
-  "receiver": "uny1_FTH_TREASURY",
+  "receiver": "uny1_x402_TREASURY",
   "policy": { "kyc_required": false, "rate_limit": "100/hour" },
   "ttl_seconds": 300
 }
@@ -216,4 +216,4 @@ Verify a payment proof and settle.
 
 **Webhook Events**: `payment.received`, `payment.batched`, `channel.opened`, `channel.closed`, `credit.deposited`, `anchor.confirmed`
 
-**Verification**: HMAC-SHA256 — `HMAC(body, secret) === X-FTH-Signature`
+**Verification**: HMAC-SHA256 — `HMAC(body, secret) === X-402-Signature`

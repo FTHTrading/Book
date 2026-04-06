@@ -9,7 +9,7 @@ The x402 stack is a layered system with clear separation of concerns:
 │                    CLIENT / AGENT LAYER                          │
 │  Browser  │  AI Agent  │  Wallet  │  Enterprise Client          │
 │                    │                                             │
-│              FTH Wallet SDK (JS)                                 │
+│              x402 Wallet SDK (JS)                                 │
 │  • intercept 402  • resolve namespaces  • sign channel spends   │
 └────────────────────┬────────────────────────────────────────────┘
                      │
@@ -56,12 +56,12 @@ The monorepo contains 40+ packages across multiple languages:
 
 | Package | Language | Purpose |
 |---------|----------|---------|
-| `fth-x402-core` | TypeScript | Protocol types, payment proof construction |
-| `fth-x402-facilitator` | TypeScript/Fastify | Settlement brain (port 3100) |
-| `fth-x402-gateway` | TypeScript/CF Worker | Edge enforcement |
-| `fth-x402-treasury` | TypeScript/Fastify | Wallet management (port 3200) |
-| `fth-guardian` | TypeScript/Fastify | 8-daemon monitoring army (port 3300) |
-| `fth-financial-core` | Rust | Ledger, settlement, vault, risk (6 crates, port 4400) |
+| `x402-core` | TypeScript | Protocol types, payment proof construction |
+| `x402-facilitator` | TypeScript/Fastify | Settlement brain (port 3100) |
+| `x402-gateway` | TypeScript/CF Worker | Edge enforcement |
+| `x402-treasury` | TypeScript/Fastify | Wallet management (port 3200) |
+| `x402-guardian` | TypeScript/Fastify | 8-daemon monitoring army (port 3300) |
+| `x402-financial-core` | Rust | Ledger, settlement, vault, risk (6 crates, port 4400) |
 
 ### Agent & Commerce
 
@@ -77,7 +77,7 @@ The monorepo contains 40+ packages across multiple languages:
 | Package | Language | Purpose |
 |---------|----------|---------|
 | `settlement-engine` | TypeScript | Receipt creation, Merkle trees, signing |
-| `fth-x402-stellar-bridge` | TypeScript | Stellar/Soroban x402 integration |
+| `x402-stellar-bridge` | TypeScript | Stellar/Soroban x402 integration |
 | `genesis-ledger` | TypeScript | Double-entry append-only ledger |
 | `treasury-core` | TypeScript | Treasury state, refill logic, spend caps |
 
@@ -85,7 +85,7 @@ The monorepo contains 40+ packages across multiple languages:
 
 | Package | Language | Purpose |
 |---------|----------|---------|
-| `fth-x402-mesh-pulse` | TypeScript | Real-time event bus (13+ event types) |
+| `x402-mesh-pulse` | TypeScript | Real-time event bus (13+ event types) |
 | `unykorn-explorer` | TypeScript | Block explorer |
 | `unykorn-ico` | TypeScript | ICO site at ico.unykorn.org |
-| `fth-x402-site` | TypeScript | Marketing site |
+| `x402-site` | TypeScript | Marketing site |

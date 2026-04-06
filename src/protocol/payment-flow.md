@@ -24,7 +24,7 @@ X-PAYMENT-REQUIRED: {
   "asset": "ATP",
   "amount": "3000000000000000000",
   "receiver": "agent:a1b2c3d4-...",
-  "namespace": "fth.x402.route.settlement",
+  "namespace": "x402.route.settlement",
   "nonce": "n_abc123",
   "ttl_seconds": 300
 }

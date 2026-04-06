@@ -28,7 +28,7 @@ UnyKorn L1 is a **purpose-built blockchain** designed for one thing: settling AI
 |--------|---------|
 | **Payment Channels** | Prepaid USDF channels for instant off-chain settlement |
 | **Receipt Anchoring** | Merkle root storage for batched receipt verification |
-| **Namespace Registry** | Hierarchical `fth.*` naming with rail and policy resolution |
+| **Namespace Registry** | Hierarchical `x402.*` naming with rail and policy resolution |
 | **Trade Finance** | Letter of credit, invoice factoring modules |
 | **Compliance Engine** | KYC/AML policy enforcement at the chain level |
 

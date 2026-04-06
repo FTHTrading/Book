@@ -21,7 +21,7 @@ General-purpose chains (Ethereum, Solana, etc.) optimize for DeFi, NFTs, and sma
 |-------------|-----------------|------|
 | Sub-second micropayment settlement | ❌ 12s+ blocks, $0.01-$5 fees | ✅ < 50ms, zero platform fees |
 | HTTP-native payment in request/response | ❌ Separate tx flow | ✅ Built into HTTP 402 cycle |
-| Agent identity & namespace resolution | ❌ Raw addresses only | ✅ Hierarchical `fth.*` namespaces |
+| Agent identity & namespace resolution | ❌ Raw addresses only | ✅ Hierarchical `x402.*` namespaces |
 | Prepaid credit with Ed25519 proofs | ❌ Not native | ✅ Zero-latency payment channels |
 | Receipt batching with Merkle anchoring | ❌ Must build from scratch | ✅ Native protocol feature |
 
@@ -46,7 +46,7 @@ x402 uses HTTP 402 to embed payment directly into the API request/response cycle
 └──────────┘                    └───────────────┘
 ```
 
-**Protocol Version**: `fth-x402/2.0`
+**Protocol Version**: `x402/2.0`
 
 The entire flow — challenge, payment, verification, settlement, receipt — happens in a single HTTP round-trip. The agent never leaves the API call context.
 
