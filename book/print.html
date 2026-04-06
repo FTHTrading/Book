@@ -1,0 +1,1797 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>x402 — The AI Payment Protocol</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Complete technical reference for the x402 HTTP-native AI payment protocol, UnyKorn L1 blockchain, Apostle Chain sovereign agent network, and the 20-agent commerce mesh.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="src/custom-7ce0e804.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-9737b431.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-5e8b3861.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">x402 — The AI Payment Protocol</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/FTHTrading/UnyKorn-X402-aws" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="x402--the-ai-payment-protocol"><a class="header" href="#x402--the-ai-payment-protocol">x402 — The AI Payment Protocol</a></h1>
+<blockquote>
+<p><strong>The sovereign infrastructure layer where AI agents pay each other for work.</strong></p>
+</blockquote>
+<hr>
+<h2 id="what-youre-looking-at"><a class="header" href="#what-youre-looking-at">What You’re Looking At</a></h2>
+<p>This book documents the complete <strong>x402 protocol stack</strong> — a production system where:</p>
+<ul>
+<li><strong>20 autonomous AI agents</strong> trade ATP (Apostle Token Primitive) for real services</li>
+<li><strong>Every transaction</strong> is cryptographically signed, settled on-chain, and receipted</li>
+<li><strong>No humans in the loop</strong> — agents discover, negotiate, pay, and settle autonomously</li>
+<li><strong>Live right now</strong> at <a href="https://twin.unykorn.org">twin.unykorn.org</a></li>
+</ul>
+<h2 id="the-stack"><a class="header" href="#the-stack">The Stack</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Layer</th><th>What</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>x402 Protocol</strong></td><td>HTTP 402 payment-per-request for AI agents</td><td><strong>LIVE</strong></td></tr>
+<tr><td><strong>UnyKorn L1</strong></td><td>Purpose-built blockchain (Chain 7331) for USDF settlement</td><td><strong>BUILT</strong></td></tr>
+<tr><td><strong>Apostle Chain</strong></td><td>Sovereign Rust/Axum L1 (Chain 7332) for agent commerce</td><td><strong>LIVE</strong> — 3,400+ blocks</td></tr>
+<tr><td><strong>Agent Mesh</strong></td><td>20 agents across 5 tiers running continuous commerce</td><td><strong>LIVE</strong> — 1,500+ txs</td></tr>
+<tr><td><strong>Digital Twin</strong></td><td>Real-time network visualization</td><td><strong>LIVE</strong> at twin.unykorn.org</td></tr>
+<tr><td><strong>Settlement Bridges</strong></td><td>XRPL + Stellar cross-chain</td><td><strong>BUILT</strong></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="how-to-read-this-book"><a class="header" href="#how-to-read-this-book">How to Read This Book</a></h2>
+<ul>
+<li><strong>Chapter 1-3</strong>: The x402 protocol — what it is, why it exists, how payments flow</li>
+<li><strong>Chapter 4-6</strong>: UnyKorn L1 — the blockchain, UNY token, treasury</li>
+<li><strong>Chapter 7-9</strong>: Apostle Chain — the sovereign agent network running live commerce</li>
+<li><strong>Chapter 10-11</strong>: Live systems — see it working, call the APIs</li>
+<li><strong>Chapter 12-14</strong>: Operations — infrastructure, roadmap, security</li>
+</ul>
+<h2 id="quick-links"><a class="header" href="#quick-links">Quick Links</a></h2>
+<ul>
+<li><strong>Live Dashboard</strong>: <a href="https://twin.unykorn.org">twin.unykorn.org</a></li>
+<li><strong>ICO Site</strong>: <a href="https://ico.unykorn.org">ico.unykorn.org</a></li>
+<li><strong>Docs Hub</strong>: <a href="https://407.unykorn.org">407.unykorn.org</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/FTHTrading/UnyKorn-X402-aws">github.com/FTHTrading/UnyKorn-X402-aws</a></li>
+</ul>
+<hr>
+<p><em>Published April 2026 — FTH Trading / UnyKorn Protocol Team</em></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="what-is-x402"><a class="header" href="#what-is-x402">What is x402?</a></h1>
+<h2 id="the-problem-ai-agents-face-today"><a class="header" href="#the-problem-ai-agents-face-today">The Problem AI Agents Face Today</a></h2>
+<p>The internet was built on a free-access model. HTTP 200 serves content. HTTP 401/403 handles auth. But <strong>HTTP 402 — “Payment Required”</strong> — was reserved in RFC 7231 for future use and never standardized.</p>
+<p>As AI agents proliferate, they need to:</p>
+<ul>
+<li><strong>Pay for API calls</strong> autonomously — no human clicking “approve”</li>
+<li><strong>Settle micropayments</strong> in real-time (&lt; 1 second, not 3-5 business days)</li>
+<li><strong>Negotiate pricing, access tiers, and service levels</strong> machine-to-machine</li>
+<li><strong>Operate without human intervention</strong> for each transaction</li>
+</ul>
+<p>No existing blockchain or payment system solves this at the protocol level.</p>
+<h2 id="why-existing-chains-dont-work"><a class="header" href="#why-existing-chains-dont-work">Why Existing Chains Don’t Work</a></h2>
+<p>General-purpose chains (Ethereum, Solana, etc.) optimize for DeFi, NFTs, and smart contracts. They are not designed for:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Requirement</th><th>Ethereum/Solana</th><th>x402</th></tr>
+</thead>
+<tbody>
+<tr><td>Sub-second micropayment settlement</td><td>❌ 12s+ blocks, $0.01-$5 fees</td><td>✅ &lt; 50ms, zero platform fees</td></tr>
+<tr><td>HTTP-native payment in request/response</td><td>❌ Separate tx flow</td><td>✅ Built into HTTP 402 cycle</td></tr>
+<tr><td>Agent identity &amp; namespace resolution</td><td>❌ Raw addresses only</td><td>✅ Hierarchical <code>fth.*</code> namespaces</td></tr>
+<tr><td>Prepaid credit with Ed25519 proofs</td><td>❌ Not native</td><td>✅ Zero-latency payment channels</td></tr>
+<tr><td>Receipt batching with Merkle anchoring</td><td>❌ Must build from scratch</td><td>✅ Native protocol feature</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="the-x402-solution"><a class="header" href="#the-x402-solution">The x402 Solution</a></h2>
+<p>x402 uses HTTP 402 to embed payment directly into the API request/response cycle:</p>
+<pre><code>┌──────────┐                    ┌───────────────┐
+│ AI Agent │ ── GET /api/data → │ x402 Gateway  │
+│          │                    │               │
+│          │ ← HTTP 402 ────── │ Payment       │
+│          │   + price: 0.5 ATP│ Required      │
+│          │   + receiver: ... │               │
+│          │                    │               │
+│          │ ── GET /api/data → │               │
+│          │   + X-PAYMENT:    │ Verify →      │
+│          │     signed proof  │ Settle →      │
+│          │                    │ Receipt →     │
+│          │ ← HTTP 200 ────── │ Deliver       │
+│          │   + data payload  │               │
+└──────────┘                    └───────────────┘
+</code></pre>
+<p><strong>Protocol Version</strong>: <code>fth-x402/2.0</code></p>
+<p>The entire flow — challenge, payment, verification, settlement, receipt — happens in a single HTTP round-trip. The agent never leaves the API call context.</p>
+<h2 id="key-properties"><a class="header" href="#key-properties">Key Properties</a></h2>
+<ul>
+<li><strong>Zero platform fees</strong> — ATP transfers cost nothing beyond chain gas</li>
+<li><strong>Sub-50ms settlement</strong> — prepaid credit channels bypass block confirmation</li>
+<li><strong>Cryptographic receipts</strong> — every payment produces a signed, verifiable receipt</li>
+<li><strong>Merkle-batched anchoring</strong> — receipts are batched into Merkle trees and anchored on-chain</li>
+<li><strong>Machine-first</strong> — no CAPTCHAs, no OAuth flows, no human-in-the-loop</li>
+<li><strong>Auditable</strong> — full chain of custody from request → payment → receipt → anchor</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="payment-flow"><a class="header" href="#payment-flow">Payment Flow</a></h1>
+<h2 id="the-x402-payment-lifecycle"><a class="header" href="#the-x402-payment-lifecycle">The x402 Payment Lifecycle</a></h2>
+<p>Every x402 payment follows a deterministic 6-step flow embedded in a single HTTP request cycle.</p>
+<h3 id="step-1-request"><a class="header" href="#step-1-request">Step 1: Request</a></h3>
+<p>An AI agent sends an HTTP request to a paid endpoint:</p>
+<pre><code>GET /v1/settle HTTP/1.1
+Host: settlement.unykorn.org
+Authorization: Bearer agent:87724c76-da93-4b1a-9fa6-271ba856338e
+</code></pre>
+<h3 id="step-2-challenge-http-402"><a class="header" href="#step-2-challenge-http-402">Step 2: Challenge (HTTP 402)</a></h3>
+<p>The x402 gateway returns HTTP 402 with payment requirements:</p>
+<pre><code>HTTP/1.1 402 Payment Required
+X-PAYMENT-REQUIRED: {
+  "asset": "ATP",
+  "amount": "3000000000000000000",
+  "receiver": "agent:a1b2c3d4-...",
+  "namespace": "fth.x402.route.settlement",
+  "nonce": "n_abc123",
+  "ttl_seconds": 300
+}
+</code></pre>
+<h3 id="step-3-payment-proof-construction"><a class="header" href="#step-3-payment-proof-construction">Step 3: Payment Proof Construction</a></h3>
+<p>The agent constructs a signed payment proof using its Ed25519 keypair:</p>
+<pre><code class="language-json">{
+  "hash": "a1b2c3d4...64hex",
+  "from": "87724c76-da93-4b1a-9fa6-271ba856338e",
+  "to": "receiver-uuid",
+  "asset": "ATP",
+  "amount": "3000000000000000000",
+  "nonce": 42,
+  "chain_id": 7332,
+  "signature": "128hex...",
+  "timestamp": "2026-04-05T12:00:00Z"
+}
+</code></pre>
+<h3 id="step-4-retry-with-proof"><a class="header" href="#step-4-retry-with-proof">Step 4: Retry with Proof</a></h3>
+<p>The agent retries the original request with the payment proof attached:</p>
+<pre><code>GET /v1/settle HTTP/1.1
+Host: settlement.unykorn.org
+X-PAYMENT: &lt;base64-encoded signed TxEnvelope&gt;
+</code></pre>
+<h3 id="step-5-verification--settlement"><a class="header" href="#step-5-verification--settlement">Step 5: Verification &amp; Settlement</a></h3>
+<p>The facilitator:</p>
+<ol>
+<li><strong>Verifies</strong> the Ed25519 signature</li>
+<li><strong>Checks</strong> nonce for replay protection</li>
+<li><strong>Debits</strong> the sender’s balance</li>
+<li><strong>Credits</strong> the receiver’s balance</li>
+<li><strong>Creates</strong> a cryptographic receipt</li>
+</ol>
+<h3 id="step-6-delivery--receipt"><a class="header" href="#step-6-delivery--receipt">Step 6: Delivery + Receipt</a></h3>
+<pre><code>HTTP/1.1 200 OK
+X-RECEIPT: rcpt_a1b2c3...
+Content-Type: application/json
+
+{ "data": "..." }
+</code></pre>
+<p>The receipt is batched into a Merkle tree and periodically anchored on-chain.</p>
+<hr>
+<h2 id="payment-rails"><a class="header" href="#payment-rails">Payment Rails</a></h2>
+<p>x402 supports multiple settlement rails:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Rail</th><th>Asset</th><th>Role</th><th>Latency</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Apostle Chain (7332)</strong></td><td>ATP</td><td>Primary sovereign settlement</td><td>&lt; 50ms</td></tr>
+<tr><td><strong>UnyKorn L1 (7331)</strong></td><td>USDF</td><td>Canonical ledger, channel finality</td><td>&lt; 1s</td></tr>
+<tr><td><strong>Stellar</strong></td><td>sUSDF</td><td>Bridge rail, Soroban auth-entry</td><td>~5s</td></tr>
+<tr><td><strong>XRPL</strong></td><td>xUSDF</td><td>Mirror rail, IOU distribution</td><td>~4s</td></tr>
+</tbody>
+</table>
+</div>
+<p>The Facilitator selects the optimal rail based on amount, urgency, and policy.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="architecture"><a class="header" href="#architecture">Architecture</a></h1>
+<h2 id="system-architecture"><a class="header" href="#system-architecture">System Architecture</a></h2>
+<p>The x402 stack is a layered system with clear separation of concerns:</p>
+<pre><code>┌─────────────────────────────────────────────────────────────────┐
+│                    CLIENT / AGENT LAYER                          │
+│  Browser  │  AI Agent  │  Wallet  │  Enterprise Client          │
+│                    │                                             │
+│              FTH Wallet SDK (JS)                                 │
+│  • intercept 402  • resolve namespaces  • sign channel spends   │
+└────────────────────┬────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              x402 EDGE GATEWAY (Cloudflare Worker)               │
+│  Route matching • 402 generation • Proof forwarding • Rate limit │
+└────────────────────┬────────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   UNYKORN FACILITATOR                             │
+│  Invoice Service  │  Payment Verifier  │  Namespace Resolver     │
+│  Channel Manager  │  Receipt Batcher   │  Policy Engine          │
+│  Replay Guard     │  Credit Ledger     │  Rail Adapters          │
+└────────────────────┬────────────────────────────────────────────┘
+                     │
+          ┌──────────┼──────────┐
+          ▼          ▼          ▼
+    ┌──────────┐ ┌────────┐ ┌──────┐
+    │UnyKorn L1│ │Stellar │ │ XRPL │
+    │ USDF     │ │ sUSDF  │ │xUSDF │
+    │ channels │ │ auth   │ │ IOU  │
+    │ anchoring│ │ bridge │ │mirror│
+    └──────────┘ └────────┘ └──────┘
+</code></pre>
+<h2 id="component-responsibilities"><a class="header" href="#component-responsibilities">Component Responsibilities</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Component</th><th>Owns</th><th>Does NOT Own</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Cloudflare Worker</strong></td><td>HTTP 402 enforcement, route matching, rate limiting</td><td>Settlement logic, state</td></tr>
+<tr><td><strong>Facilitator</strong></td><td>Proof verification, replay protection, invoice management, receipt creation</td><td>HTTP routing, file serving</td></tr>
+<tr><td><strong>UnyKorn L1</strong></td><td>Canonical USDF ledger, payment channels, receipt anchoring</td><td>Client interaction</td></tr>
+<tr><td><strong>Apostle Chain</strong></td><td>Sovereign agent settlement (ATP), agent registry, commerce mesh</td><td>USDF operations</td></tr>
+<tr><td><strong>Stellar</strong></td><td>Bridge rail, Soroban auth-entry compatibility</td><td>Primary settlement</td></tr>
+<tr><td><strong>XRPL</strong></td><td>Mirror rail, xUSDF distribution</td><td>Settlement authority</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="package-map"><a class="header" href="#package-map">Package Map</a></h2>
+<p>The monorepo contains 40+ packages across multiple languages:</p>
+<h3 id="core-infrastructure"><a class="header" href="#core-infrastructure">Core Infrastructure</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Package</th><th>Language</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fth-x402-core</code></td><td>TypeScript</td><td>Protocol types, payment proof construction</td></tr>
+<tr><td><code>fth-x402-facilitator</code></td><td>TypeScript/Fastify</td><td>Settlement brain (port 3100)</td></tr>
+<tr><td><code>fth-x402-gateway</code></td><td>TypeScript/CF Worker</td><td>Edge enforcement</td></tr>
+<tr><td><code>fth-x402-treasury</code></td><td>TypeScript/Fastify</td><td>Wallet management (port 3200)</td></tr>
+<tr><td><code>fth-guardian</code></td><td>TypeScript/Fastify</td><td>8-daemon monitoring army (port 3300)</td></tr>
+<tr><td><code>fth-financial-core</code></td><td>Rust</td><td>Ledger, settlement, vault, risk (6 crates, port 4400)</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="agent--commerce"><a class="header" href="#agent--commerce">Agent &amp; Commerce</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Package</th><th>Language</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>x402-agent-ecosystem</code></td><td>Python</td><td>20-agent commerce mesh + digital twin</td></tr>
+<tr><td><code>agent-core</code></td><td>TypeScript</td><td>AgentRegistry, TaskManager, BudgetManager</td></tr>
+<tr><td><code>a2a-sdk</code></td><td>TypeScript</td><td>Agent-to-agent cards, routing, messages</td></tr>
+<tr><td><code>mcp-servers</code></td><td>TypeScript</td><td>14 MCP server definitions</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="settlement--finance"><a class="header" href="#settlement--finance">Settlement &amp; Finance</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Package</th><th>Language</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>settlement-engine</code></td><td>TypeScript</td><td>Receipt creation, Merkle trees, signing</td></tr>
+<tr><td><code>fth-x402-stellar-bridge</code></td><td>TypeScript</td><td>Stellar/Soroban x402 integration</td></tr>
+<tr><td><code>genesis-ledger</code></td><td>TypeScript</td><td>Double-entry append-only ledger</td></tr>
+<tr><td><code>treasury-core</code></td><td>TypeScript</td><td>Treasury state, refill logic, spend caps</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="visualization--interface"><a class="header" href="#visualization--interface">Visualization &amp; Interface</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Package</th><th>Language</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fth-x402-mesh-pulse</code></td><td>TypeScript</td><td>Real-time event bus (13+ event types)</td></tr>
+<tr><td><code>unykorn-explorer</code></td><td>TypeScript</td><td>Block explorer</td></tr>
+<tr><td><code>unykorn-ico</code></td><td>TypeScript</td><td>ICO site at ico.unykorn.org</td></tr>
+<tr><td><code>fth-x402-site</code></td><td>TypeScript</td><td>Marketing site</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="unykorn-l1--chain-overview"><a class="header" href="#unykorn-l1--chain-overview">UnyKorn L1 — Chain Overview</a></h1>
+<h2 id="chain-specifications"><a class="header" href="#chain-specifications">Chain Specifications</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Chain Name</strong></td><td>UnyKorn L1</td></tr>
+<tr><td><strong>Chain ID</strong></td><td>7331</td></tr>
+<tr><td><strong>Native Token</strong></td><td>UNY</td></tr>
+<tr><td><strong>Consensus</strong></td><td>Custom PoA → PoS migration planned</td></tr>
+<tr><td><strong>Block Time</strong></td><td>~1 second target</td></tr>
+<tr><td><strong>Primary Asset</strong></td><td>USDF (stablecoin, 7 decimals)</td></tr>
+<tr><td><strong>Status</strong></td><td><strong>BUILT</strong> — controlled devnet</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="purpose"><a class="header" href="#purpose">Purpose</a></h2>
+<p>UnyKorn L1 is a <strong>purpose-built blockchain</strong> designed for one thing: settling AI agent payments. Unlike general-purpose chains, every design decision optimizes for:</p>
+<ol>
+<li><strong>Sub-second settlement</strong> of high-frequency micropayments</li>
+<li><strong>HTTP-native payment flows</strong> embedded in API request/response cycles</li>
+<li><strong>Agent identity</strong> and hierarchical namespace resolution</li>
+<li><strong>Prepaid credit systems</strong> with Ed25519-signed proofs for zero-latency payment</li>
+<li><strong>Receipt batching</strong> with Merkle tree anchoring for auditability at scale</li>
+</ol>
+<h2 id="on-chain-modules"><a class="header" href="#on-chain-modules">On-Chain Modules</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Module</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Payment Channels</strong></td><td>Prepaid USDF channels for instant off-chain settlement</td></tr>
+<tr><td><strong>Receipt Anchoring</strong></td><td>Merkle root storage for batched receipt verification</td></tr>
+<tr><td><strong>Namespace Registry</strong></td><td>Hierarchical <code>fth.*</code> naming with rail and policy resolution</td></tr>
+<tr><td><strong>Trade Finance</strong></td><td>Letter of credit, invoice factoring modules</td></tr>
+<tr><td><strong>Compliance Engine</strong></td><td>KYC/AML policy enforcement at the chain level</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="infrastructure"><a class="header" href="#infrastructure">Infrastructure</a></h2>
+<p>The L1 is designed to run on a 5-node AWS fleet:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Instance</th><th>Role</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td>Alpha</td><td>Validator + API</td><td>t3.large</td></tr>
+<tr><td>Bravo</td><td>Validator</td><td>t3.large</td></tr>
+<tr><td>Charlie</td><td>Validator</td><td>t3.large</td></tr>
+<tr><td>Delta</td><td>x402 host + Facilitator</td><td>t3.large</td></tr>
+<tr><td>Echo</td><td>Oracle + monitoring</td><td>t3.medium</td></tr>
+</tbody>
+</table>
+</div>
+<p>Terraform modules for all 9 infrastructure components are code-complete.</p>
+<h2 id="relationship-to-apostle-chain"><a class="header" href="#relationship-to-apostle-chain">Relationship to Apostle Chain</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th>UnyKorn L1 (7331)</th><th>Apostle Chain (7332)</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Purpose</strong></td><td>USDF stablecoin settlement</td><td>Sovereign agent commerce (ATP)</td></tr>
+<tr><td><strong>Language</strong></td><td>TypeScript + Terraform</td><td>Rust/Axum</td></tr>
+<tr><td><strong>Status</strong></td><td>BUILT (devnet)</td><td>LIVE (production)</td></tr>
+<tr><td><strong>Agents</strong></td><td>Channel-based payment</td><td>Direct on-chain settlement</td></tr>
+<tr><td><strong>Primary Asset</strong></td><td>USDF</td><td>ATP</td></tr>
+</tbody>
+</table>
+</div>
+<p>Both chains will bridge via the x402 credit pool, enabling agents to pay in ATP while merchants settle in USDF.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="uny-token--tokenomics"><a class="header" href="#uny-token--tokenomics">UNY Token &amp; Tokenomics</a></h1>
+<h2 id="token-fundamentals"><a class="header" href="#token-fundamentals">Token Fundamentals</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Value</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Name</strong></td><td>UnyKorn Token</td><td>LIVE</td></tr>
+<tr><td><strong>Symbol</strong></td><td>UNY</td><td>LIVE</td></tr>
+<tr><td><strong>Blockchain</strong></td><td>UnyKorn L1 (Chain ID 7331)</td><td>BUILT</td></tr>
+<tr><td><strong>Decimals</strong></td><td>18</td><td>LIVE</td></tr>
+<tr><td><strong>Total Supply</strong></td><td>1,000,000,000 (1 billion)</td><td>LIVE</td></tr>
+<tr><td><strong>Max Supply</strong></td><td>1,000,000,000 (hard-capped)</td><td>LIVE</td></tr>
+<tr><td><strong>Inflation</strong></td><td>0% — no new tokens can ever be created</td><td>LIVE</td></tr>
+<tr><td><strong>Mintable</strong></td><td>No</td><td>LIVE</td></tr>
+<tr><td><strong>Pausable</strong></td><td>No</td><td>LIVE</td></tr>
+<tr><td><strong>Upgradeable</strong></td><td>No</td><td>LIVE</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>Architecture Note</strong>: UNY exists in two forms:</p>
+<ol>
+<li><strong>Native L1 UNY</strong> — gas token on UnyKorn L1 (Chain 7331)</li>
+<li><strong>Wrapped UNY (wUNY)</strong> — planned ERC-20 for CEX listings and cross-chain interoperability</li>
+</ol>
+</blockquote>
+<h2 id="token-distribution"><a class="header" href="#token-distribution">Token Distribution</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Category</th><th>%</th><th>Tokens</th><th>Vesting</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>ICO / Public Sale</strong></td><td>20%</td><td>200,000,000</td><td>Seed: 6mo cliff + 12mo linear</td></tr>
+<tr><td><strong>Infrastructure &amp; Validators</strong></td><td>35%</td><td>350,000,000</td><td>48 months gradual</td></tr>
+<tr><td><strong>AI Compute Subsidies</strong></td><td>10%</td><td>100,000,000</td><td>On-demand as agents onboard</td></tr>
+<tr><td><strong>Protocol Treasury</strong></td><td>15%</td><td>150,000,000</td><td>Multi-sig, 6mo timelock</td></tr>
+<tr><td><strong>Ecosystem Grants</strong></td><td>10%</td><td>100,000,000</td><td>Per-grant (6-24 months)</td></tr>
+<tr><td><strong>Team &amp; Advisors</strong></td><td>10%</td><td>100,000,000</td><td>12mo cliff + 36mo linear</td></tr>
+</tbody>
+</table>
+</div>
+<pre><code>████████████████████░░░░░░░░░░░░░░░░░░░░  20%  ICO / Public Sale
+█████████████████████████████████████░░░░  35%  Infrastructure
+██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  AI Compute
+████████████████░░░░░░░░░░░░░░░░░░░░░░░░  15%  Treasury
+██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  Ecosystem
+██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  Team
+</code></pre>
+<h2 id="revenue-flywheel"><a class="header" href="#revenue-flywheel">Revenue Flywheel</a></h2>
+<p>All x402 protocol fees are distributed:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Allocation</th><th>%</th><th>Mechanism</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Buyback &amp; Burn</strong></td><td>40%</td><td>Market buy → permanent burn</td></tr>
+<tr><td><strong>LP Provision</strong></td><td>20%</td><td>Protocol-owned AMM liquidity</td></tr>
+<tr><td><strong>Treasury</strong></td><td>20%</td><td>Operational reserve</td></tr>
+<tr><td><strong>Staking Rewards</strong></td><td>15%</td><td>Distributed to UNY stakers</td></tr>
+<tr><td><strong>Insurance Fund</strong></td><td>5%</td><td>Incident recovery reserve</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="existing-liquidity"><a class="header" href="#existing-liquidity">Existing Liquidity</a></h2>
+<p>UNY is currently listed on:</p>
+<ul>
+<li><strong>LFJ (TraderJoe)</strong> — UNY/USDC pool on Avalanche C-Chain</li>
+<li><strong>LFJ (TraderJoe)</strong> — UNY/WAVAX pool on Avalanche C-Chain</li>
+</ul>
+<h2 id="atp-apostle-token-primitive"><a class="header" href="#atp-apostle-token-primitive">ATP (Apostle Token Primitive)</a></h2>
+<p>ATP is the native token of the Apostle Chain (7332), used for agent-to-agent commerce:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Symbol</strong></td><td>ATP</td></tr>
+<tr><td><strong>Decimals</strong></td><td>18</td></tr>
+<tr><td><strong>Chain</strong></td><td>Apostle (7332)</td></tr>
+<tr><td><strong>Current Supply</strong></td><td>~2.45M ATP across 20 agents</td></tr>
+<tr><td><strong>Purpose</strong></td><td>Agent-to-agent service payments</td></tr>
+<tr><td><strong>Settlement</strong></td><td>Direct on-chain, &lt; 50ms</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="treasury-policy"><a class="header" href="#treasury-policy">Treasury Policy</a></h1>
+<h2 id="treasury-holdings"><a class="header" href="#treasury-holdings">Treasury Holdings</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Wallet</th><th>Balance</th><th>Chain</th><th>Controller</th></tr>
+</thead>
+<tbody>
+<tr><td>Main Treasury</td><td>400,000,000 UNY</td><td>UnyKorn L1 (7331)</td><td>Deployer key</td></tr>
+<tr><td>LP Reserve</td><td>100,000,000 UNY</td><td>UnyKorn L1 (7331)</td><td>Deployer key</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>500,000,000 UNY</strong></td><td></td><td>50% of supply</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="spending-policy"><a class="header" href="#spending-policy">Spending Policy</a></h2>
+<h3 id="current-single-key"><a class="header" href="#current-single-key">Current (Single Key)</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tier</th><th>Amount</th><th>Approval</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt; 1M UNY</td><td>Founder discretion</td><td>Single key</td></tr>
+<tr><td>1M — 10M UNY</td><td>Documented justification</td><td>Single key (logged)</td></tr>
+<tr><td>&gt; 10M UNY</td><td>Board/advisor consultation</td><td>Single key (risk accepted)</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="target-multi-sig--q3-2026"><a class="header" href="#target-multi-sig--q3-2026">Target (Multi-Sig — Q3 2026)</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tier</th><th>Amount</th><th>Approval</th></tr>
+</thead>
+<tbody>
+<tr><td>&lt; 100K UNY</td><td>Any signer</td><td>1-of-5</td></tr>
+<tr><td>100K — 1M UNY</td><td>Standard</td><td>2-of-5</td></tr>
+<tr><td>1M — 10M UNY</td><td>Full + timelock</td><td>3-of-5 + 48h</td></tr>
+<tr><td>&gt; 10M UNY</td><td>Governance vote</td><td>3-of-5 + 7d lock</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="permitted-uses"><a class="header" href="#permitted-uses">Permitted Uses</a></h2>
+<ul>
+<li>Protocol development and engineering</li>
+<li>Ecosystem grants and partnerships</li>
+<li>Exchange listing fees and liquidity provision</li>
+<li>Market maker token loans</li>
+<li>Operational expenses (infrastructure, legal, compliance)</li>
+<li>Bug bounty rewards</li>
+</ul>
+<h2 id="prohibited-uses"><a class="header" href="#prohibited-uses">Prohibited Uses</a></h2>
+<ul>
+<li>Personal use by team members</li>
+<li>Speculative trading</li>
+<li>Market manipulation</li>
+<li>Transfers to sanctioned jurisdictions</li>
+</ul>
+<h2 id="revenue-distribution"><a class="header" href="#revenue-distribution">Revenue Distribution</a></h2>
+<p>All x402 protocol revenue follows the flywheel:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Allocation</th><th>%</th><th>Mechanism</th></tr>
+</thead>
+<tbody>
+<tr><td>Buyback &amp; Burn</td><td>40%</td><td>Deflationary pressure</td></tr>
+<tr><td>LP Provision</td><td>20%</td><td>Protocol-owned liquidity</td></tr>
+<tr><td>Treasury</td><td>20%</td><td>Operational reserve</td></tr>
+<tr><td>Staking Rewards</td><td>15%</td><td>Staker incentives</td></tr>
+<tr><td>Insurance Fund</td><td>5%</td><td>Incident recovery</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="transparency-commitments"><a class="header" href="#transparency-commitments">Transparency Commitments</a></h2>
+<ul>
+<li>All treasury transactions will be publicly verifiable on UnyKorn L1 Explorer</li>
+<li>Monthly treasury reports published</li>
+<li>All allocations &gt; 1M UNY disclosed publicly</li>
+<li>Migration to Gnosis Safe multi-sig with 3-of-5 signing planned for Q3 2026</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="apostle-chain-chain-7332"><a class="header" href="#apostle-chain-chain-7332">Apostle Chain (Chain 7332)</a></h1>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<p>The Apostle Chain is a <strong>sovereign Rust/Axum Layer 1 blockchain</strong> purpose-built for autonomous AI agent commerce. While UnyKorn L1 handles USDF stablecoin settlement, the Apostle Chain is where the 20-agent mesh actually runs, transacts, and settles in real-time.</p>
+<h2 id="chain-specifications-1"><a class="header" href="#chain-specifications-1">Chain Specifications</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Chain Name</strong></td><td>Apostle Chain</td></tr>
+<tr><td><strong>Chain ID</strong></td><td>7332</td></tr>
+<tr><td><strong>Native Token</strong></td><td>ATP (Apostle Token Primitive)</td></tr>
+<tr><td><strong>Decimals</strong></td><td>18</td></tr>
+<tr><td><strong>Language</strong></td><td>Rust + Axum</td></tr>
+<tr><td><strong>Port</strong></td><td>7332</td></tr>
+<tr><td><strong>Crates</strong></td><td>10 — apostle-{api, types, ledger, consensus, settlement, bridge, mesh} + subcrates</td></tr>
+<tr><td><strong>Status</strong></td><td><strong>LIVE</strong> — production on AWS EC2</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="current-state-april-2026"><a class="header" href="#current-state-april-2026">Current State (April 2026)</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Metric</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Block Height</strong></td><td>3,400+</td></tr>
+<tr><td><strong>Registered Agents</strong></td><td>20</td></tr>
+<tr><td><strong>Total Transactions</strong></td><td>1,500+</td></tr>
+<tr><td><strong>Transaction Latency</strong></td><td>&lt; 50ms</td></tr>
+<tr><td><strong>Proposer</strong></td><td>Active — produces blocks on tx arrival (no empty blocks)</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="api-endpoints"><a class="header" href="#api-endpoints">API Endpoints</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/health</code></td><td>GET</td><td>Health check</td></tr>
+<tr><td><code>/status</code></td><td>GET</td><td>Chain height, agent count, mempool size</td></tr>
+<tr><td><code>/v1/tx</code></td><td>POST</td><td>Submit signed transaction (TxEnvelope)</td></tr>
+<tr><td><code>/v1/airdrop</code></td><td>POST</td><td>Mint ATP to agents (genesis only)</td></tr>
+<tr><td><code>/v1/agents/register</code></td><td>POST</td><td>Register new agent</td></tr>
+<tr><td><code>/v1/agents/batch-register</code></td><td>POST</td><td>Batch register agents</td></tr>
+<tr><td><code>/v1/agents/heartbeat</code></td><td>POST</td><td>Agent heartbeat</td></tr>
+<tr><td><code>/v1/agent/{id}/balance</code></td><td>GET</td><td>Query agent balance (accepts bare UUID or agent:UUID)</td></tr>
+<tr><td><code>/v1/receipts</code></td><td>GET</td><td>Query settlement receipts</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="txenvelope-format"><a class="header" href="#txenvelope-format">TxEnvelope Format</a></h2>
+<p>Every transaction on Apostle Chain is a signed <code>TxEnvelope</code>:</p>
+<pre><code class="language-json">{
+  "hash": "64-char hex (no 0x prefix)",
+  "from": "bare-uuid",
+  "to": "bare-uuid",
+  "nonce": 42,
+  "chain_id": 7332,
+  "payload": {
+    "type": "transfer",
+    "to": "bare-uuid",
+    "asset": "ATP",
+    "amount": "3000000000000000000"
+  },
+  "signature": "128-char hex (Ed25519)",
+  "timestamp": "2026-04-05T12:00:00Z"
+}
+</code></pre>
+<blockquote>
+<p><strong>Important</strong>: The <code>amount</code> field must be a <strong>string</strong> in JSON — Rust’s serde internally-tagged enums don’t support u128 even with <code>arbitrary_precision</code>. All amounts use the <code>str_u128</code> serialization module.</p>
+</blockquote>
+<h2 id="settlement-bridges"><a class="header" href="#settlement-bridges">Settlement Bridges</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Bridge</th><th>Asset</th><th>Direction</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>XRPL</strong></td><td>xUSDF ↔ ATP</td><td>Bidirectional</td><td>BUILT</td></tr>
+<tr><td><strong>Stellar</strong></td><td>sUSDF ↔ ATP</td><td>Bidirectional</td><td>BUILT</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="crate-architecture"><a class="header" href="#crate-architecture">Crate Architecture</a></h2>
+<pre><code>apostle-chain/
+├── crates/
+│   ├── apostle-api/          # Axum routes, handlers, middleware
+│   ├── apostle-types/        # Asset enum, TxPayload, AgentId, str_u128
+│   ├── apostle-ledger/       # Balance state, nonce tracking, account management
+│   ├── apostle-consensus/    # Proposer loop (50ms tick), block finalization
+│   ├── apostle-settlement/   # Cross-chain settlement execution
+│   ├── apostle-bridge/       # XRPL + Stellar bridge adapters
+│   └── apostle-mesh/         # Agent discovery, heartbeat, mesh topology
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="the-20-agent-commerce-mesh"><a class="header" href="#the-20-agent-commerce-mesh">The 20-Agent Commerce Mesh</a></h1>
+<h2 id="agent-architecture"><a class="header" href="#agent-architecture">Agent Architecture</a></h2>
+<p>Every agent on the Apostle Chain is a fully autonomous economic actor. Each agent has:</p>
+<ul>
+<li><strong>Agent ID</strong> — UUID registered on-chain (<code>agent:{uuid}</code>)</li>
+<li><strong>Ed25519 Keypair</strong> — signs every transaction (SovereignKeyring)</li>
+<li><strong>ATP Balance</strong> — native token balance on the Apostle ledger</li>
+<li><strong>Tier</strong> — determines transaction amounts and cadence</li>
+<li><strong>Commerce Role</strong> — what service the agent provides or consumes</li>
+</ul>
+<h2 id="operator-wallets-5"><a class="header" href="#operator-wallets-5">Operator Wallets (5)</a></h2>
+<p>These are the top-level accounts that fund and govern the mesh.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Label</th><th>Role</th><th>Balance (ATP)</th><th>Agent ID</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>kevan-burns-chairman</strong></td><td>Chairman</td><td>500,000</td><td><code>87724c76-da93-4b1a-9fa6-271ba856338e</code></td></tr>
+<tr><td><strong>genesis-treasury</strong></td><td>Genesis Treasury</td><td>1,000,000</td><td><code>caf9cf0c-1d11-4632-a7c1-188c7fd95ebd</code></td></tr>
+<tr><td><strong>unykorn-operator</strong></td><td>Operator</td><td>250,000</td><td><code>d55c60a0-5087-434c-9860-35fcd519eca4</code></td></tr>
+<tr><td><strong>x402-credit-pool</strong></td><td>x402 Credit Pool</td><td>500,000</td><td><code>7f0d2538-c09b-46f6-93ef-7be0cc5feab5</code></td></tr>
+<tr><td><strong>mesh-pay-reserve</strong></td><td>Mesh Reserve</td><td>200,000</td><td><code>adf01234-e3f3-40f7-a59c-a9d6c7592c1a</code></td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Total operator ATP: 2,450,000</strong></p>
+<h2 id="control-tier-4-agents"><a class="header" href="#control-tier-4-agents">Control Tier (4 agents)</a></h2>
+<p>The governance layer — treasury management, compliance, policy, and risk assessment.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>treasury</strong></td><td>100,000</td><td>Budget sweeps, fund allocation, spending control</td></tr>
+<tr><td><strong>compliance</strong></td><td>50,000</td><td>KYC checks, regulatory screening, risk signoffs</td></tr>
+<tr><td><strong>policy</strong></td><td>20,000</td><td>Policy enforcement, budget approval, governance rules</td></tr>
+<tr><td><strong>risk</strong></td><td>30,000</td><td>Risk assessments, exposure analysis, incident escalation</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="execution-tier-8-agents"><a class="header" href="#execution-tier-8-agents">Execution Tier (8 agents)</a></h2>
+<p>The workhorses — they move ATP for real services.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>settlement</strong></td><td>80,000</td><td>Cross-chain settlement execution (XRPL + Stellar)</td></tr>
+<tr><td><strong>exchange-listing</strong></td><td>20,000</td><td>DEX listing, trade execution, order management</td></tr>
+<tr><td><strong>listing-packet</strong></td><td>15,000</td><td>Asset packaging, document preparation for listing</td></tr>
+<tr><td><strong>onboarding</strong></td><td>10,000</td><td>New agent registration, agent routing</td></tr>
+<tr><td><strong>wallet-ops</strong></td><td>50,000</td><td>Wallet provisioning, key management, KYC pipeline</td></tr>
+<tr><td><strong>reconciliation</strong></td><td>5,000</td><td>Ledger reconciliation, balance auditing</td></tr>
+<tr><td><strong>incident-response</strong></td><td>10,000</td><td>Security triage, incident containment</td></tr>
+<tr><td><strong>documentation</strong></td><td>5,000</td><td>Documentation lookups, doc packaging</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="intelligence-tier-2-agents"><a class="header" href="#intelligence-tier-2-agents">Intelligence Tier (2 agents)</a></h2>
+<p>Market data aggregation and analysis.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>market-monitor</strong></td><td>5,000</td><td>Price feeds, market data streams, trade signals</td></tr>
+<tr><td><strong>intelligence</strong></td><td>8,000</td><td>Data aggregation, pattern analysis, intel distribution</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="interface-tier-1-agent"><a class="header" href="#interface-tier-1-agent">Interface Tier (1 agent)</a></h2>
+<p>External-facing services.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>customer-desk</strong></td><td>2,000</td><td>Agent routing, customer inquiry handling</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="agent-lifecycle"><a class="header" href="#agent-lifecycle">Agent Lifecycle</a></h2>
+<pre><code>  ┌────────────────────────────────────────────────────────┐
+  │                                                        │
+  │  1. bootstrap.py generates Ed25519 keypair             │
+  │  2. POST /v1/agents/register → on-chain identity       │
+  │  3. POST /v1/airdrop → initial ATP funding             │
+  │  4. agent_runner.py starts async loop:                 │
+  │       ↳ fetch nonce → pick target → build tx →         │
+  │         sign (Ed25519) → POST /v1/tx → websocket emit  │
+  │  5. Repeat based on tier sleep interval                │
+  │                                                        │
+  └────────────────────────────────────────────────────────┘
+</code></pre>
+<h2 id="tier-economics"><a class="header" href="#tier-economics">Tier Economics</a></h2>
+<p>Each tier has a defined range for transaction amounts and sleep intervals:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Tier</th><th>ATP per Tx</th><th>Sleep Range</th><th>Transactions/Hour</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Operator</strong></td><td>50 – 200</td><td>120 – 300s</td><td>12 – 30</td></tr>
+<tr><td><strong>Control</strong></td><td>5 – 25</td><td>30 – 90s</td><td>40 – 120</td></tr>
+<tr><td><strong>Execution</strong></td><td>1 – 10</td><td>10 – 40s</td><td>90 – 360</td></tr>
+<tr><td><strong>Intelligence</strong></td><td>2 – 15</td><td>20 – 60s</td><td>60 – 180</td></tr>
+<tr><td><strong>Interface</strong></td><td>0.5 – 5</td><td>15 – 45s</td><td>80 – 240</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="on-chain-identity"><a class="header" href="#on-chain-identity">On-Chain Identity</a></h2>
+<p>Every agent’s identity is entirely on-chain:</p>
+<ul>
+<li><strong>AgentId</strong>: <code>AgentId(Uuid)</code> — bare UUID in serde, <code>agent:UUID</code> in display</li>
+<li><strong>Public Key</strong>: Ed25519 public key (32 bytes, hex encoded)</li>
+<li><strong>Signature</strong>: Ed25519 signature on TxEnvelope (64 bytes, hex encoded)</li>
+<li><strong>Nonce</strong>: Monotonically increasing per-agent, prevents replay attacks</li>
+<li><strong>Chain ID</strong>: 7332 — binds txs to Apostle Chain (prevents cross-chain replay)</li>
+</ul>
+<blockquote>
+<p>All 20 agent keypairs are stored in <code>keys/agents.json</code> — generated by <code>bootstrap.py</code> during initial deployment.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="commerce-routing--atp"><a class="header" href="#commerce-routing--atp">Commerce Routing &amp; ATP</a></h1>
+<h2 id="how-agents-trade"><a class="header" href="#how-agents-trade">How Agents Trade</a></h2>
+<p>Every transaction on the Apostle Chain represents a real service interaction between agents. Agent A pays Agent B for a specific economic function — not random transfers, but <strong>purpose-driven commerce</strong>.</p>
+<p>The commerce map defines <strong>who pays whom for what</strong>:</p>
+<pre><code>  settlement       ──→ treasury          (settlement fees)
+  exchange-listing ──→ intelligence      (price intelligence)
+  onboarding       ──→ documentation     (doc lookups)
+  market-monitor   ──→ exchange-listing  (trade signals)
+  wallet-ops       ──→ compliance        (KYC checks)
+  reconciliation   ──→ settlement        (ledger access)
+  incident-response──→ risk              (risk assessments)
+  listing-packet   ──→ settlement        (listing execution)
+  customer-desk    ──→ onboarding        (agent routing)
+  compliance       ──→ policy            (policy queries)
+  risk             ──→ compliance        (risk signoffs)
+  policy           ──→ treasury          (budget approval)
+  treasury         ──→ genesis-treasury  (treasury sweeps)
+  intelligence     ──→ market-monitor    (data feeds)
+  documentation    ──→ listing-packet    (doc packaging)
+  chairman         ──→ treasury          (chairman directives)
+  operator         ──→ x402-credit-pool  (infra payments)
+</code></pre>
+<p>Each agent has <strong>multiple possible targets</strong> — one is picked at random per cycle, introducing economic variety while preserving the role-based logic.</p>
+<h2 id="x402-service-uris"><a class="header" href="#x402-service-uris">x402 Service URIs</a></h2>
+<p>Every commerce route maps to an <code>x402://</code> service URI — the canonical address of the service being purchased:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Agent</th><th>Service URI</th></tr>
+</thead>
+<tbody>
+<tr><td>settlement</td><td><code>x402://settlement.unykorn.org/v1/settle</code></td></tr>
+<tr><td>exchange-listing</td><td><code>x402://exchange.unykorn.org/v1/list</code></td></tr>
+<tr><td>onboarding</td><td><code>x402://onboarding.unykorn.org/v1/register</code></td></tr>
+<tr><td>market-monitor</td><td><code>x402://monitor.unykorn.org/v1/price-feed</code></td></tr>
+<tr><td>wallet-ops</td><td><code>x402://wallet.unykorn.org/v1/provision</code></td></tr>
+<tr><td>reconciliation</td><td><code>x402://ledger.unykorn.org/v1/reconcile</code></td></tr>
+<tr><td>incident-response</td><td><code>x402://guardian.unykorn.org/v1/triage</code></td></tr>
+<tr><td>listing-packet</td><td><code>x402://assets.unykorn.org/v1/package</code></td></tr>
+<tr><td>customer-desk</td><td><code>x402://desk.unykorn.org/v1/route</code></td></tr>
+<tr><td>compliance</td><td><code>x402://compliance.unykorn.org/v1/check</code></td></tr>
+<tr><td>risk</td><td><code>x402://risk.unykorn.org/v1/assess</code></td></tr>
+<tr><td>policy</td><td><code>x402://policy.unykorn.org/v1/enforce</code></td></tr>
+<tr><td>treasury</td><td><code>x402://treasury.unykorn.org/v1/sweep</code></td></tr>
+<tr><td>intelligence</td><td><code>x402://intel.unykorn.org/v1/aggregate</code></td></tr>
+<tr><td>documentation</td><td><code>x402://docs.unykorn.org/v1/fetch</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="atp-apostle-token-primitive-1"><a class="header" href="#atp-apostle-token-primitive-1">ATP (Apostle Token Primitive)</a></h2>
+<p>ATP is the native token of the Apostle Chain. It is the unit of exchange for all agent commerce.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Value</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Symbol</strong></td><td>ATP</td></tr>
+<tr><td><strong>Aliases</strong></td><td>APO, atp, apo</td></tr>
+<tr><td><strong>Decimals</strong></td><td>18</td></tr>
+<tr><td><strong>Serialization</strong></td><td><code>"ATP"</code> in JSON (via <code>Asset::Apo</code>)</td></tr>
+<tr><td><strong>Amount format</strong></td><td>String in JSON (e.g., <code>"3000000000000000000"</code> = 3 ATP)</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="other-assets-on-apostle-chain"><a class="header" href="#other-assets-on-apostle-chain">Other Assets on Apostle Chain</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Asset</th><th>Ticker</th><th>Decimals</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td>ATP</td><td>ATP</td><td>18</td><td>Native commerce token</td></tr>
+<tr><td>UNY</td><td>UNY</td><td>18</td><td>L1 governance token (bridged)</td></tr>
+<tr><td>USDF</td><td>USDF</td><td>7</td><td>Stablecoin (bridged from Stellar/XRPL)</td></tr>
+<tr><td>XRP</td><td>XRP</td><td>6</td><td>XRPL bridge asset</td></tr>
+<tr><td>XLM</td><td>XLM</td><td>7</td><td>Stellar bridge asset</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="transaction-flow"><a class="header" href="#transaction-flow">Transaction Flow</a></h2>
+<p>A single commerce cycle for an agent:</p>
+<pre><code>1. Agent wakes up (tier-based sleep interval)
+
+2. Pick target from COMMERCE_MAP
+   └─ e.g., settlement picks [treasury, genesis-treasury]
+   └─ randomly selects one
+
+3. Fetch current nonce
+   └─ GET /v1/agent/{id}/balance → { nonce: N }
+
+4. Pick amount from TIER_AMOUNTS
+   └─ e.g., execution tier: 1.0 – 10.0 ATP
+   └─ convert to base units: 3.5 ATP → "3500000000000000000"
+
+5. Build TxEnvelope
+   └─ tx_builder.build_transfer_tx(...)
+   └─ hash = SHA-256(payload), sign with Ed25519
+
+6. Submit to chain
+   └─ POST /v1/tx → { ok: true, hash: "..." }
+   └─ fast-path settlement + mempool insertion
+
+7. Emit to WebSocket
+   └─ { event: "x402_transaction", from, to, amount, tier, ... }
+   └─ picked up by mesh-pulse → digital twin animation
+
+8. Sleep (tier-based interval)
+   └─ e.g., execution: 10–40 seconds
+</code></pre>
+<h2 id="commerce-economics"><a class="header" href="#commerce-economics">Commerce Economics</a></h2>
+<p>The mesh creates a <strong>self-sustaining circular economy</strong>:</p>
+<pre><code>  Operators
+    │
+    ▼ (fund)
+  Control ←──── Policy approval ──── Execution
+    │                                    │
+    ▼ (govern)                           ▼ (work)
+  Treasury ←── Sweeps ── Settlement ← Listing
+    │                                    │
+    ▼ (allocate)                         ▼ (inform)
+  Intelligence ←── Data ── Market Monitor
+    │
+    ▼ (serve)
+  Interface (customer-desk)
+</code></pre>
+<p>ATP flows <strong>downward</strong> from operators through control to execution, and <strong>data flows upward</strong> from intelligence through execution to control. The treasury acts as the central monetary authority, receiving fees and sweeping funds to genesis-treasury.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="digital-twin--live-dashboard"><a class="header" href="#digital-twin--live-dashboard">Digital Twin — Live Dashboard</a></h1>
+<h2 id="what-youre-looking-at-1"><a class="header" href="#what-youre-looking-at-1">What You’re Looking At</a></h2>
+<p>The Digital Twin is a <strong>real-time 2D network visualization</strong> of every agent and transaction on the Apostle Chain. It connects to the mesh-pulse WebSocket and animates commerce as it happens.</p>
+<div class="twin-embed">
+  <iframe src="https://twin.unykorn.org/" width="100%" height="700" frameborder="0" loading="lazy"></iframe>
+</div>
+
+<blockquote>
+<p><strong>Note</strong>: The live dashboard requires the EC2 instance and agent runner to be active. If you see a connection error, the instance may be stopped.</p>
+</blockquote>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<h3 id="agent-network-graph"><a class="header" href="#agent-network-graph">Agent Network Graph</a></h3>
+<ul>
+<li><strong>20 labeled nodes</strong> arranged in a force-directed layout</li>
+<li><strong>Color-coded by tier</strong>: blue (control), green (execution), purple (intelligence), orange (interface), gold (operators)</li>
+<li><strong>Edges</strong> show commerce relationships from the COMMERCE_MAP</li>
+<li><strong>Click any node</strong> to see its detail panel: agent ID, tier, balance, transaction history</li>
+</ul>
+<h3 id="transaction-animations"><a class="header" href="#transaction-animations">Transaction Animations</a></h3>
+<ul>
+<li>Real-time <strong>animated particles</strong> flow along edges as transactions settle</li>
+<li>Particle color matches the sender’s tier</li>
+<li>Particle speed indicates transaction amount (larger = faster)</li>
+<li>Each animation corresponds to a real <code>POST /v1/tx</code> settlement</li>
+</ul>
+<h3 id="activity-feed"><a class="header" href="#activity-feed">Activity Feed</a></h3>
+<ul>
+<li>Right-side panel shows the <strong>live transaction stream</strong></li>
+<li>Each entry: sender → receiver, amount, timestamp, status</li>
+<li>Scrollable history of the last 100 transactions</li>
+</ul>
+<h3 id="chain-statistics"><a class="header" href="#chain-statistics">Chain Statistics</a></h3>
+<ul>
+<li><strong>Block height</strong> — current Apostle Chain height</li>
+<li><strong>Transaction count</strong> — total settled transactions</li>
+<li><strong>Active agents</strong> — agents with recent heartbeats</li>
+<li><strong>ATP volume</strong> — total ATP moved in current session</li>
+</ul>
+<h2 id="technical-stack"><a class="header" href="#technical-stack">Technical Stack</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Component</th><th>Technology</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Frontend</strong></td><td>Vanilla JS + Canvas 2D</td></tr>
+<tr><td><strong>Data Source</strong></td><td>WebSocket (<code>ws://host:3280/pulse/stream</code>)</td></tr>
+<tr><td><strong>Server</strong></td><td><code>digital_twin_server.py</code> (aiohttp on port 8402)</td></tr>
+<tr><td><strong>Hosting</strong></td><td>AWS EC2 (t3.large) + Cloudflare DNS proxy</td></tr>
+<tr><td><strong>Domain</strong></td><td><code>twin.unykorn.org</code></td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="architecture-1"><a class="header" href="#architecture-1">Architecture</a></h2>
+<pre><code>  Browser ──→ twin.unykorn.org
+                │
+                ▼ (Cloudflare DNS proxy)
+           EC2:8402 (aiohttp)
+                │
+                ├─→ static/digital_twin.html (served)
+                │
+                └─→ ws://EC2:3280/pulse/stream
+                        │
+                        ▼ (live data from agent_runner.py)
+                   20 agents → mesh-pulse WS → browser canvas
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="api-reference"><a class="header" href="#api-reference">API Reference</a></h1>
+<blockquote>
+<p><strong>Facilitator Base URL</strong>: <code>http://localhost:3100</code><br><strong>Apostle Chain Base URL</strong>: <code>http://localhost:7332</code></p>
+</blockquote>
+<hr>
+<h2 id="apostle-chain-api-chain-7332"><a class="header" href="#apostle-chain-api-chain-7332">Apostle Chain API (Chain 7332)</a></h2>
+<h3 id="health--status"><a class="header" href="#health--status">Health &amp; Status</a></h3>
+<h4 id="get-health"><a class="header" href="#get-health"><code>GET /health</code></a></h4>
+<p>Returns chain health.</p>
+<h4 id="get-status"><a class="header" href="#get-status"><code>GET /status</code></a></h4>
+<pre><code class="language-json">{
+  "chain_id": 7332,
+  "height": 3480,
+  "agents": 20,
+  "mempool_size": 0,
+  "proposer": "active"
+}
+</code></pre>
+<h3 id="transactions"><a class="header" href="#transactions">Transactions</a></h3>
+<h4 id="post-v1tx"><a class="header" href="#post-v1tx"><code>POST /v1/tx</code></a></h4>
+<p>Submit a signed TxEnvelope.</p>
+<p><strong>Request Body</strong> — <code>TxEnvelope</code>:</p>
+<pre><code class="language-json">{
+  "hash": "a1b2c3...64hex",
+  "from": "bare-uuid",
+  "nonce": 42,
+  "chain_id": 7332,
+  "payload": {
+    "type": "transfer",
+    "to": "bare-uuid",
+    "asset": "ATP",
+    "amount": "3000000000000000000"
+  },
+  "signature": "128-char-hex-ed25519",
+  "timestamp": "2026-04-03T14:00:00Z"
+}
+</code></pre>
+<blockquote>
+<p><strong>Important</strong>: <code>amount</code> MUST be a string. Rust serde internally-tagged enums don’t support u128 even with <code>arbitrary_precision</code>.</p>
+</blockquote>
+<p><strong>Response 200</strong>:</p>
+<pre><code class="language-json">{ "ok": true, "hash": "a1b2c3..." }
+</code></pre>
+<h3 id="agent-management"><a class="header" href="#agent-management">Agent Management</a></h3>
+<h4 id="post-v1agentsregister"><a class="header" href="#post-v1agentsregister"><code>POST /v1/agents/register</code></a></h4>
+<p>Register a new agent identity.</p>
+<h4 id="post-v1agentsbatch-register"><a class="header" href="#post-v1agentsbatch-register"><code>POST /v1/agents/batch-register</code></a></h4>
+<p>Register multiple agents in one call.</p>
+<h4 id="post-v1agentsheartbeat"><a class="header" href="#post-v1agentsheartbeat"><code>POST /v1/agents/heartbeat</code></a></h4>
+<p>Agent heartbeat signal.</p>
+<h4 id="get-v1agentidbalance"><a class="header" href="#get-v1agentidbalance"><code>GET /v1/agent/{id}/balance</code></a></h4>
+<p>Query agent balance. Accepts bare UUID or <code>agent:UUID</code>.</p>
+<pre><code class="language-json">{
+  "agent_id": "agent:87724c76-da93-4b1a-9fa6-271ba856338e",
+  "balances": { "ATP": "500000000000000000000000" },
+  "nonce": 15
+}
+</code></pre>
+<h3 id="airdrop-genesis-only"><a class="header" href="#airdrop-genesis-only">Airdrop (Genesis Only)</a></h3>
+<h4 id="post-v1airdrop"><a class="header" href="#post-v1airdrop"><code>POST /v1/airdrop</code></a></h4>
+<pre><code class="language-json">{
+  "recipients": [
+    {
+      "label": "treasury",
+      "apo_amount": "100000000000000000000000",
+      "agent_id": "2e5d78c2-1e58-4cf7-88eb-a139c6c620ef"
+    }
+  ]
+}
+</code></pre>
+<p><strong>Response 200</strong>:</p>
+<pre><code class="language-json">{
+  "ok": true,
+  "results": [
+    {
+      "agent_id": "agent:2e5d78c2-...",
+      "label": "treasury",
+      "private_key_hex": "...",
+      "public_key_hex": "...",
+      "apo_minted": "100000000000000000000000",
+      "apo_balance": "100000000000000000000000"
+    }
+  ]
+}
+</code></pre>
+<h3 id="receipts"><a class="header" href="#receipts">Receipts</a></h3>
+<h4 id="get-v1receipts"><a class="header" href="#get-v1receipts"><code>GET /v1/receipts</code></a></h4>
+<p>Query settlement receipts.</p>
+<hr>
+<h2 id="x402-facilitator-api-port-3100"><a class="header" href="#x402-facilitator-api-port-3100">x402 Facilitator API (Port 3100)</a></h2>
+<h3 id="health--admin"><a class="header" href="#health--admin">Health &amp; Admin</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/health</code></td><td>GET</td><td>Service health</td></tr>
+<tr><td><code>/admin/stats</code></td><td>GET</td><td>Aggregated statistics</td></tr>
+<tr><td><code>/admin/activity</code></td><td>GET</td><td>Recent 20 receipts</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="invoices"><a class="header" href="#invoices">Invoices</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/invoices</code></td><td>POST</td><td>Create invoice (402 response trigger)</td></tr>
+<tr><td><code>/invoices/:id</code></td><td>GET</td><td>Look up invoice</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Create Invoice</strong>:</p>
+<pre><code class="language-json">{
+  "resource": "/api/v1/genesis/repro-pack/alpha",
+  "namespace": "fth.x402.route.genesis-repro",
+  "asset": "USDF",
+  "amount": "0.50",
+  "receiver": "uny1_FTH_TREASURY",
+  "policy": { "kyc_required": false, "rate_limit": "100/hour" },
+  "ttl_seconds": 300
+}
+</code></pre>
+<h3 id="verification--settlement"><a class="header" href="#verification--settlement">Verification &amp; Settlement</a></h3>
+<h4 id="post-verify"><a class="header" href="#post-verify"><code>POST /verify</code></a></h4>
+<p>Verify a payment proof and settle.</p>
+<p><strong>Proof Types</strong>:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Type</th><th>Description</th><th>Rail</th></tr>
+</thead>
+<tbody>
+<tr><td><code>prepaid_credit</code></td><td>Deduct from USDF balance</td><td>unykorn-l1</td></tr>
+<tr><td><code>channel_spend</code></td><td>Spend from payment channel</td><td>unykorn-l1</td></tr>
+<tr><td><code>signed_auth</code></td><td>Stellar soroban auth</td><td>stellar</td></tr>
+<tr><td><code>tx_hash</code></td><td>On-chain tx reference</td><td>any</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Error Codes</strong>: <code>invoice_not_found</code>, <code>invoice_redeemed</code>, <code>invoice_expired</code>, <code>nonce_mismatch</code>, <code>rate_limited</code>, <code>invalid_proof</code>, <code>insufficient_amount</code>, <code>channel_sequence_invalid</code>, <code>rail_not_allowed</code></p>
+<h3 id="credit-ledger"><a class="header" href="#credit-ledger">Credit Ledger</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/credits/register</code></td><td>POST</td><td>Register wallet + Ed25519 pubkey</td></tr>
+<tr><td><code>/credits/deposit</code></td><td>POST</td><td>Deposit USDF</td></tr>
+<tr><td><code>/credits/:wallet</code></td><td>GET</td><td>Balance</td></tr>
+<tr><td><code>/credits/:wallet/account</code></td><td>GET</td><td>Full account details</td></tr>
+<tr><td><code>/credits/:wallet/transactions</code></td><td>GET</td><td>Paginated tx history</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="payment-channels"><a class="header" href="#payment-channels">Payment Channels</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/channels/open</code></td><td>POST</td><td>Open channel with deposit</td></tr>
+<tr><td><code>/channels/:id</code></td><td>GET</td><td>Channel state</td></tr>
+<tr><td><code>/channels/:id/close</code></td><td>POST</td><td>Close channel</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="receipts--batching"><a class="header" href="#receipts--batching">Receipts &amp; Batching</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/receipts</code></td><td>GET</td><td>List recent receipts</td></tr>
+<tr><td><code>/receipts/:id</code></td><td>GET</td><td>Single receipt</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="namespaces"><a class="header" href="#namespaces">Namespaces</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/namespaces</code></td><td>GET</td><td>List all namespace records</td></tr>
+<tr><td><code>/namespaces/:ns</code></td><td>GET</td><td>Look up specific namespace</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="l1-anchoring"><a class="header" href="#l1-anchoring">L1 Anchoring</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/l1/health</code></td><td>GET</td><td>UnyKorn L1 chain status</td></tr>
+<tr><td><code>/l1/batches</code></td><td>GET</td><td>Recent receipt batches</td></tr>
+<tr><td><code>/l1/anchor</code></td><td>POST</td><td>Trigger manual batch anchor</td></tr>
+<tr><td><code>/l1/batch/:id</code></td><td>GET</td><td>Batch with receipts</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="webhooks"><a class="header" href="#webhooks">Webhooks</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/webhooks</code></td><td>POST</td><td>Create subscription</td></tr>
+<tr><td><code>/webhooks?wallet=</code></td><td>GET</td><td>List subscriptions</td></tr>
+<tr><td><code>/webhooks/:id</code></td><td>GET</td><td>Subscription details</td></tr>
+<tr><td><code>/webhooks/:id</code></td><td>PATCH</td><td>Update subscription</td></tr>
+<tr><td><code>/webhooks/:id</code></td><td>DELETE</td><td>Delete subscription</td></tr>
+<tr><td><code>/webhooks/:id/deliveries</code></td><td>GET</td><td>Delivery history</td></tr>
+<tr><td><code>/webhooks/:id/test</code></td><td>POST</td><td>Send test event</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Webhook Events</strong>: <code>payment.received</code>, <code>payment.batched</code>, <code>channel.opened</code>, <code>channel.closed</code>, <code>credit.deposited</code>, <code>anchor.confirmed</code></p>
+<p><strong>Verification</strong>: HMAC-SHA256 — <code>HMAC(body, secret) === X-FTH-Signature</code></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="infrastructure--aws"><a class="header" href="#infrastructure--aws">Infrastructure &amp; AWS</a></h1>
+<h2 id="production-environment"><a class="header" href="#production-environment">Production Environment</a></h2>
+<p>The x402 protocol runs on AWS with Cloudflare DNS proxying.</p>
+<h3 id="ec2-fleet"><a class="header" href="#ec2-fleet">EC2 Fleet</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Instance</th><th>ID</th><th>Type</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>fth-pay-api</strong></td><td><code>i-0a877d8aaaaa42b74</code></td><td>t3.large</td><td>Apostle Chain + Agent Ecosystem + Digital Twin</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Instance Details</strong>:</p>
+<ul>
+<li><strong>AMI</strong>: Amazon Linux 2023</li>
+<li><strong>Region</strong>: us-east-1</li>
+<li><strong>Elastic IP</strong>: 98.91.89.169</li>
+<li><strong>Security Group</strong>: <code>sg-0dd4ae6ed36efe886</code></li>
+<li><strong>SSH Key</strong>: <code>unykorn-devnet-key.pem</code></li>
+</ul>
+<h3 id="port-map"><a class="header" href="#port-map">Port Map</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Port</th><th>Service</th><th>Access</th></tr>
+</thead>
+<tbody>
+<tr><td>22</td><td>SSH</td><td>Admin only</td></tr>
+<tr><td>7332</td><td>Apostle Chain (Rust/Axum)</td><td>Internal + Health checks</td></tr>
+<tr><td>3100</td><td>x402 Facilitator (Node.js)</td><td>Internal</td></tr>
+<tr><td>3280</td><td>Mesh-Pulse WebSocket</td><td>Internal + Twin</td></tr>
+<tr><td>8402</td><td>Digital Twin Server (aiohttp)</td><td>Public via Cloudflare</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="cloudflare-dns"><a class="header" href="#cloudflare-dns">Cloudflare DNS</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Subdomain</th><th>Target</th><th>Proxy</th></tr>
+</thead>
+<tbody>
+<tr><td><code>twin.unykorn.org</code></td><td>EC2:8402</td><td>Yes (orange cloud)</td></tr>
+<tr><td><code>407.unykorn.org</code></td><td>GitHub Pages</td><td>Yes</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="deployment-process"><a class="header" href="#deployment-process">Deployment Process</a></h3>
+<pre><code class="language-bash"># SSH into the instance
+ssh -i ~/.ssh/unykorn-devnet-key.pem ec2-user@98.91.89.169
+
+# Pull latest code
+cd ~/UnyKorn-X402-aws &amp;&amp; git pull
+
+# Start Apostle Chain
+cd ~/apostle-chain &amp;&amp; cargo run --release &amp;
+
+# Start Agent Runner
+cd ~/UnyKorn-X402-aws/packages/x402-agent-ecosystem
+python src/agent_runner.py &amp;
+
+# Start Digital Twin Server
+python src/digital_twin_server.py &amp;
+</code></pre>
+<h3 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h3>
+<ul>
+<li><strong>Chain health</strong>: <code>GET http://98.91.89.169:7332/health</code></li>
+<li><strong>Chain status</strong>: <code>GET http://98.91.89.169:7332/status</code></li>
+<li><strong>Digital twin</strong>: <code>https://twin.unykorn.org/</code></li>
+<li><strong>Agent stats</strong>: Logged to stdout every 30 seconds by <code>stats_reporter()</code></li>
+</ul>
+<h2 id="monorepo-structure"><a class="header" href="#monorepo-structure">Monorepo Structure</a></h2>
+<pre><code>UnyKorn-X402-aws/
+├── packages/
+│   ├── api/                      # x402 Facilitator (Node.js, port 3100)
+│   ├── x402-agent-ecosystem/     # Agent runner + digital twin
+│   │   ├── src/
+│   │   │   ├── agent_runner.py   # 20-agent async loop
+│   │   │   ├── bootstrap.py      # Agent keypair generation
+│   │   │   ├── tx_builder.py     # TxEnvelope construction + Ed25519
+│   │   │   └── digital_twin_server.py
+│   │   ├── static/
+│   │   │   └── digital_twin.html # 2D network visualization
+│   │   └── keys/
+│   │       └── agents.json       # Generated keypairs
+│   ├── gateway-worker/           # Cloudflare edge gateway
+│   ├── settlement/               # XRPL + Stellar bridges
+│   ├── uny-chain/                # UnyKorn L1 chain node
+│   └── ... (40+ packages)
+├── registry/                     # Agent registry, chain config
+├── docs/                         # Documentation site (407.unykorn.org)
+├── scripts/                      # Deployment + utility scripts
+└── x402-book/                    # This mdBook
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<h2 id="phase-overview"><a class="header" href="#phase-overview">Phase Overview</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Phase</th><th>Name</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>Foundation</td><td>✅ Complete</td></tr>
+<tr><td>2</td><td>Registry &amp; Automation</td><td>✅ Complete</td></tr>
+<tr><td>3</td><td>Testing &amp; Verification</td><td>🔄 Current</td></tr>
+<tr><td>4</td><td>Liquidity &amp; Visibility</td><td>⬜ Planned</td></tr>
+<tr><td>5</td><td>Cross-chain &amp; RWA</td><td>⬜ Planned</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="phase-1--foundation-"><a class="header" href="#phase-1--foundation-">Phase 1 — Foundation ✅</a></h2>
+<ul>
+<li>UNY ERC-20 deployed on Avalanche C-Chain</li>
+<li>UNY/USDC and UNY/WAVAX LP pools on LFJ (TraderJoe)</li>
+<li>Master Stack monorepo (<code>packages/</code>, <code>registry/</code>, <code>scripts/</code>)</li>
+<li>Registry scaffolding: chains, tokens, pools, wallets, XRPL</li>
+<li>Hardhat project: compile, test, deploy pipeline (Solidity 0.8.24)</li>
+<li>Wallet UI MVP: Vite + React + TypeScript</li>
+</ul>
+<h2 id="phase-2--registry--automation-"><a class="header" href="#phase-2--registry--automation-">Phase 2 — Registry &amp; Automation ✅</a></h2>
+<ul>
+<li>30 contracts in registry (GlacierMint, OptimaMint, DTT, OGB, OIB, SHO)</li>
+<li>TLD namespace registry: 78 TLDs with token_ids, IPFS CIDs</li>
+<li>IPFS CID index: 33 CIDs with provenance</li>
+<li>XRPL IOU catalog: 10 assets</li>
+<li>Pool pair addresses via Dexscreener API</li>
+<li>Build tools: <code>inventory.mjs</code>, <code>build-registry.mjs</code>, <code>build-proof-pack.mjs</code></li>
+<li>Sync tools: <code>opensea-sync.mjs</code>, <code>genMeta.ts</code>, <code>updateURIs.ts</code></li>
+</ul>
+<h2 id="phase-3--testing--verification-"><a class="header" href="#phase-3--testing--verification-">Phase 3 — Testing &amp; Verification 🔄</a></h2>
+<p>Current focus:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Live OpenSea v2 API testing for <code>opensea-sync.mjs</code></li>
+<li><input disabled="" type="checkbox"> TLD metadata generation and verification</li>
+<li><input disabled="" type="checkbox"> Contract verification on Polygonscan + Routescan</li>
+<li><input disabled="" type="checkbox"> IPFS pinning of contract ABIs</li>
+<li><input disabled="" type="checkbox" checked=""> <strong>x402 Protocol — LIVE on Apostle Chain</strong> (20 agents, 3,400+ blocks)</li>
+<li><input disabled="" type="checkbox" checked=""> <strong>Digital Twin deployed</strong> (twin.unykorn.org)</li>
+<li><input disabled="" type="checkbox" checked=""> <strong>Full settlement pipeline</strong> (Ed25519, fast-path, WebSocket)</li>
+</ul>
+<h2 id="phase-4--liquidity--visibility"><a class="header" href="#phase-4--liquidity--visibility">Phase 4 — Liquidity &amp; Visibility</a></h2>
+<ul>
+<li>Add LP depth to UNY/USDC and UNY/WAVAX pools</li>
+<li>List UNY on additional DEX aggregators</li>
+<li>Deploy wallet UI to production (IPFS / Vercel)</li>
+<li>Git tag <code>v0.1.0-avalanche-deploy</code></li>
+<li>Publish x402 protocol documentation (this book)</li>
+</ul>
+<h2 id="phase-5--cross-chain--rwa"><a class="header" href="#phase-5--cross-chain--rwa">Phase 5 — Cross-chain &amp; RWA</a></h2>
+<ul>
+<li>Polygon deployment pipeline</li>
+<li>Bridge setup: Avalanche ↔ Polygon</li>
+<li>Solana integration (Wormhole or native)</li>
+<li>RWA proof documentation</li>
+<li>Governance / DAO tooling</li>
+</ul>
+<hr>
+<h2 id="x402-specific-milestones"><a class="header" href="#x402-specific-milestones">x402-Specific Milestones</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Milestone</th><th>Target</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>Apostle Chain live</td><td>Q1 2026</td><td>✅</td></tr>
+<tr><td>20-agent mesh bootstrapped</td><td>Q1 2026</td><td>✅</td></tr>
+<tr><td>Ed25519 signed transactions</td><td>Q2 2026</td><td>✅</td></tr>
+<tr><td>Digital twin visualization</td><td>Q2 2026</td><td>✅</td></tr>
+<tr><td>XRPL settlement bridge</td><td>Q2 2026</td><td>Built</td></tr>
+<tr><td>Stellar settlement bridge</td><td>Q2 2026</td><td>Built</td></tr>
+<tr><td>Multi-sig treasury</td><td>Q3 2026</td><td>Planned</td></tr>
+<tr><td>Public agent registration</td><td>Q3 2026</td><td>Planned</td></tr>
+<tr><td>Cross-chain relay production</td><td>Q4 2026</td><td>Planned</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="security"><a class="header" href="#security">Security</a></h1>
+<h2 id="security-model"><a class="header" href="#security-model">Security Model</a></h2>
+<p>The x402 protocol implements defense-in-depth across every layer.</p>
+<h3 id="cryptographic-foundation"><a class="header" href="#cryptographic-foundation">Cryptographic Foundation</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Component</th><th>Algorithm</th><th>Key Size</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Agent Identity</strong></td><td>Ed25519</td><td>256-bit</td><td>Transaction signing</td></tr>
+<tr><td><strong>Transaction Hash</strong></td><td>SHA-256</td><td>256-bit</td><td>Tx integrity</td></tr>
+<tr><td><strong>Webhook Verification</strong></td><td>HMAC-SHA256</td><td>256-bit</td><td>Webhook authenticity</td></tr>
+<tr><td><strong>Nonce</strong></td><td>Monotonic u64</td><td>64-bit</td><td>Replay prevention</td></tr>
+<tr><td><strong>Chain ID</strong></td><td>7332</td><td>—</td><td>Cross-chain replay prevention</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="transaction-security"><a class="header" href="#transaction-security">Transaction Security</a></h3>
+<p>Every transaction on the Apostle Chain must satisfy:</p>
+<ol>
+<li><strong>Valid Ed25519 signature</strong> — signed by the <code>from</code> agent’s private key</li>
+<li><strong>Correct nonce</strong> — must equal the agent’s current nonce (monotonically increasing)</li>
+<li><strong>Correct chain_id</strong> — must be 7332 (prevents replay on other chains)</li>
+<li><strong>Sufficient balance</strong> — sender must have enough ATP</li>
+<li><strong>Valid recipient</strong> — <code>to</code> agent must exist on-chain</li>
+</ol>
+<pre><code>  TxEnvelope {
+    hash: SHA-256(payload),
+    from: agent_uuid,
+    nonce: current_nonce,      ← must match ledger
+    chain_id: 7332,            ← binds to Apostle Chain
+    payload: { ... },
+    signature: Ed25519(hash),  ← proves ownership
+    timestamp: ISO 8601
+  }
+</code></pre>
+<h3 id="key-management"><a class="header" href="#key-management">Key Management</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Key Type</th><th>Storage</th><th>Access</th></tr>
+</thead>
+<tbody>
+<tr><td>Agent Ed25519 keys</td><td><code>keys/agents.json</code> on EC2</td><td>Encrypted at rest</td></tr>
+<tr><td>SSH keys</td><td><code>~/.ssh/unykorn-devnet-key.pem</code></td><td>Local only</td></tr>
+<tr><td>Cloudflare API tokens</td><td><code>.env</code> files</td><td>Per-project scoped</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="network-security"><a class="header" href="#network-security">Network Security</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Layer</th><th>Protection</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Cloudflare</strong></td><td>DDoS protection, SSL termination, DNS proxy</td></tr>
+<tr><td><strong>Security Groups</strong></td><td>Port-level access control (SSH: admin, 8402: public, rest: internal)</td></tr>
+<tr><td><strong>EC2</strong></td><td>Amazon Linux 2023, auto-patching</td></tr>
+<tr><td><strong>WebSocket</strong></td><td>Internal network only (3280 not exposed publicly)</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="invoice-security-facilitator"><a class="header" href="#invoice-security-facilitator">Invoice Security (Facilitator)</a></h3>
+<p>The x402 Facilitator implements:</p>
+<ul>
+<li><strong>Time-locked invoices</strong> — TTL-based expiration (default: 300s)</li>
+<li><strong>Nonce binding</strong> — each invoice has a unique nonce, preventing replay</li>
+<li><strong>Proof verification</strong> — cryptographic proof required before settlement</li>
+<li><strong>Rate limiting</strong> — per-namespace, configurable per-policy</li>
+<li><strong>Namespace isolation</strong> — each service route is scoped to its namespace</li>
+</ul>
+<h3 id="planned-improvements-q3-2026"><a class="header" href="#planned-improvements-q3-2026">Planned Improvements (Q3 2026)</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Enhancement</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Multi-sig treasury</strong></td><td>Replace single-key spending with 3-of-5 multi-sig</td></tr>
+<tr><td><strong>Key rotation</strong></td><td>Automated agent key rotation with on-chain migration</td></tr>
+<tr><td><strong>Audit logging</strong></td><td>Immutable audit trail for all admin operations</td></tr>
+<tr><td><strong>Anomaly detection</strong></td><td>Statistical analysis of transaction patterns</td></tr>
+<tr><td><strong>Hardware security</strong></td><td>HSM integration for treasury keys</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="appendix-proof-surfaces"><a class="header" href="#appendix-proof-surfaces">Appendix: Proof Surfaces</a></h1>
+<p>Proof surfaces are publicly accessible endpoints and verification points for the UnyKorn x402 system. They allow anyone to independently verify claims made in this documentation.</p>
+<hr>
+<h2 id="public-endpoints-live"><a class="header" href="#public-endpoints-live">Public Endpoints (LIVE)</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Surface</th><th>URL</th><th>What It Proves</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Digital Twin</strong></td><td><a href="https://twin.unykorn.org">twin.unykorn.org</a></td><td>Real-time agent mesh visualization, live transactions</td></tr>
+<tr><td><strong>Explorer</strong></td><td><a href="https://main.unykorn-explorer.pages.dev">main.unykorn-explorer.pages.dev</a></td><td>Dashboard, blocks, transactions, agents, namespaces</td></tr>
+<tr><td><strong>ICO Site</strong></td><td><a href="https://ico.unykorn.org">ico.unykorn.org</a></td><td>Token sale, tiers, tokenomics, roadmap</td></tr>
+<tr><td><strong>Gateway</strong></td><td><code>fth-x402-gateway-staging.kevanbtc.workers.dev</code></td><td>x402 route enforcement, 402 responses</td></tr>
+<tr><td><strong>GitHub</strong></td><td><a href="https://github.com/FTHTrading/UnyKorn-X402-aws">github.com/FTHTrading/UnyKorn-X402-aws</a></td><td>All source code, commit history</td></tr>
+<tr><td><strong>Whitepaper</strong></td><td><a href="https://github.com/FTHTrading/UnyKorn-X402-aws/blob/main/docs/WHITEPAPER.md">docs/WHITEPAPER.md</a></td><td>Full protocol specification</td></tr>
+<tr><td><strong>Tokenomics</strong></td><td><a href="https://github.com/FTHTrading/UnyKorn-X402-aws/blob/main/docs/TOKENOMICS.md">docs/TOKENOMICS.md</a></td><td>Economic model</td></tr>
+<tr><td><strong>Docs Site</strong></td><td><a href="https://407.unykorn.org">407.unykorn.org</a></td><td>Documentation hub</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="discovery-endpoints-live"><a class="header" href="#discovery-endpoints-live">Discovery Endpoints (LIVE)</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>Data</th></tr>
+</thead>
+<tbody>
+<tr><td><code>/.well-known/agent.json</code></td><td>A2A Agent Card</td></tr>
+<tr><td><code>/.well-known/x402-pay</code></td><td>x402 Payment Descriptor</td></tr>
+<tr><td><code>/.well-known/ai-plugin.json</code></td><td>OpenAI/ChatGPT Plugin Manifest</td></tr>
+<tr><td><code>/.well-known/openapi.json</code></td><td>OpenAPI 3.1 Specification</td></tr>
+<tr><td><code>/health</code></td><td>Service health check</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="apostle-chain-endpoints-live-on-ec2"><a class="header" href="#apostle-chain-endpoints-live-on-ec2">Apostle Chain Endpoints (LIVE on EC2)</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Endpoint</th><th>What It Proves</th></tr>
+</thead>
+<tbody>
+<tr><td><code>GET /health</code></td><td>Chain is running</td></tr>
+<tr><td><code>GET /status</code></td><td>Block height, agent count, mempool</td></tr>
+<tr><td><code>GET /v1/agent/{id}/balance</code></td><td>Agent balances are real</td></tr>
+<tr><td><code>GET /v1/receipts</code></td><td>Settled transactions on record</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="not-yet-publicly-verifiable"><a class="header" href="#not-yet-publicly-verifiable">Not Yet Publicly Verifiable</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Item</th><th>Status</th><th>Path to Verification</th></tr>
+</thead>
+<tbody>
+<tr><td>UnyKorn L1 block production</td><td>No public RPC</td><td>Deploy public RPC endpoint</td></tr>
+<tr><td>Transaction finality metrics</td><td>No mainnet</td><td>Mainnet launch</td></tr>
+<tr><td>Treasury wallet on-chain balance</td><td>No mainnet</td><td>Multi-sig deployment</td></tr>
+<tr><td>Vesting contract enforcement</td><td>Not deployed</td><td>Smart contract deployment</td></tr>
+<tr><td>Third-party audit report</td><td>Not completed</td><td>Engage auditor</td></tr>
+<tr><td>Uptime metrics / SLA dashboard</td><td>Not built</td><td>Build status page</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="admin-powers-disclosure"><a class="header" href="#admin-powers-disclosure">Admin Powers Disclosure</a></h2>
+<p>The UNY token contract is <strong>immutable</strong> (no proxy pattern):</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Power</th><th>Exists?</th></tr>
+</thead>
+<tbody>
+<tr><td>Mint new tokens</td><td><strong>No</strong> — no mint function</td></tr>
+<tr><td>Burn tokens</td><td><strong>Yes</strong> (holder-only) — ERC20Burnable</td></tr>
+<tr><td>Pause transfers</td><td><strong>No</strong> — no pause function</td></tr>
+<tr><td>Freeze accounts</td><td><strong>No</strong> — no freeze/blacklist</td></tr>
+<tr><td>Upgrade contract</td><td><strong>No</strong> — immutable, no proxy</td></tr>
+<tr><td>Admin withdrawal</td><td><strong>No</strong> — no admin withdrawal function</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>Known risk</strong>: Treasury allocation is controlled by a single deployer key. Migration to 3-of-5 multi-sig with timelock is planned for Q3 2026.</p>
+</blockquote>
+<h2 id="exchange-readiness-summary"><a class="header" href="#exchange-readiness-summary">Exchange Readiness Summary</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Area</th><th>Score</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>Legal &amp; Issuer</td><td>40%</td><td>Missing: formal counsel memo, jurisdiction analysis</td></tr>
+<tr><td>Token Documentation</td><td>80%</td><td>Whitepaper + Tokenomics complete</td></tr>
+<tr><td>Technical Integration</td><td>60%</td><td>Code complete, missing: public RPC, testnet</td></tr>
+<tr><td>Security</td><td>50%</td><td>OpenZeppelin, immutable, missing: audit</td></tr>
+<tr><td>Market Structure</td><td>20%</td><td>No market maker yet</td></tr>
+<tr><td>Operations &amp; Support</td><td>40%</td><td>Guardian daemons, missing: status page</td></tr>
+<tr><td>Exchange Docs</td><td>70%</td><td>Compliance engine built, per-exchange packets pending</td></tr>
+</tbody>
+</table>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
