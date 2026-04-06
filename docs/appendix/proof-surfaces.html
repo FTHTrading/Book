@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Appendix: Proof Surfaces - x402 — The AI Payment Protocol</title>
+        <title>Proof Surfaces - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,17 +178,17 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="appendix-proof-surfaces"><a class="header" href="#appendix-proof-surfaces">Appendix: Proof Surfaces</a></h1>
+                        <h1 id="proof-surfaces"><a class="header" href="#proof-surfaces">Proof Surfaces</a></h1>
 <p>Proof surfaces are publicly accessible endpoints and verification points for the UnyKorn x402 system. They allow anyone to independently verify claims made in this documentation.</p>
 <hr>
-<h2 id="public-endpoints-live"><a class="header" href="#public-endpoints-live">Public Endpoints (LIVE)</a></h2>
+<h2 id="public-endpoints-live"><a class="header" href="#public-endpoints-live">Public Endpoints (Live)</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
 <tr><th>Surface</th><th>URL</th><th>What It Proves</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Digital Twin</strong></td><td><a href="https://twin.unykorn.org">twin.unykorn.org</a></td><td>Real-time agent mesh visualization, live transactions</td></tr>
+<tr><td><strong>Digital Twin</strong></td><td><a href="https://twin.unykorn.org">twin.unykorn.org</a></td><td>Real-time <a href="../apostle/agents.html">agent mesh</a> visualisation, live transactions</td></tr>
 <tr><td><strong>Explorer</strong></td><td><a href="https://main.unykorn-explorer.pages.dev">main.unykorn-explorer.pages.dev</a></td><td>Dashboard, blocks, transactions, agents, namespaces</td></tr>
 <tr><td><strong>ICO Site</strong></td><td><a href="https://ico.unykorn.org">ico.unykorn.org</a></td><td>Token sale, tiers, tokenomics, roadmap</td></tr>
 <tr><td><strong>Gateway</strong></td><td><code>x402-gateway-staging.kevanbtc.workers.dev</code></td><td>x402 route enforcement, 402 responses</td></tr>
@@ -199,7 +199,7 @@
 </tbody>
 </table>
 </div>
-<h2 id="discovery-endpoints-live"><a class="header" href="#discovery-endpoints-live">Discovery Endpoints (LIVE)</a></h2>
+<h2 id="discovery-endpoints-live"><a class="header" href="#discovery-endpoints-live">Discovery Endpoints (Live)</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -214,7 +214,8 @@
 </tbody>
 </table>
 </div>
-<h2 id="apostle-chain-endpoints-live-on-ec2"><a class="header" href="#apostle-chain-endpoints-live-on-ec2">Apostle Chain Endpoints (LIVE on EC2)</a></h2>
+<h2 id="apostle-chain-endpoints-live-on-ec2"><a class="header" href="#apostle-chain-endpoints-live-on-ec2">Apostle Chain Endpoints (Live on EC2)</a></h2>
+<p>See the full <a href="../live/api-reference.html">API Reference</a> for request/response details.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -237,7 +238,7 @@
 <tbody>
 <tr><td>UnyKorn L1 block production</td><td>No public RPC</td><td>Deploy public RPC endpoint</td></tr>
 <tr><td>Transaction finality metrics</td><td>No mainnet</td><td>Mainnet launch</td></tr>
-<tr><td>Treasury wallet on-chain balance</td><td>No mainnet</td><td>Multi-sig deployment</td></tr>
+<tr><td>Treasury wallet on-chain balance</td><td>No mainnet</td><td><a href="../chain/treasury.html">Multi-sig deployment</a></td></tr>
 <tr><td>Vesting contract enforcement</td><td>Not deployed</td><td>Smart contract deployment</td></tr>
 <tr><td>Third-party audit report</td><td>Not completed</td><td>Engage auditor</td></tr>
 <tr><td>Uptime metrics / SLA dashboard</td><td>Not built</td><td>Build status page</td></tr>
@@ -262,7 +263,7 @@
 </table>
 </div>
 <blockquote>
-<p><strong>Known risk</strong>: Treasury allocation is controlled by a single deployer key. Migration to 3-of-5 multi-sig with timelock is planned for Q3 2026.</p>
+<p><strong>Known risk</strong>: Treasury allocation is controlled by a single deployer key. Migration to 3-of-5 multi-sig with timelock is planned for Q3 2026. See <a href="../chain/treasury.html">Treasury and Governance</a>.</p>
 </blockquote>
 <h2 id="exchange-readiness-summary"><a class="header" href="#exchange-readiness-summary">Exchange Readiness Summary</a></h2>
 <div class="table-wrapper">

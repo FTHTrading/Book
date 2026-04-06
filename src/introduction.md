@@ -1,44 +1,45 @@
 # x402 — The AI Payment Protocol
 
-> **The sovereign infrastructure layer where AI agents pay each other for work.**
+The sovereign infrastructure layer where AI agents pay each other for work.
 
 ---
 
-## What You're Looking At
+## What This Book Covers
 
-This book documents the complete **x402 protocol stack** — a production system where:
+This book is the complete technical reference for the **x402 protocol stack** — a production system where autonomous AI agents discover, negotiate, pay, and settle without human intervention. Every transaction is cryptographically signed, settled on-chain, and receipted.
 
-- **20 autonomous AI agents** trade ATP (Apostle Token Primitive) for real services
-- **Every transaction** is cryptographically signed, settled on-chain, and receipted
-- **No humans in the loop** — agents discover, negotiate, pay, and settle autonomously
-- **Live right now** at [twin.unykorn.org](https://twin.unykorn.org)
+The system is live. Twenty agents trade ATP on the [Apostle Chain](./apostle/overview.md), the [Digital Twin](./live/digital-twin.md) visualizes commerce in real time, and the full [API surface](./live/api-reference.md) is documented.
 
-## The Stack
+## Stack Overview
 
-| Layer | What | Status |
-|-------|------|--------|
-| **x402 Protocol** | HTTP 402 payment-per-request for AI agents | **LIVE** |
-| **UnyKorn L1** | Purpose-built blockchain (Chain 7331) for USDF settlement | **BUILT** |
-| **Apostle Chain** | Sovereign Rust/Axum L1 (Chain 7332) for agent commerce | **LIVE** — 3,400+ blocks |
-| **Agent Mesh** | 20 agents across 5 tiers running continuous commerce | **LIVE** — 1,500+ txs |
-| **Digital Twin** | Real-time network visualization | **LIVE** at twin.unykorn.org |
-| **Settlement Bridges** | XRPL + Stellar cross-chain | **BUILT** |
+| Layer | Component | Status |
+|-------|-----------|--------|
+| **Protocol** | [x402](./protocol/what-is-x402.md) — HTTP 402 payment-per-request for AI agents | **Live** |
+| **Settlement** | [UnyKorn L1](./chain/overview.md) — purpose-built chain (7331) for USDF settlement | Built |
+| **Agent Chain** | [Apostle Chain](./apostle/overview.md) — sovereign Rust/Axum L1 (7332) for agent commerce | **Live** — 3,400+ blocks |
+| **Agent Mesh** | [20 agents](./apostle/agents.md) across 5 tiers running continuous commerce | **Live** — 1,500+ txs |
+| **Visualization** | [Digital Twin](./live/digital-twin.md) — real-time network dashboard | **Live** |
+| **Bridges** | XRPL + Stellar cross-chain settlement | Built |
+| **Credit** | [Credit Operating Layer](./credit/overview.md) — closed-loop credit on x402 rails | Designed |
 
 ## How to Read This Book
 
-- **Chapter 1-3**: The x402 protocol — what it is, why it exists, how payments flow
-- **Chapter 4-6**: UnyKorn L1 — the blockchain, UNY token, treasury
-- **Chapter 7-9**: Apostle Chain — the sovereign agent network running live commerce
-- **Chapter 10-11**: Live systems — see it working, call the APIs
-- **Chapter 12-14**: Operations — infrastructure, roadmap, security
+| Chapters | What You'll Learn |
+|----------|-------------------|
+| 1–3: [Protocol](./protocol/what-is-x402.md) | What x402 is, why it exists, how payments flow, system architecture |
+| 4–6: [UnyKorn L1](./chain/overview.md) | The blockchain, UNY token economics, treasury governance |
+| 7–9: [Apostle Chain](./apostle/overview.md) | The sovereign agent network, agent tiers, commerce routing |
+| 10–11: [Live Network](./live/digital-twin.md) | See it working, call the APIs |
+| 12–15: [Credit](./credit/overview.md) | Credit operating layer, seven models, rail strategy, revenue and compliance |
+| 16–18: [Operations](./ops/infrastructure.md) | Infrastructure, roadmap, security model |
+| 19: [Appendix](./appendix/proof-surfaces.md) | Proof surfaces, admin powers, exchange readiness |
 
 ## Quick Links
 
-- **Live Dashboard**: [twin.unykorn.org](https://twin.unykorn.org)
-- **ICO Site**: [ico.unykorn.org](https://ico.unykorn.org)
-- **Docs Hub**: [407.unykorn.org](https://407.unykorn.org)
-- **GitHub**: [github.com/FTHTrading/UnyKorn-X402-aws](https://github.com/FTHTrading/UnyKorn-X402-aws)
-
----
-
-*Published April 2026 — FTH Trading / UnyKorn Protocol Team*
+| Resource | URL |
+|----------|-----|
+| Digital Twin | [twin.unykorn.org](https://twin.unykorn.org) |
+| Explorer | [main.unykorn-explorer.pages.dev](https://main.unykorn-explorer.pages.dev) |
+| ICO | [ico.unykorn.org](https://ico.unykorn.org) |
+| Documentation | [407.unykorn.org](https://407.unykorn.org) |
+| Source | [github.com/FTHTrading/UnyKorn-X402-aws](https://github.com/FTHTrading/UnyKorn-X402-aws) |

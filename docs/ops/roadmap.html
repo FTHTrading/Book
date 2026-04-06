@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,6 +179,8 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="roadmap"><a class="header" href="#roadmap">Roadmap</a></h1>
+<p>Five-phase plan from foundation through cross-chain and RWA integration.</p>
+<hr>
 <h2 id="phase-overview"><a class="header" href="#phase-overview">Phase Overview</a></h2>
 <div class="table-wrapper">
 <table>
@@ -195,7 +197,7 @@
 </table>
 </div>
 <hr>
-<h2 id="phase-1--foundation-"><a class="header" href="#phase-1--foundation-">Phase 1 — Foundation ✅</a></h2>
+<h2 id="phase-1--foundation-complete"><a class="header" href="#phase-1--foundation-complete">Phase 1 — Foundation (Complete)</a></h2>
 <ul>
 <li>UNY ERC-20 deployed on Avalanche C-Chain</li>
 <li>UNY/USDC and UNY/WAVAX LP pools on LFJ (TraderJoe)</li>
@@ -204,7 +206,7 @@
 <li>Hardhat project: compile, test, deploy pipeline (Solidity 0.8.24)</li>
 <li>Wallet UI MVP: Vite + React + TypeScript</li>
 </ul>
-<h2 id="phase-2--registry--automation-"><a class="header" href="#phase-2--registry--automation-">Phase 2 — Registry &amp; Automation ✅</a></h2>
+<h2 id="phase-2--registry-and-automation-complete"><a class="header" href="#phase-2--registry-and-automation-complete">Phase 2 — Registry and Automation (Complete)</a></h2>
 <ul>
 <li>30 contracts in registry (GlacierMint, OptimaMint, DTT, OGB, OIB, SHO)</li>
 <li>TLD namespace registry: 78 TLDs with token_ids, IPFS CIDs</li>
@@ -214,18 +216,18 @@
 <li>Build tools: <code>inventory.mjs</code>, <code>build-registry.mjs</code>, <code>build-proof-pack.mjs</code></li>
 <li>Sync tools: <code>opensea-sync.mjs</code>, <code>genMeta.ts</code>, <code>updateURIs.ts</code></li>
 </ul>
-<h2 id="phase-3--testing--verification-"><a class="header" href="#phase-3--testing--verification-">Phase 3 — Testing &amp; Verification 🔄</a></h2>
+<h2 id="phase-3--testing-and-verification-current"><a class="header" href="#phase-3--testing-and-verification-current">Phase 3 — Testing and Verification (Current)</a></h2>
 <p>Current focus:</p>
 <ul>
 <li><input disabled="" type="checkbox"> Live OpenSea v2 API testing for <code>opensea-sync.mjs</code></li>
 <li><input disabled="" type="checkbox"> TLD metadata generation and verification</li>
 <li><input disabled="" type="checkbox"> Contract verification on Polygonscan + Routescan</li>
 <li><input disabled="" type="checkbox"> IPFS pinning of contract ABIs</li>
-<li><input disabled="" type="checkbox" checked=""> <strong>x402 Protocol — LIVE on Apostle Chain</strong> (20 agents, 3,400+ blocks)</li>
-<li><input disabled="" type="checkbox" checked=""> <strong>Digital Twin deployed</strong> (twin.unykorn.org)</li>
+<li><input disabled="" type="checkbox" checked=""> <strong>x402 Protocol — Live on Apostle Chain</strong> (20 agents, 3,400+ blocks)</li>
+<li><input disabled="" type="checkbox" checked=""> <strong>Digital Twin deployed</strong> (<a href="../live/digital-twin.html">twin.unykorn.org</a>)</li>
 <li><input disabled="" type="checkbox" checked=""> <strong>Full settlement pipeline</strong> (Ed25519, fast-path, WebSocket)</li>
 </ul>
-<h2 id="phase-4--liquidity--visibility"><a class="header" href="#phase-4--liquidity--visibility">Phase 4 — Liquidity &amp; Visibility</a></h2>
+<h2 id="phase-4--liquidity-and-visibility"><a class="header" href="#phase-4--liquidity-and-visibility">Phase 4 — Liquidity and Visibility</a></h2>
 <ul>
 <li>Add LP depth to UNY/USDC and UNY/WAVAX pools</li>
 <li>List UNY on additional DEX aggregators</li>
@@ -233,13 +235,13 @@
 <li>Git tag <code>v0.1.0-avalanche-deploy</code></li>
 <li>Publish x402 protocol documentation (this book)</li>
 </ul>
-<h2 id="phase-5--cross-chain--rwa"><a class="header" href="#phase-5--cross-chain--rwa">Phase 5 — Cross-chain &amp; RWA</a></h2>
+<h2 id="phase-5--cross-chain-and-rwa"><a class="header" href="#phase-5--cross-chain-and-rwa">Phase 5 — Cross-chain and RWA</a></h2>
 <ul>
 <li>Polygon deployment pipeline</li>
-<li>Bridge setup: Avalanche ↔ Polygon</li>
+<li>Bridge setup: Avalanche to Polygon</li>
 <li>Solana integration (Wormhole or native)</li>
 <li>RWA proof documentation</li>
-<li>Governance / DAO tooling</li>
+<li>Governance and DAO tooling</li>
 </ul>
 <hr>
 <h2 id="x402-specific-milestones"><a class="header" href="#x402-specific-milestones">x402-Specific Milestones</a></h2>
@@ -249,18 +251,20 @@
 <tr><th>Milestone</th><th>Target</th><th>Status</th></tr>
 </thead>
 <tbody>
-<tr><td>Apostle Chain live</td><td>Q1 2026</td><td>✅</td></tr>
-<tr><td>20-agent mesh bootstrapped</td><td>Q1 2026</td><td>✅</td></tr>
-<tr><td>Ed25519 signed transactions</td><td>Q2 2026</td><td>✅</td></tr>
-<tr><td>Digital twin visualization</td><td>Q2 2026</td><td>✅</td></tr>
+<tr><td>Apostle Chain live</td><td>Q1 2026</td><td>Complete</td></tr>
+<tr><td>20-agent mesh bootstrapped</td><td>Q1 2026</td><td>Complete</td></tr>
+<tr><td>Ed25519 signed transactions</td><td>Q2 2026</td><td>Complete</td></tr>
+<tr><td>Digital twin visualisation</td><td>Q2 2026</td><td>Complete</td></tr>
 <tr><td>XRPL settlement bridge</td><td>Q2 2026</td><td>Built</td></tr>
 <tr><td>Stellar settlement bridge</td><td>Q2 2026</td><td>Built</td></tr>
-<tr><td>Multi-sig treasury</td><td>Q3 2026</td><td>Planned</td></tr>
+<tr><td><a href="../chain/treasury.html">Multi-sig treasury</a></td><td>Q3 2026</td><td>Planned</td></tr>
 <tr><td>Public agent registration</td><td>Q3 2026</td><td>Planned</td></tr>
 <tr><td>Cross-chain relay production</td><td>Q4 2026</td><td>Planned</td></tr>
+<tr><td><a href="../credit/overview.html">Credit Operating Layer</a> — Phase 1 commercial</td><td>Q4 2026</td><td>Planned</td></tr>
 </tbody>
 </table>
 </div>
+<p>For security hardening items, see <a href="./security.html#planned-improvements-q3-2026">Security</a>.</p>
 
                     </main>
 

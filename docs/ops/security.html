@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Security - x402 — The AI Payment Protocol</title>
+        <title>Security Model - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,9 +179,9 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="security"><a class="header" href="#security">Security</a></h1>
-<h2 id="security-model"><a class="header" href="#security-model">Security Model</a></h2>
-<p>The x402 protocol implements defense-in-depth across every layer.</p>
-<h3 id="cryptographic-foundation"><a class="header" href="#cryptographic-foundation">Cryptographic Foundation</a></h3>
+<p>Defence-in-depth across every layer of the <a href="../protocol/what-is-x402.html">x402 protocol</a>, the <a href="../apostle/overview.html">Apostle Chain</a>, and the Facilitator.</p>
+<hr>
+<h2 id="cryptographic-foundation"><a class="header" href="#cryptographic-foundation">Cryptographic Foundation</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -196,8 +196,8 @@
 </tbody>
 </table>
 </div>
-<h3 id="transaction-security"><a class="header" href="#transaction-security">Transaction Security</a></h3>
-<p>Every transaction on the Apostle Chain must satisfy:</p>
+<h2 id="transaction-security"><a class="header" href="#transaction-security">Transaction Security</a></h2>
+<p>Every transaction on the <a href="../apostle/overview.html">Apostle Chain</a> must satisfy:</p>
 <ol>
 <li><strong>Valid Ed25519 signature</strong> — signed by the <code>from</code> agent’s private key</li>
 <li><strong>Correct nonce</strong> — must equal the agent’s current nonce (monotonically increasing)</li>
@@ -205,17 +205,18 @@
 <li><strong>Sufficient balance</strong> — sender must have enough ATP</li>
 <li><strong>Valid recipient</strong> — <code>to</code> agent must exist on-chain</li>
 </ol>
-<pre><code>  TxEnvelope {
-    hash: SHA-256(payload),
-    from: agent_uuid,
-    nonce: current_nonce,      ← must match ledger
-    chain_id: 7332,            ← binds to Apostle Chain
-    payload: { ... },
-    signature: Ed25519(hash),  ← proves ownership
-    timestamp: ISO 8601
-  }
+<pre><code class="language-text">TxEnvelope {
+  hash: SHA-256(payload),
+  from: agent_uuid,
+  nonce: current_nonce,      ← must match ledger
+  chain_id: 7332,            ← binds to Apostle Chain
+  payload: { ... },
+  signature: Ed25519(hash),  ← proves ownership
+  timestamp: ISO 8601
+}
 </code></pre>
-<h3 id="key-management"><a class="header" href="#key-management">Key Management</a></h3>
+<p>For the full TxEnvelope schema, see <a href="../apostle/overview.html#txenvelope-format">Apostle Chain Overview</a>.</p>
+<h2 id="key-management"><a class="header" href="#key-management">Key Management</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -228,7 +229,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="network-security"><a class="header" href="#network-security">Network Security</a></h3>
+<h2 id="network-security"><a class="header" href="#network-security">Network Security</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -242,7 +243,7 @@
 </tbody>
 </table>
 </div>
-<h3 id="invoice-security-facilitator"><a class="header" href="#invoice-security-facilitator">Invoice Security (Facilitator)</a></h3>
+<h2 id="invoice-security-facilitator"><a class="header" href="#invoice-security-facilitator">Invoice Security (Facilitator)</a></h2>
 <p>The x402 Facilitator implements:</p>
 <ul>
 <li><strong>Time-locked invoices</strong> — TTL-based expiration (default: 300s)</li>
@@ -251,7 +252,7 @@
 <li><strong>Rate limiting</strong> — per-namespace, configurable per-policy</li>
 <li><strong>Namespace isolation</strong> — each service route is scoped to its namespace</li>
 </ul>
-<h3 id="planned-improvements-q3-2026"><a class="header" href="#planned-improvements-q3-2026">Planned Improvements (Q3 2026)</a></h3>
+<h2 id="planned-improvements-q3-2026"><a class="header" href="#planned-improvements-q3-2026">Planned Improvements (Q3 2026)</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -266,6 +267,7 @@
 </tbody>
 </table>
 </div>
+<p>For treasury governance controls, see <a href="../chain/treasury.html">Treasury and Governance</a>. For the roadmap timeline, see <a href="./roadmap.html">Roadmap</a>.</p>
 
                     </main>
 

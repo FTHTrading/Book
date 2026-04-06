@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - x402 — The AI Payment Protocol</title>
-        <base href="/">
+        <title>Revenue and Compliance - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -13,34 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-2459343d.css">
-        <link rel="stylesheet" href="css/chrome-ae938929.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="src/custom-79f7119f.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3a0bedb2.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-5bb45c68.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -107,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +141,7 @@
                     <h1 class="menu-title">x402 — The AI Payment Protocol</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/FTHTrading/Book" title="Git repository" aria-label="Git repository">
@@ -179,14 +178,162 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="revenue-and-compliance"><a class="header" href="#revenue-and-compliance">Revenue and Compliance</a></h1>
+<p>The <a href="./overview.html">Credit Operating Layer</a> generates revenue from six primary streams and one optional stream. This page also documents the compliance requirements that apply as the credit product matures, and the recommended rollout sequence.</p>
+<hr>
+<h2 id="revenue-streams"><a class="header" href="#revenue-streams">Revenue Streams</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>#</th><th>Stream</th><th>Description</th><th>Margin Profile</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td><strong>Origination fees</strong></td><td>One-time fee on credit line creation or increase</td><td>1–3% of line size</td></tr>
+<tr><td>2</td><td><strong>Spread and yield</strong></td><td>Interest on outstanding credit balances</td><td>Risk-grade-adjusted APR</td></tr>
+<tr><td>3</td><td><strong>Servicing fees</strong></td><td>Monthly account maintenance, reporting, monitoring</td><td>Fixed per account</td></tr>
+<tr><td>4</td><td><strong>Late and restructuring fees</strong></td><td>Penalties for missed payments; fees for term modification</td><td>Event-based</td></tr>
+<tr><td>5</td><td><strong>Facilitator and settlement fees</strong></td><td>x402 facilitator processing fees on every drawdown and repayment</td><td>Per-transaction basis points</td></tr>
+<tr><td>6</td><td><strong>White-label infrastructure fees</strong></td><td>Platform fees charged to <a href="./models.html#7-white-label-credit-rails">partners</a> running credit programs on the stack</td><td>Monthly SaaS + per-transaction</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="optional-seventh-stream"><a class="header" href="#optional-seventh-stream">Optional Seventh Stream</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Stream</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Underwriting and score API</strong></td><td>Sell access to the <a href="./models.html#6-reputation-to-credit-conversion">reputation score</a> and underwriting engine as an API for partners</td></tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>Compliance warning</strong>: Selling credit scores or underwriting decisions to third parties can trigger FCRA (Fair Credit Reporting Act) obligations. Do not commercialise the score API until legal counsel has confirmed the regulatory posture. See <a href="#compliance-requirements">Compliance Requirements</a> below.</p>
+</blockquote>
+<h2 id="revenue-model-by-credit-type"><a class="header" href="#revenue-model-by-credit-type">Revenue Model by Credit Type</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Credit Model</th><th>Primary Revenue</th><th>Secondary Revenue</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="./models.html#1-spend-based-network-credit">Spend-based network credit</a></td><td>Spread on outstanding balance</td><td>Facilitator fees</td></tr>
+<tr><td><a href="./models.html#2-invoice-and-receivables-credit">Invoice and receivables credit</a></td><td>Advance fee (discount rate)</td><td>Servicing fee</td></tr>
+<tr><td><a href="./models.html#3-merchant-and-api-working-capital-lines">Merchant working-capital lines</a></td><td>Spread + origination</td><td>Late fees</td></tr>
+<tr><td><a href="./models.html#4-agent-credit">Agent credit</a></td><td>Facilitator fees + spread</td><td>Operator servicing</td></tr>
+<tr><td><a href="./models.html#5-tokenised-asset-backed-credit">Asset-backed credit</a></td><td>Spread (lower, collateralised)</td><td>Origination + liquidation fees</td></tr>
+<tr><td><a href="./models.html#6-reputation-to-credit-conversion">Reputation-to-credit</a></td><td>Spread + origination</td><td>Score API (optional, regulated)</td></tr>
+<tr><td><a href="./models.html#7-white-label-credit-rails">White-label rails</a></td><td>Infrastructure fees</td><td>Per-transaction settlement</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="compliance-requirements"><a class="header" href="#compliance-requirements">Compliance Requirements</a></h2>
+<h3 id="when-compliance-matters"><a class="header" href="#when-compliance-matters">When Compliance Matters</a></h3>
+<p>The credit product starts as closed-loop commercial credit. At that stage, regulatory burden is manageable. As the product expands, compliance requirements escalate.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Product Stage</th><th>Regulatory Exposure</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Closed-loop B2B credit</strong></td><td>Low — internal underwriting, no consumer data</td></tr>
+<tr><td><strong>Merchant working capital</strong></td><td>Medium — state lending license requirements vary</td></tr>
+<tr><td><strong>Agent credit</strong></td><td>Low — programmatic, no natural-person borrower</td></tr>
+<tr><td><strong>Invoice financing</strong></td><td>Medium — may require factoring or lending license</td></tr>
+<tr><td><strong>Consumer or retail credit</strong></td><td><strong>High</strong> — full ECOA/FCRA/state licensing</td></tr>
+<tr><td><strong>Score API sold externally</strong></td><td><strong>High</strong> — FCRA “consumer reporting agency” classification</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="key-regulations"><a class="header" href="#key-regulations">Key Regulations</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Regulation</th><th>Trigger</th><th>Requirement</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>ECOA / Regulation B</strong></td><td>Making credit decisions about any applicant</td><td>Anti-discrimination protections; adverse-action notices with specific reasons for every denial or downgrade</td></tr>
+<tr><td><strong>FCRA / Regulation V</strong></td><td>Using consumer-report data or operating as a consumer reporting agency</td><td>Permissible purpose requirements; data accuracy obligations; dispute resolution; consumer access rights</td></tr>
+<tr><td><strong>State lending licenses</strong></td><td>Originating loans to borrowers in specific states</td><td>License-by-state; CSBS maintains a current 50-state survey of requirements</td></tr>
+<tr><td><strong>Truth in Lending (TILA)</strong></td><td>Consumer credit products</td><td>Disclosure of APR, fees, terms in standardised format</td></tr>
+<tr><td><strong>Bank Secrecy Act / AML</strong></td><td>Any financial institution or money services business</td><td>KYC/KYB, suspicious activity reporting, transaction monitoring</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="mitigation-strategy"><a class="header" href="#mitigation-strategy">Mitigation Strategy</a></h3>
+<ol>
+<li><strong>Start with B2B only</strong> — no natural-person borrowers in the initial product.</li>
+<li><strong>Keep scores internal</strong> — do not sell, share, or report reputation scores externally.</li>
+<li><strong>Log every decision</strong> — the <a href="./overview.html#decision-engine">Decision Engine</a> records every approval, denial, limit change, and adverse action with specific reasons.</li>
+<li><strong>Use private facilitators</strong> — x402 supports <a href="../protocol/architecture.html">private facilitator deployment</a> with custom KYC/KYT flows.</li>
+<li><strong>Engage counsel early</strong> — get a formal lending-license memo and jurisdiction analysis before expanding beyond closed-loop.</li>
+<li><strong>Never market the internal score as a “credit score”</strong> unless you are prepared to accept FCRA obligations.</li>
+</ol>
+<h2 id="rollout-sequence"><a class="header" href="#rollout-sequence">Rollout Sequence</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Phase</th><th>Product</th><th>Prerequisite</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Closed-loop commercial credit</td><td><a href="./overview.html#the-four-engines">4 engines</a> operational; closed-network identity</td></tr>
+<tr><td><strong>2</strong></td><td>Merchant and API working capital</td><td>State lending license analysis; facilitator credit-limit integration</td></tr>
+<tr><td><strong>3</strong></td><td>Agent spend credit</td><td><a href="../apostle/agents.html">Agent mesh</a> policy controls; real-time velocity tracking</td></tr>
+<tr><td><strong>4</strong></td><td>Invoice and receivables financing</td><td>Receivable verification pipeline; counterparty scoring</td></tr>
+<tr><td><strong>5</strong></td><td>White-label partner programs</td><td>Partner onboarding, branded UI, revenue-share contracts</td></tr>
+<tr><td><strong>6</strong></td><td>Broader regulated lending</td><td>Full compliance stack: ECOA, FCRA, state licenses, legal counsel memo</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="phase-1-deliverables"><a class="header" href="#phase-1-deliverables">Phase 1 Deliverables</a></h3>
+<p>The minimum viable credit product:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Deliverable</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>Identity engine</td><td>Wallet + namespace + KYB binding</td></tr>
+<tr><td>Behavior engine</td><td>Receipt-based payment history aggregation</td></tr>
+<tr><td>Decision engine</td><td>Risk grading (A–F), limit assignment, adverse-action logging</td></tr>
+<tr><td>Settlement engine</td><td>Stablecoin credit issuance, auto-sweep repayment</td></tr>
+<tr><td>Credit ledger</td><td>On-chain credit balance and event tracking (Apostle Chain)</td></tr>
+<tr><td>Credit facilitator</td><td>Private x402 facilitator with credit-limit enforcement</td></tr>
+<tr><td>Admin dashboard</td><td>Credit line management, monitoring, reporting</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="phase-1-rails"><a class="header" href="#phase-1-rails">Phase 1 Rails</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Rail</th><th>Use</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="../apostle/overview.html">Apostle Chain</a></td><td>Credit memory, policy, attestation</td></tr>
+<tr><td><a href="./rails.html#stellar-for-credit">Stellar</a></td><td>Stablecoin disbursement and repayment</td></tr>
+<tr><td><a href="../chain/overview.html">UnyKorn L1</a></td><td>Receipt anchoring</td></tr>
+</tbody>
+</table>
+</div>
+<p>Solana is added in Phase 2 for merchant and agent high-frequency draws.</p>
+<h2 id="bottom-line"><a class="header" href="#bottom-line">Bottom Line</a></h2>
+<p>The strongest first move is <strong>commercial network credit</strong>: underwrite only entities that already transact on the system, use x402 receipts as underwriting inputs, and repay automatically from network cash flows.</p>
+<p>The revenue model scales from direct lending yield (early phases) to platform infrastructure fees (Phase 5+), which carries less balance-sheet risk and more recurring revenue.</p>
+<p>For the full architecture, see <a href="./overview.html">Credit Operating Layer</a>. For the seven credit models, see <a href="./models.html">Credit Models</a>. For the rail strategy, see <a href="./rails.html">Rail Strategy</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../credit/rails.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="../ops/infrastructure.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -194,7 +341,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../credit/rails.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="../ops/infrastructure.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>
@@ -212,13 +365,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-c2a407aa.js"></script>
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-a0b12cfe.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

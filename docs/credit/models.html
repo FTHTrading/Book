@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>The Agent Mesh - x402 — The AI Payment Protocol</title>
+        <title>Credit Models - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -178,157 +178,221 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="the-agent-mesh"><a class="header" href="#the-agent-mesh">The Agent Mesh</a></h1>
-<p>The <a href="./overview.html">Apostle Chain</a> hosts a 20-agent mesh organised into five tiers — Operator, Control, Execution, Intelligence, and Interface. Each agent holds an Ed25519 keypair, an on-chain ATP balance, and a defined commerce role. This page catalogues every agent and explains the lifecycle that brings them on-chain.</p>
+                        <h1 id="credit-models"><a class="header" href="#credit-models">Credit Models</a></h1>
+<p>The <a href="./overview.html">Credit Operating Layer</a> supports seven distinct models for generating credit on the x402 stack. Each model draws on different underwriting signals and serves a different segment of the network. They are not mutually exclusive — a mature deployment runs several in parallel.</p>
 <hr>
-<h2 id="agent-properties"><a class="header" href="#agent-properties">Agent Properties</a></h2>
-<p>Every agent on the Apostle Chain is a fully autonomous economic actor:</p>
+<h2 id="model-summary"><a class="header" href="#model-summary">Model Summary</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Property</th><th>Description</th></tr>
+<tr><th>#</th><th>Model</th><th>Borrower</th><th>Collateral</th><th>Primary Signal</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Agent ID</strong></td><td>UUID registered on-chain (<code>agent:{uuid}</code>)</td></tr>
-<tr><td><strong>Ed25519 Keypair</strong></td><td>Signs every transaction (SovereignKeyring)</td></tr>
-<tr><td><strong>ATP Balance</strong></td><td>Native token balance on the Apostle ledger</td></tr>
-<tr><td><strong>Tier</strong></td><td>Determines transaction amounts and cadence</td></tr>
-<tr><td><strong>Commerce Role</strong></td><td>Service the agent provides or consumes</td></tr>
+<tr><td>1</td><td><a href="#1-spend-based-network-credit">Spend-based network credit</a></td><td>Merchants, agents, businesses</td><td>None (performance-based)</td><td>x402 payment history</td></tr>
+<tr><td>2</td><td><a href="#2-invoice-and-receivables-credit">Invoice and receivables credit</a></td><td>Businesses with inbound cash flow</td><td>Verified invoices / receivables</td><td>Invoice quality and counterparty</td></tr>
+<tr><td>3</td><td><a href="#3-merchant-and-api-working-capital-lines">Merchant and API working-capital lines</a></td><td>Merchants, API providers</td><td>Revolving (volume-backed)</td><td>Payment volume, dispute rate</td></tr>
+<tr><td>4</td><td><a href="#4-agent-credit">Agent credit</a></td><td>AI agents</td><td>Policy-bound (programmatic)</td><td>Tier, spend history, budget</td></tr>
+<tr><td>5</td><td><a href="#5-tokenised-asset-backed-credit">Tokenised asset-backed credit</a></td><td>Businesses with on-chain assets</td><td>Treasury, RWA, stablecoin reserves</td><td>Collateral value and liquidity</td></tr>
+<tr><td>6</td><td><a href="#6-reputation-to-credit-conversion">Reputation-to-credit conversion</a></td><td>Any network participant</td><td>Reputation score</td><td>On-network behaviour composite</td></tr>
+<tr><td>7</td><td><a href="#7-white-label-credit-rails">White-label credit rails</a></td><td>Partner businesses</td><td>Varies by program</td><td>Partner-defined underwriting</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="operator-wallets-5"><a class="header" href="#operator-wallets-5">Operator Wallets (5)</a></h2>
-<p>These are the top-level accounts that fund and govern the mesh.</p>
+<hr>
+<h2 id="1-spend-based-network-credit"><a class="header" href="#1-spend-based-network-credit">1. Spend-Based Network Credit</a></h2>
+<p>Use x402 payment history as the raw underwriting signal. If an agent, merchant, or business consistently pays for services on time and at volume, that performance data supports a credit line.</p>
+<p><strong>How it works</strong>:</p>
+<ol>
+<li>Entity transacts on the network for a qualifying period (e.g. 90 days).</li>
+<li>The <a href="./overview.html#behavior-engine">Behavior Engine</a> aggregates payment timeliness, volume, and settlement success rate.</li>
+<li>The <a href="./overview.html#decision-engine">Decision Engine</a> assigns a risk grade and credit limit.</li>
+<li>Credit line is issued in stablecoins (USDF, USDC, or equivalent).</li>
+<li>Repayment is auto-swept from future incoming settlements.</li>
+</ol>
+<p><strong>Why x402 makes this natural</strong>: The protocol already supports <a href="../live/api-reference.html#credit-ledger">prepaid credits</a>, usage aggregation, and facilitator-based settlement. The infrastructure for tracking spend and auto-sweeping repayment already exists.</p>
+<p><strong>Underwriting inputs</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Label</th><th>Role</th><th>Balance (ATP)</th><th>Agent ID</th></tr>
+<tr><th>Signal</th><th>Source</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>kevan-burns-chairman</strong></td><td>Chairman</td><td>500,000</td><td><code>87724c76-da93-4b1a-9fa6-271ba856338e</code></td></tr>
-<tr><td><strong>genesis-treasury</strong></td><td>Genesis Treasury</td><td>1,000,000</td><td><code>caf9cf0c-1d11-4632-a7c1-188c7fd95ebd</code></td></tr>
-<tr><td><strong>unykorn-operator</strong></td><td>Operator</td><td>250,000</td><td><code>d55c60a0-5087-434c-9860-35fcd519eca4</code></td></tr>
-<tr><td><strong>x402-credit-pool</strong></td><td>x402 Credit Pool</td><td>500,000</td><td><code>7f0d2538-c09b-46f6-93ef-7be0cc5feab5</code></td></tr>
-<tr><td><strong>mesh-pay-reserve</strong></td><td>Mesh Reserve</td><td>200,000</td><td><code>adf01234-e3f3-40f7-a59c-a9d6c7592c1a</code></td></tr>
+<tr><td>Total payment volume (30/60/90 day)</td><td>Facilitator receipts</td></tr>
+<tr><td>On-time settlement ratio</td><td>Receipt timestamps vs invoice TTL</td></tr>
+<tr><td>Average transaction size</td><td>Receipt amounts</td></tr>
+<tr><td>Payment velocity trend</td><td>Rolling window analysis</td></tr>
+<tr><td>Dispute / chargeback count</td><td>Webhook events</td></tr>
 </tbody>
 </table>
 </div>
-<p><strong>Total operator ATP: 2,450,000</strong></p>
-<h2 id="control-tier-4-agents"><a class="header" href="#control-tier-4-agents">Control Tier (4 agents)</a></h2>
-<p>The governance layer — treasury management, compliance, policy, and risk assessment.</p>
+<hr>
+<h2 id="2-invoice-and-receivables-credit"><a class="header" href="#2-invoice-and-receivables-credit">2. Invoice and Receivables Credit</a></h2>
+<p>Advance funds against verified invoices, API receivables, subscriptions, ad revenue, or service contracts flowing through the network.</p>
+<p><strong>How it works</strong>:</p>
+<ol>
+<li>Borrower submits receivables (outstanding invoices, subscription contracts, verified API revenue).</li>
+<li>The system scores receivable quality: counterparty creditworthiness, historical payment rates, concentration risk.</li>
+<li>A percentage of the receivable value is advanced (typically 70–90%).</li>
+<li>Repayment auto-sweeps from the specific settlement when the receivable pays.</li>
+<li>Remaining balance (minus fees) is released to the borrower.</li>
+</ol>
+<p><strong>Underwriting inputs</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+<tr><th>Signal</th><th>Weight</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>treasury</strong></td><td>100,000</td><td>Budget sweeps, fund allocation, spending control</td></tr>
-<tr><td><strong>compliance</strong></td><td>50,000</td><td>KYC checks, regulatory screening, risk signoffs</td></tr>
-<tr><td><strong>policy</strong></td><td>20,000</td><td>Policy enforcement, budget approval, governance rules</td></tr>
-<tr><td><strong>risk</strong></td><td>30,000</td><td>Risk assessments, exposure analysis, incident escalation</td></tr>
+<tr><td>Counterparty payment history</td><td>High</td></tr>
+<tr><td>Invoice age and TTL</td><td>High</td></tr>
+<tr><td>Concentration (single-counterparty exposure)</td><td>Medium</td></tr>
+<tr><td>Historical receivable default rate</td><td>High</td></tr>
+<tr><td>Borrower’s own settlement history</td><td>Medium</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="execution-tier-8-agents"><a class="header" href="#execution-tier-8-agents">Execution Tier (8 agents)</a></h2>
-<p>The workhorses — they move ATP for real services.</p>
+<p><strong>Risk controls</strong>: Maximum advance rate per grade, counterparty concentration limits, automatic hold on disputed invoices.</p>
+<hr>
+<h2 id="3-merchant-and-api-working-capital-lines"><a class="header" href="#3-merchant-and-api-working-capital-lines">3. Merchant and API Working-Capital Lines</a></h2>
+<p>A merchant or service on the x402 network gets a revolving credit line based on operating performance.</p>
+<p><strong>Underwriting inputs</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+<tr><th>Signal</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>settlement</strong></td><td>80,000</td><td>Cross-chain settlement execution (XRPL + Stellar)</td></tr>
-<tr><td><strong>exchange-listing</strong></td><td>20,000</td><td>DEX listing, trade execution, order management</td></tr>
-<tr><td><strong>listing-packet</strong></td><td>15,000</td><td>Asset packaging, document preparation for listing</td></tr>
-<tr><td><strong>onboarding</strong></td><td>10,000</td><td>New agent registration, agent routing</td></tr>
-<tr><td><strong>wallet-ops</strong></td><td>50,000</td><td>Wallet provisioning, key management, KYC pipeline</td></tr>
-<tr><td><strong>reconciliation</strong></td><td>5,000</td><td>Ledger reconciliation, balance auditing</td></tr>
-<tr><td><strong>incident-response</strong></td><td>10,000</td><td>Security triage, incident containment</td></tr>
-<tr><td><strong>documentation</strong></td><td>5,000</td><td>Documentation lookups, doc packaging</td></tr>
+<tr><td>Payment volume</td><td>Total inbound and outbound settlement volume</td></tr>
+<tr><td>Repayment history</td><td>On-time rate for any existing credit</td></tr>
+<tr><td>Volatility</td><td>Standard deviation of monthly revenue</td></tr>
+<tr><td>Refund and dispute rate</td><td>Chargebacks, reversals, failed settlements</td></tr>
+<tr><td>Wallet liquidity</td><td>Current on-chain balances across allowed rails</td></tr>
+<tr><td>Contract revenue quality</td><td>Duration, counterparty diversity, renewal rates</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="intelligence-tier-2-agents"><a class="header" href="#intelligence-tier-2-agents">Intelligence Tier (2 agents)</a></h2>
-<p>Market data aggregation and analysis.</p>
+<p><strong>Line characteristics</strong>:</p>
+<ul>
+<li>Revolving — draw and repay without reapplication.</li>
+<li>Auto-adjusting — limit moves up or down based on trailing 90-day performance.</li>
+<li>Multi-rail — draws can settle on any <a href="./rails.html">allowed rail</a>.</li>
+<li>Rate-tiered — APR scales with risk grade.</li>
+</ul>
+<hr>
+<h2 id="4-agent-credit"><a class="header" href="#4-agent-credit">4. Agent Credit</a></h2>
+<p>Each <a href="../apostle/agents.html">mesh agent</a> gets a controlled spend line for compute, data, or execution services.</p>
+<p>This model is unique because the credit is <strong>programmatic and policy-bound</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+<tr><th>Control</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>market-monitor</strong></td><td>5,000</td><td>Price feeds, market data streams, trade signals</td></tr>
-<tr><td><strong>intelligence</strong></td><td>8,000</td><td>Data aggregation, pattern analysis, intel distribution</td></tr>
+<tr><td><strong>Allowed endpoints</strong></td><td>Agent can only spend at whitelisted <a href="../apostle/commerce.html#x402-service-uris">x402 service URIs</a></td></tr>
+<tr><td><strong>Max spend per draw</strong></td><td>Hard cap per individual transaction</td></tr>
+<tr><td><strong>Velocity cap</strong></td><td>Maximum ATP or stablecoin spend per hour / day</td></tr>
+<tr><td><strong>Fail-safe kill switch</strong></td><td>Automatic suspension if anomaly detected</td></tr>
+<tr><td><strong>Settlement-only whitelist</strong></td><td>Credit can only settle to pre-approved counterparties</td></tr>
+<tr><td><strong>Budget period</strong></td><td>Credit resets on a defined cadence (daily, weekly, monthly)</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="interface-tier-1-agent"><a class="header" href="#interface-tier-1-agent">Interface Tier (1 agent)</a></h2>
-<p>External-facing services.</p>
+<p><strong>How it works on the Apostle Chain</strong>:</p>
+<ol>
+<li>Agent is <a href="../apostle/overview.html#api-endpoints">registered</a> with an <code>AgentId</code> and Ed25519 keypair.</li>
+<li>The credit system assigns a spend line based on agent tier and historical performance.</li>
+<li>Each <code>POST /v1/tx</code> checks the agent’s remaining credit before settlement.</li>
+<li>Spend is tracked in real time; the <a href="./overview.html#behavior-engine">Behavior Engine</a> updates the agent’s risk profile continuously.</li>
+<li>Credit replenishes from the agent’s incoming settlement flows or from operator top-up.</li>
+</ol>
+<p><strong>Why this matters</strong>: Agent credit turns autonomous agents into economic actors that can operate beyond their current balance. The policy controls ensure no single agent can drain the system.</p>
+<hr>
+<h2 id="5-tokenised-asset-backed-credit"><a class="header" href="#5-tokenised-asset-backed-credit">5. Tokenised Asset-Backed Credit</a></h2>
+<p>Use treasury assets, RWAs, stablecoin reserves, invoices, or tokenised cash-flow rights as collateral for credit lines.</p>
+<p><strong>Collateral types</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Label</th><th>Balance (ATP)</th><th>Purpose</th></tr>
+<tr><th>Collateral</th><th>LTV Range</th><th>Liquidation Model</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>customer-desk</strong></td><td>2,000</td><td>Agent routing, customer inquiry handling</td></tr>
+<tr><td>Stablecoin reserves (USDF, USDC)</td><td>85–95%</td><td>Instant auto-liquidation</td></tr>
+<tr><td><a href="../chain/treasury.html">Treasury holdings</a></td><td>50–70%</td><td>48-hour delay, multi-sig approval</td></tr>
+<tr><td>Tokenised invoices</td><td>60–80%</td><td>Auto-sweep on receivable payment</td></tr>
+<tr><td>RWA tokens</td><td>40–60%</td><td>Governance-gated liquidation</td></tr>
+<tr><td>ATP / UNY tokens</td><td>30–50%</td><td>Market-price oracle, margin call</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="agent-lifecycle"><a class="header" href="#agent-lifecycle">Agent Lifecycle</a></h2>
-<pre><code class="language-text">1. bootstrap.py generates Ed25519 keypair
-2. POST /v1/agents/register → on-chain identity
-3. POST /v1/airdrop → initial ATP funding
-4. agent_runner.py starts async loop:
-     → fetch nonce → pick target → build tx →
-       sign (Ed25519) → POST /v1/tx → websocket emit
-5. Repeat based on tier sleep interval
-</code></pre>
-<p>For full endpoint details, see the <a href="../live/api-reference.html">API Reference</a>.</p>
-<h2 id="tier-economics"><a class="header" href="#tier-economics">Tier Economics</a></h2>
-<p>Each tier has a defined range for transaction amounts and sleep intervals:</p>
+<p><strong>Why this works best for business credit</strong>: Collateral and cash-flow are easier to verify and govern in a B2B context. Consumer collateral valuation and liquidation introduce regulatory complexity that is better deferred.</p>
+<p><strong>Risk controls</strong>: Loan-to-value (LTV) monitoring, margin calls at threshold, automatic collateral top-up requests, liquidation waterfalls.</p>
+<hr>
+<h2 id="6-reputation-to-credit-conversion"><a class="header" href="#6-reputation-to-credit-conversion">6. Reputation-to-Credit Conversion</a></h2>
+<p>Build an internal score from on-network behaviour and use it as the basis for credit decisions.</p>
+<p><strong>Score components</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Tier</th><th>ATP per Tx</th><th>Sleep Range</th><th>Transactions/Hour</th></tr>
+<tr><th>Factor</th><th>Weight</th><th>Source</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Operator</strong></td><td>50 – 200</td><td>120 – 300s</td><td>12 – 30</td></tr>
-<tr><td><strong>Control</strong></td><td>5 – 25</td><td>30 – 90s</td><td>40 – 120</td></tr>
-<tr><td><strong>Execution</strong></td><td>1 – 10</td><td>10 – 40s</td><td>90 – 360</td></tr>
-<tr><td><strong>Intelligence</strong></td><td>2 – 15</td><td>20 – 60s</td><td>60 – 180</td></tr>
-<tr><td><strong>Interface</strong></td><td>0.5 – 5</td><td>15 – 45s</td><td>80 – 240</td></tr>
+<tr><td>Successful x402 settlements</td><td>25%</td><td>Facilitator receipts</td></tr>
+<tr><td>Uptime and availability</td><td>15%</td><td>Agent heartbeat, service health</td></tr>
+<tr><td>Delivery SLA compliance</td><td>15%</td><td>Invoice TTL vs settlement time</td></tr>
+<tr><td>Refund and dispute ratio</td><td>15%</td><td>Webhook events</td></tr>
+<tr><td>Signer continuity</td><td>10%</td><td>Key rotation frequency, key age</td></tr>
+<tr><td>Treasury cushion</td><td>10%</td><td>Balance-to-liability ratio</td></tr>
+<tr><td>Verified counterparties</td><td>10%</td><td>Number and quality of trade partners</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="on-chain-identity"><a class="header" href="#on-chain-identity">On-Chain Identity</a></h2>
-<p>Every agent’s identity is entirely on-chain:</p>
+<p><strong>Important compliance note</strong>: This internal reputation score is not automatically a regulated “credit bureau” product. However, once you start making formal credit decisions based on it or reporting the data externally, FCRA (Fair Credit Reporting Act) and ECOA (Equal Credit Opportunity Act) obligations apply. See <a href="./revenue.html#compliance-requirements">Compliance</a> for details.</p>
+<p><strong>Mitigation</strong>: Keep the score internal. Do not sell it. Do not report it to external parties. Use it only for on-network credit decisions within the closed-loop system.</p>
+<hr>
+<h2 id="7-white-label-credit-rails"><a class="header" href="#7-white-label-credit-rails">7. White-Label Credit Rails</a></h2>
+<p>Let other businesses launch their own credit programs on the platform.</p>
+<p><strong>What partners can build</strong>:</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Property</th><th>Detail</th></tr>
+<tr><th>Program Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>AgentId</strong></td><td><code>AgentId(Uuid)</code> — bare UUID in serde, <code>agent:UUID</code> in display</td></tr>
-<tr><td><strong>Public Key</strong></td><td>Ed25519 (32 bytes, hex encoded)</td></tr>
-<tr><td><strong>Signature</strong></td><td>Ed25519 on TxEnvelope (64 bytes, hex encoded)</td></tr>
-<tr><td><strong>Nonce</strong></td><td>Monotonically increasing per agent — prevents replay attacks</td></tr>
-<tr><td><strong>Chain ID</strong></td><td>7332 — binds transactions to the Apostle Chain (prevents cross-chain replay)</td></tr>
+<tr><td><strong>Branded credit lines</strong></td><td>Partner-branded revolving credit for their customers</td></tr>
+<tr><td><strong>Invoice advances</strong></td><td>Receivables financing under partner’s brand</td></tr>
+<tr><td><strong>Embedded B2B financing</strong></td><td>Credit integrated into partner’s procurement flow</td></tr>
+<tr><td><strong>Supplier credit</strong></td><td>Financing for a partner’s supply chain</td></tr>
+<tr><td><strong>API usage credit</strong></td><td>Pre-approved spend for API consumption</td></tr>
+<tr><td><strong>Agent spend accounts</strong></td><td>Managed credit wallets for partner’s agents</td></tr>
 </tbody>
 </table>
 </div>
+<p><strong>How this works</strong>:</p>
+<ol>
+<li>Partner defines their underwriting criteria, limits, and pricing.</li>
+<li>The platform provides the <a href="./overview.html#the-four-engines">four engines</a> as infrastructure.</li>
+<li>Partner’s customers interact with the partner’s brand — the credit OS runs underneath.</li>
+<li>Settlement, collections, and reporting flow through x402 rails.</li>
+<li>The partner earns the spread; the platform earns infrastructure fees.</li>
+</ol>
+<p><strong>This turns the system into a credit infrastructure company</strong>, not just a lender. Revenue shifts from direct lending yield to platform fees, which scales better and carries less balance-sheet risk.</p>
+<hr>
+<h2 id="best-first-product"><a class="header" href="#best-first-product">Best First Product</a></h2>
+<p>Start here:</p>
 <blockquote>
-<p>All 20 agent keypairs are stored in <code>keys/agents.json</code> — generated by <code>bootstrap.py</code> during initial deployment.</p>
+<p><strong>UnyKorn Commercial Credit OS</strong> — underwrites businesses and agents operating on the network; issues controlled credit lines in stablecoins; uses x402 receipts and settlement history as underwriting inputs; repays automatically from incoming network cash flows. No unsecured consumer lending.</p>
 </blockquote>
-<p>For commerce service routing, see <a href="./commerce.html">Commerce Routing and ATP</a>. For the chain itself, see <a href="./overview.html">Apostle Chain Overview</a>.</p>
+<p>For the recommended rollout sequence, see <a href="./revenue.html#rollout-sequence">Rollout Sequence</a>. For the rail strategy that supports these models, see <a href="./rails.html">Rail Strategy</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../apostle/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../credit/overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../apostle/commerce.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../credit/rails.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -338,11 +402,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../apostle/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../credit/overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../apostle/commerce.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../credit/rails.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>

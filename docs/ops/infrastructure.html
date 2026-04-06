@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Infrastructure &amp; AWS - x402 — The AI Payment Protocol</title>
+        <title>Infrastructure - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,9 +178,11 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="infrastructure--aws"><a class="header" href="#infrastructure--aws">Infrastructure &amp; AWS</a></h1>
+                        <h1 id="infrastructure-and-aws"><a class="header" href="#infrastructure-and-aws">Infrastructure and AWS</a></h1>
+<p>This page documents the production environment that runs the <a href="../protocol/what-is-x402.html">x402 protocol</a>, the <a href="../apostle/overview.html">Apostle Chain</a>, and the <a href="../live/digital-twin.html">Digital Twin</a>.</p>
+<hr>
 <h2 id="production-environment"><a class="header" href="#production-environment">Production Environment</a></h2>
-<p>The x402 protocol runs on AWS with Cloudflare DNS proxying.</p>
+<p>The stack runs on AWS with Cloudflare DNS proxying.</p>
 <h3 id="ec2-fleet"><a class="header" href="#ec2-fleet">EC2 Fleet</a></h3>
 <div class="table-wrapper">
 <table>
@@ -244,6 +246,7 @@ python src/agent_runner.py &amp;
 # Start Digital Twin Server
 python src/digital_twin_server.py &amp;
 </code></pre>
+<p>For port-level access control, see <a href="./security.html">Security</a>.</p>
 <h3 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h3>
 <ul>
 <li><strong>Chain health</strong>: <code>GET http://98.91.89.169:7332/health</code></li>
@@ -266,12 +269,12 @@ python src/digital_twin_server.py &amp;
 │   │   └── keys/
 │   │       └── agents.json       # Generated keypairs
 │   ├── gateway-worker/           # Cloudflare edge gateway
-│   ├── settlement/               # XRPL + Stellar bridges
+│   ├── settlement/               # XRPL and Stellar bridges
 │   ├── uny-chain/                # UnyKorn L1 chain node
 │   └── ... (40+ packages)
 ├── registry/                     # Agent registry, chain config
 ├── docs/                         # Documentation site (407.unykorn.org)
-├── scripts/                      # Deployment + utility scripts
+├── scripts/                      # Deployment and utility scripts
 └── x402-book/                    # This mdBook
 </code></pre>
 
@@ -279,7 +282,7 @@ python src/digital_twin_server.py &amp;
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../live/api-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../credit/revenue.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
@@ -293,7 +296,7 @@ python src/digital_twin_server.py &amp;
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../live/api-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../credit/revenue.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 

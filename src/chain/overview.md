@@ -1,5 +1,9 @@
 # UnyKorn L1 — Chain Overview
 
+UnyKorn L1 is a purpose-built blockchain for settling AI agent payments. Every design decision — sub-second blocks, namespace resolution, prepaid credit channels — optimizes for high-frequency micropayment settlement.
+
+---
+
 ## Chain Specifications
 
 | Property | Value |
@@ -7,20 +11,14 @@
 | **Chain Name** | UnyKorn L1 |
 | **Chain ID** | 7331 |
 | **Native Token** | UNY |
-| **Consensus** | Custom PoA → PoS migration planned |
+| **Consensus** | Custom PoA (PoS migration planned) |
 | **Block Time** | ~1 second target |
 | **Primary Asset** | USDF (stablecoin, 7 decimals) |
-| **Status** | **BUILT** — controlled devnet |
+| **Status** | Built — controlled devnet |
 
-## Purpose
+## Why a Separate L1?
 
-UnyKorn L1 is a **purpose-built blockchain** designed for one thing: settling AI agent payments. Unlike general-purpose chains, every design decision optimizes for:
-
-1. **Sub-second settlement** of high-frequency micropayments
-2. **HTTP-native payment flows** embedded in API request/response cycles
-3. **Agent identity** and hierarchical namespace resolution
-4. **Prepaid credit systems** with Ed25519-signed proofs for zero-latency payment
-5. **Receipt batching** with Merkle tree anchoring for auditability at scale
+The [x402 protocol](../protocol/what-is-x402.md) requires sub-second settlement, HTTP-native payment channels, and hierarchical namespace resolution. General-purpose chains do not provide these natively. UnyKorn L1 exists specifically to be the canonical USDF ledger and receipt anchoring layer for the protocol stack.
 
 ## On-Chain Modules
 
@@ -32,7 +30,7 @@ UnyKorn L1 is a **purpose-built blockchain** designed for one thing: settling AI
 | **Trade Finance** | Letter of credit, invoice factoring modules |
 | **Compliance Engine** | KYC/AML policy enforcement at the chain level |
 
-## Infrastructure
+## Infrastructure Plan
 
 The L1 is designed to run on a 5-node AWS fleet:
 
@@ -46,14 +44,14 @@ The L1 is designed to run on a 5-node AWS fleet:
 
 Terraform modules for all 9 infrastructure components are code-complete.
 
-## Relationship to Apostle Chain
+## UnyKorn L1 vs Apostle Chain
 
 | | UnyKorn L1 (7331) | Apostle Chain (7332) |
 |-|-------------------|---------------------|
 | **Purpose** | USDF stablecoin settlement | Sovereign agent commerce (ATP) |
-| **Language** | TypeScript + Terraform | Rust/Axum |
-| **Status** | BUILT (devnet) | LIVE (production) |
+| **Language** | TypeScript + Terraform | Rust / Axum |
+| **Status** | Built (devnet) | **Live** (production) |
 | **Agents** | Channel-based payment | Direct on-chain settlement |
 | **Primary Asset** | USDF | ATP |
 
-Both chains will bridge via the x402 credit pool, enabling agents to pay in ATP while merchants settle in USDF.
+Both chains bridge via the x402 credit pool, enabling agents to pay in ATP while merchants settle in USDF. For the Apostle Chain in detail, see [Chain 7332 Overview](../apostle/overview.md). For token economics, see [UNY Tokenomics](./tokenomics.md).

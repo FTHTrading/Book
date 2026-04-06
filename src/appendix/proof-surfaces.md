@@ -1,14 +1,14 @@
-# Appendix: Proof Surfaces
+# Proof Surfaces
 
 Proof surfaces are publicly accessible endpoints and verification points for the UnyKorn x402 system. They allow anyone to independently verify claims made in this documentation.
 
 ---
 
-## Public Endpoints (LIVE)
+## Public Endpoints (Live)
 
 | Surface | URL | What It Proves |
 |---------|-----|----------------|
-| **Digital Twin** | [twin.unykorn.org](https://twin.unykorn.org) | Real-time agent mesh visualization, live transactions |
+| **Digital Twin** | [twin.unykorn.org](https://twin.unykorn.org) | Real-time [agent mesh](../apostle/agents.md) visualisation, live transactions |
 | **Explorer** | [main.unykorn-explorer.pages.dev](https://main.unykorn-explorer.pages.dev) | Dashboard, blocks, transactions, agents, namespaces |
 | **ICO Site** | [ico.unykorn.org](https://ico.unykorn.org) | Token sale, tiers, tokenomics, roadmap |
 | **Gateway** | `x402-gateway-staging.kevanbtc.workers.dev` | x402 route enforcement, 402 responses |
@@ -17,7 +17,7 @@ Proof surfaces are publicly accessible endpoints and verification points for the
 | **Tokenomics** | [docs/TOKENOMICS.md](https://github.com/FTHTrading/UnyKorn-X402-aws/blob/main/docs/TOKENOMICS.md) | Economic model |
 | **Docs Site** | [407.unykorn.org](https://407.unykorn.org) | Documentation hub |
 
-## Discovery Endpoints (LIVE)
+## Discovery Endpoints (Live)
 
 | Endpoint | Data |
 |----------|------|
@@ -27,7 +27,9 @@ Proof surfaces are publicly accessible endpoints and verification points for the
 | `/.well-known/openapi.json` | OpenAPI 3.1 Specification |
 | `/health` | Service health check |
 
-## Apostle Chain Endpoints (LIVE on EC2)
+## Apostle Chain Endpoints (Live on EC2)
+
+See the full [API Reference](../live/api-reference.md) for request/response details.
 
 | Endpoint | What It Proves |
 |----------|----------------|
@@ -42,7 +44,7 @@ Proof surfaces are publicly accessible endpoints and verification points for the
 |------|--------|---------------------|
 | UnyKorn L1 block production | No public RPC | Deploy public RPC endpoint |
 | Transaction finality metrics | No mainnet | Mainnet launch |
-| Treasury wallet on-chain balance | No mainnet | Multi-sig deployment |
+| Treasury wallet on-chain balance | No mainnet | [Multi-sig deployment](../chain/treasury.md) |
 | Vesting contract enforcement | Not deployed | Smart contract deployment |
 | Third-party audit report | Not completed | Engage auditor |
 | Uptime metrics / SLA dashboard | Not built | Build status page |
@@ -60,7 +62,7 @@ The UNY token contract is **immutable** (no proxy pattern):
 | Upgrade contract | **No** — immutable, no proxy |
 | Admin withdrawal | **No** — no admin withdrawal function |
 
-> **Known risk**: Treasury allocation is controlled by a single deployer key. Migration to 3-of-5 multi-sig with timelock is planned for Q3 2026.
+> **Known risk**: Treasury allocation is controlled by a single deployer key. Migration to 3-of-5 multi-sig with timelock is planned for Q3 2026. See [Treasury and Governance](../chain/treasury.md).
 
 ## Exchange Readiness Summary
 

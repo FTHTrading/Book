@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - x402 — The AI Payment Protocol</title>
-        <base href="/">
+        <title>Rail Strategy - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -13,34 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-2459343d.css">
-        <link rel="stylesheet" href="css/chrome-ae938929.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="src/custom-79f7119f.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3a0bedb2.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-5bb45c68.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -107,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +141,7 @@
                     <h1 class="menu-title">x402 — The AI Payment Protocol</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/FTHTrading/Book" title="Git repository" aria-label="Git repository">
@@ -179,14 +178,131 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="rail-strategy"><a class="header" href="#rail-strategy">Rail Strategy</a></h1>
+<p>The <a href="./overview.html">Credit Operating Layer</a> uses a split-rail model. Each settlement chain serves a specific role in the credit lifecycle. x402 is not the credit model — it is the <strong>collection, authorisation, and settlement fabric</strong> that all credit operations flow through.</p>
+<hr>
+<h2 id="how-x402-fits"><a class="header" href="#how-x402-fits">How x402 Fits</a></h2>
+<p>x402 provides the gateway for every payment-required, draw-required, and repay-required action in the credit system.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>x402 Function</th><th>Credit Use</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Paid access</strong></td><td>Gated credit dashboards, underwriting reports, score lookups</td></tr>
+<tr><td><strong>Metered consumption</strong></td><td>Usage-based credit draws (API spend, compute, data)</td></tr>
+<tr><td><strong>Drawdown authorisation</strong></td><td>HTTP 402 challenge before credit disbursement — borrower must present valid proof</td></tr>
+<tr><td><strong>Repayment triggers</strong></td><td>Auto-sweep incoming <a href="../live/api-reference.html#verification-and-settlement">facilitator settlements</a> toward outstanding balances</td></tr>
+<tr><td><strong>Proof of payment</strong></td><td>Cryptographic receipt for every drawdown and repayment event</td></tr>
+<tr><td><strong>Machine-to-machine collections</strong></td><td><a href="../apostle/commerce.html">Agent-to-agent</a> auto-collection without human intervention</td></tr>
+<tr><td><strong>Wallet-authenticated access</strong></td><td>SIWX (Sign-In With X) for repeat borrower access</td></tr>
+<tr><td><strong>Facilitator-based settlement</strong></td><td>No merchant or borrower runs direct chain infrastructure — the <a href="../protocol/architecture.html">facilitator</a> handles settlement</td></tr>
+</tbody>
+</table>
+</div>
+<p>The key insight: the x402 facilitator already supports <a href="../protocol/architecture.html">private deployment</a> with custom KYC/KYT flows. A credit facilitator is the same pattern — a private facilitator that additionally checks credit limits and enforces drawdown policy before settling.</p>
+<h2 id="rail-assignment"><a class="header" href="#rail-assignment">Rail Assignment</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Rail</th><th>Role in Credit Stack</th><th>Best For</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Solana</strong></td><td>High-speed agent and merchant spend credit</td><td>Fast revolving draws, high-frequency agent spending, real-time credit replenishment</td></tr>
+<tr><td><strong>Stellar</strong></td><td>Stablecoin treasury credit, business lending, institutional flows</td><td>Business disbursements, repayment routing, sponsored/gas-abstracted flows</td></tr>
+<tr><td><strong>Apostle Chain (7332)</strong></td><td>Credit memory, policy enforcement, attestation</td><td>Risk grades, limit records, credit events, agent spend tracking</td></tr>
+<tr><td><strong>UnyKorn L1 (7331)</strong></td><td>USDF settlement anchoring, receipt batching</td><td>Final settlement, audit trail, <a href="../live/api-reference.html#l1-anchoring">L1 anchoring</a></td></tr>
+<tr><td><strong>XRPL</strong></td><td>Cross-border settlement, xUSDF routing</td><td>International business credit settlement</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="solana-for-credit"><a class="header" href="#solana-for-credit">Solana for Credit</a></h2>
+<p>Solana supports all SPL and Token-2022 tokens. The x402 ecosystem includes <code>@x402/svm</code>, and the facilitator handles Solana-specific duplicate-settlement protection (blockhash lifetime).</p>
+<p><strong>What Solana is good for in the credit stack</strong>:</p>
+<ul>
+<li>Fast revolving credit draws (sub-second finality).</li>
+<li>Low-friction merchant settlement.</li>
+<li>High-frequency <a href="./models.html#4-agent-credit">agent spending</a> — agents can draw and spend hundreds of times per hour.</li>
+<li>Real-time credit replenishment from incoming payments.</li>
+<li>Consumer-like UX if the product ever moves to lighter-weight retail models.</li>
+</ul>
+<p><strong>Operational considerations</strong>:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Concern</th><th>Mitigation</th></tr>
+</thead>
+<tbody>
+<tr><td>Duplicate settlement</td><td>x402 facilitator handles blockhash-based dedup</td></tr>
+<tr><td>Transaction lifecycle sensitivity</td><td>Solana flow design is more lifecycle-sensitive than EVM signed-message models — the facilitator abstracts this</td></tr>
+<tr><td>Congestion during network spikes</td><td>Rate-limit credit draws during high-congestion periods; queue and retry</td></tr>
+</tbody>
+</table>
+</div>
+<h2 id="stellar-for-credit"><a class="header" href="#stellar-for-credit">Stellar for Credit</a></h2>
+<p>Stellar supports SEP-41/Soroban tokens and uses <code>token.transfer(from, to, amount)</code>. The TypeScript SDK supports sponsored transactions (gas abstraction).</p>
+<p><strong>What Stellar is good for in the credit stack</strong>:</p>
+<ul>
+<li>Stablecoin credit products (USDF, USDC).</li>
+<li>Treasury-grade settlement with strong institutional positioning.</li>
+<li>Sponsored/gas-abstracted flows — borrowers never pay gas.</li>
+<li>Business disbursements and repayment routing.</li>
+<li>Cleaner regulatory positioning for institutional credit products.</li>
+</ul>
+<p><strong>Maturity note</strong>: x402 clearly supports Stellar, and the ecosystem lists it as a rail. However, the current x402 seller quickstart’s production guidance explicitly names Base and Solana. Treat Stellar as <strong>supported but facilitator-maturity dependent</strong> — validate the facilitator deployment path before committing Stellar as the primary rail for a production credit product.</p>
+<h2 id="apostle-chain-for-credit-memory"><a class="header" href="#apostle-chain-for-credit-memory">Apostle Chain for Credit Memory</a></h2>
+<p>The <a href="../apostle/overview.html">Apostle Chain</a> is not a settlement rail for external credit — it is the <strong>internal credit memory and policy layer</strong>.</p>
+<p><strong>What lives on the Apostle Chain</strong>:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Data</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td>Risk grade history</td><td>Every grade assignment and transition, timestamped</td></tr>
+<tr><td>Credit limit records</td><td>Current and historical limits per entity</td></tr>
+<tr><td>Credit events</td><td>Drawdowns, repayments, delinquencies, restructures</td></tr>
+<tr><td>Agent spend tracking</td><td>Real-time <a href="./models.html#4-agent-credit">agent credit</a> balances and velocity</td></tr>
+<tr><td>Policy attestations</td><td>Policy engine decisions (approvals, denials, adverse actions)</td></tr>
+<tr><td>Collateral locks</td><td>Tokenised asset locks for <a href="./models.html#5-tokenised-asset-backed-credit">asset-backed credit</a></td></tr>
+</tbody>
+</table>
+</div>
+<p>This data is queryable via the existing <a href="../apostle/overview.html#api-endpoints">Apostle Chain API</a>. The proposer produces blocks only when credit events occur — no empty block overhead.</p>
+<h2 id="unykorn-l1-for-settlement-anchoring"><a class="header" href="#unykorn-l1-for-settlement-anchoring">UnyKorn L1 for Settlement Anchoring</a></h2>
+<p><a href="../chain/overview.html">UnyKorn L1</a> anchors final settlement receipts. Every credit drawdown and repayment that settles on Solana or Stellar produces a receipt that is <a href="../live/api-reference.html#l1-anchoring">batch-anchored</a> to L1. This creates an immutable audit trail independent of any single settlement rail.</p>
+<h2 id="rail-selection-flow"><a class="header" href="#rail-selection-flow">Rail Selection Flow</a></h2>
+<pre><code class="language-text">Credit Event
+    │
+    ├─ Agent spend draw?
+    │     └─ Apostle Chain (policy check) → Solana (fast settlement)
+    │
+    ├─ Business credit disbursement?
+    │     └─ Apostle Chain (policy check) → Stellar (stablecoin settlement)
+    │
+    ├─ Invoice advance?
+    │     └─ Apostle Chain (policy check) → Stellar or Solana (borrower preference)
+    │
+    ├─ Repayment auto-sweep?
+    │     └─ Same rail as original disbursement → Apostle Chain (credit event log)
+    │
+    └─ Receipt anchoring?
+          └─ UnyKorn L1 (batch anchor)
+</code></pre>
+<p>Every path starts with a policy check on the Apostle Chain and ends with a receipt anchor on UnyKorn L1.</p>
+<p>For revenue streams generated by this rail infrastructure, see <a href="./revenue.html">Revenue and Compliance</a>. For the credit models these rails support, see <a href="./models.html">Credit Models</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../credit/models.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="../credit/revenue.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -194,7 +310,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../credit/models.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="../credit/revenue.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>
@@ -212,13 +334,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-c2a407aa.js"></script>
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-a0b12cfe.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

@@ -1,27 +1,116 @@
-/* x402 book — dark theme enhancements */
+/* x402 book — dark navy / cyan accent theme */
+
 :root {
   --accent: #00c8ff;
-  --accent-dim: rgba(0,200,255,0.15);
+  --accent-dim: rgba(0, 200, 255, 0.15);
+  --accent-faint: rgba(0, 200, 255, 0.06);
+  --text-primary: #e0e8f0;
+  --text-secondary: #8aa8cc;
+  --border-subtle: rgba(0, 200, 255, 0.12);
 }
 
+/* ── Sidebar ─────────────────────────────────────────── */
 .navy {
   --sidebar-bg: #080e1c;
   --sidebar-fg: #8aa8cc;
   --sidebar-active: #00c8ff;
 }
 
-h1 { color: #00c8ff !important; border-bottom: 1px solid rgba(0,200,255,0.15); padding-bottom: 8px; }
-h2 { color: #e0e8f0; }
-h3 { color: #80b0d0; }
+/* ── Headings ────────────────────────────────────────── */
+h1 {
+  color: #00c8ff !important;
+  border-bottom: 1px solid var(--accent-dim);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+h2 { color: var(--text-primary); margin-top: 2em; }
+h3 { color: var(--text-secondary); }
 
-/* Status badges */
-code { background: rgba(0,200,255,0.08); border: 1px solid rgba(0,200,255,0.12); border-radius: 3px; padding: 1px 5px; }
+/* ── Inline code ─────────────────────────────────────── */
+code {
+  background: var(--accent-faint);
+  border: 1px solid var(--border-subtle);
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.9em;
+}
 
-/* Tables */
-table th { background: rgba(0,200,255,0.08); }
+/* Don't double-style code inside fenced blocks */
+pre > code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85em;
+}
 
-/* Blockquotes */
-blockquote { border-left: 3px solid #00c8ff; background: rgba(0,200,255,0.03); padding: 12px 16px; }
+/* ── Tables ──────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.92em;
+}
+table th {
+  background: rgba(0, 200, 255, 0.08);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--accent-dim);
+  font-weight: 600;
+  white-space: nowrap;
+}
+table td {
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  vertical-align: top;
+}
+table tr:hover td {
+  background: rgba(0, 200, 255, 0.02);
+}
 
-/* Live twin iframe */
-.twin-embed { width: 100%; height: 600px; border: 1px solid rgba(0,200,255,0.2); border-radius: 8px; }
+/* ── Blockquotes ─────────────────────────────────────── */
+blockquote {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-faint);
+  padding: 12px 16px;
+  margin: 1.2em 0;
+  border-radius: 0 4px 4px 0;
+}
+blockquote p:last-child { margin-bottom: 0; }
+
+/* ── Fenced code / diagrams ──────────────────────────── */
+pre {
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  line-height: 1.45;
+}
+
+/* ── Horizontal rules ────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--accent-dim);
+  margin: 2em 0;
+}
+
+/* ── Live twin iframe ────────────────────────────────── */
+.twin-embed {
+  width: 100%;
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1.5em 0;
+}
+.twin-embed iframe {
+  display: block;
+  width: 100%;
+  height: 700px;
+  border: none;
+}
+
+/* ── Strong / emphasis ───────────────────────────────── */
+strong { color: #f0f4f8; }
+
+/* ── Links ───────────────────────────────────────────── */
+.content a { color: var(--accent); text-decoration: none; }
+.content a:hover { text-decoration: underline; }

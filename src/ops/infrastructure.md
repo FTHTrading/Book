@@ -1,8 +1,12 @@
-# Infrastructure & AWS
+# Infrastructure and AWS
+
+This page documents the production environment that runs the [x402 protocol](../protocol/what-is-x402.md), the [Apostle Chain](../apostle/overview.md), and the [Digital Twin](../live/digital-twin.md).
+
+---
 
 ## Production Environment
 
-The x402 protocol runs on AWS with Cloudflare DNS proxying.
+The stack runs on AWS with Cloudflare DNS proxying.
 
 ### EC2 Fleet
 
@@ -54,6 +58,8 @@ python src/agent_runner.py &
 python src/digital_twin_server.py &
 ```
 
+For port-level access control, see [Security](./security.md).
+
 ### Monitoring
 
 - **Chain health**: `GET http://98.91.89.169:7332/health`
@@ -78,11 +84,11 @@ UnyKorn-X402-aws/
 │   │   └── keys/
 │   │       └── agents.json       # Generated keypairs
 │   ├── gateway-worker/           # Cloudflare edge gateway
-│   ├── settlement/               # XRPL + Stellar bridges
+│   ├── settlement/               # XRPL and Stellar bridges
 │   ├── uny-chain/                # UnyKorn L1 chain node
 │   └── ... (40+ packages)
 ├── registry/                     # Agent registry, chain config
 ├── docs/                         # Documentation site (407.unykorn.org)
-├── scripts/                      # Deployment + utility scripts
+├── scripts/                      # Deployment and utility scripts
 └── x402-book/                    # This mdBook
 ```

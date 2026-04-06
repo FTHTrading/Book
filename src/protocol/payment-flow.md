@@ -1,24 +1,24 @@
 # Payment Flow
 
-## The x402 Payment Lifecycle
+Every x402 payment follows a deterministic six-step lifecycle embedded in a single HTTP request cycle. This page walks through each step with exact payload formats.
 
-Every x402 payment follows a deterministic 6-step flow embedded in a single HTTP request cycle.
+---
 
-### Step 1: Request
+## Step 1 — Request
 
-An AI agent sends an HTTP request to a paid endpoint:
+An AI agent sends a standard HTTP request to a paid endpoint:
 
-```
+```http
 GET /v1/settle HTTP/1.1
 Host: settlement.unykorn.org
 Authorization: Bearer agent:87724c76-da93-4b1a-9fa6-271ba856338e
 ```
 
-### Step 2: Challenge (HTTP 402)
+## Step 2 — Challenge (HTTP 402)
 
-The x402 gateway returns HTTP 402 with payment requirements:
+The [x402 Gateway](./architecture.md) returns HTTP 402 with payment requirements:
 
-```
+```http
 HTTP/1.1 402 Payment Required
 X-PAYMENT-REQUIRED: {
   "asset": "ATP",
@@ -30,7 +30,9 @@ X-PAYMENT-REQUIRED: {
 }
 ```
 
-### Step 3: Payment Proof Construction
+The challenge specifies the asset, amount (in base units), receiving agent, namespace, and time-to-live.
+
+## Step 3 — Proof Construction
 
 The agent constructs a signed payment proof using its Ed25519 keypair:
 
@@ -48,28 +50,31 @@ The agent constructs a signed payment proof using its Ed25519 keypair:
 }
 ```
 
-### Step 4: Retry with Proof
+> The `amount` field must be a **string** in JSON. See [Apostle Chain Overview](../apostle/overview.md) for the `str_u128` serialization requirement.
+
+## Step 4 — Retry with Proof
 
 The agent retries the original request with the payment proof attached:
 
-```
+```http
 GET /v1/settle HTTP/1.1
 Host: settlement.unykorn.org
 X-PAYMENT: <base64-encoded signed TxEnvelope>
 ```
 
-### Step 5: Verification & Settlement
+## Step 5 — Verification and Settlement
 
-The facilitator:
-1. **Verifies** the Ed25519 signature
-2. **Checks** nonce for replay protection
-3. **Debits** the sender's balance
-4. **Credits** the receiver's balance
-5. **Creates** a cryptographic receipt
+The [Facilitator](./architecture.md) processes the proof:
 
-### Step 6: Delivery + Receipt
+1. **Verify** the Ed25519 signature
+2. **Check** nonce for replay protection
+3. **Debit** the sender's balance
+4. **Credit** the receiver's balance
+5. **Create** a cryptographic receipt
 
-```
+## Step 6 — Delivery and Receipt
+
+```http
 HTTP/1.1 200 OK
 X-RECEIPT: rcpt_a1b2c3...
 Content-Type: application/json
@@ -83,7 +88,7 @@ The receipt is batched into a Merkle tree and periodically anchored on-chain.
 
 ## Payment Rails
 
-x402 supports multiple settlement rails:
+x402 supports multiple settlement rails. The Facilitator selects the optimal rail based on amount, urgency, and policy.
 
 | Rail | Asset | Role | Latency |
 |------|-------|------|---------|
@@ -92,4 +97,4 @@ x402 supports multiple settlement rails:
 | **Stellar** | sUSDF | Bridge rail, Soroban auth-entry | ~5s |
 | **XRPL** | xUSDF | Mirror rail, IOU distribution | ~4s |
 
-The Facilitator selects the optimal rail based on amount, urgency, and policy.
+For the full architectural breakdown of these components, see [System Architecture](./architecture.md).

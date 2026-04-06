@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>What is x402? - x402 — The AI Payment Protocol</title>
+        <title>What Is x402? - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,36 +178,37 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="what-is-x402"><a class="header" href="#what-is-x402">What is x402?</a></h1>
-<h2 id="the-problem-ai-agents-face-today"><a class="header" href="#the-problem-ai-agents-face-today">The Problem AI Agents Face Today</a></h2>
-<p>The internet was built on a free-access model. HTTP 200 serves content. HTTP 401/403 handles auth. But <strong>HTTP 402 — “Payment Required”</strong> — was reserved in RFC 7231 for future use and never standardized.</p>
-<p>As AI agents proliferate, they need to:</p>
+                        <h1 id="what-is-x402"><a class="header" href="#what-is-x402">What Is x402?</a></h1>
+<p>x402 embeds payment directly into the HTTP request/response cycle using the long-reserved <code>402 Payment Required</code> status code. It gives AI agents a native way to pay for API calls — no human approval, no separate transaction flow, no multi-second block confirmations.</p>
+<hr>
+<h2 id="the-problem"><a class="header" href="#the-problem">The Problem</a></h2>
+<p>HTTP 402 was reserved in RFC 7231 for “future use” and never standardized. Meanwhile, AI agents need to:</p>
 <ul>
-<li><strong>Pay for API calls</strong> autonomously — no human clicking “approve”</li>
-<li><strong>Settle micropayments</strong> in real-time (&lt; 1 second, not 3-5 business days)</li>
-<li><strong>Negotiate pricing, access tiers, and service levels</strong> machine-to-machine</li>
-<li><strong>Operate without human intervention</strong> for each transaction</li>
+<li>Pay for API calls autonomously — no human clicking “approve”</li>
+<li>Settle micropayments in real time, not in 3–5 business days</li>
+<li>Negotiate pricing and access tiers machine-to-machine</li>
+<li>Operate without human intervention per transaction</li>
 </ul>
-<p>No existing blockchain or payment system solves this at the protocol level.</p>
-<h2 id="why-existing-chains-dont-work"><a class="header" href="#why-existing-chains-dont-work">Why Existing Chains Don’t Work</a></h2>
-<p>General-purpose chains (Ethereum, Solana, etc.) optimize for DeFi, NFTs, and smart contracts. They are not designed for:</p>
+<p>No existing blockchain or payment rail solves this at the HTTP layer.</p>
+<h2 id="why-existing-chains-fall-short"><a class="header" href="#why-existing-chains-fall-short">Why Existing Chains Fall Short</a></h2>
+<p>General-purpose chains optimize for DeFi, NFTs, and smart contracts. They are not designed for embedded HTTP commerce.</p>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Requirement</th><th>Ethereum/Solana</th><th>x402</th></tr>
+<tr><th>Requirement</th><th>Ethereum / Solana</th><th>x402</th></tr>
 </thead>
 <tbody>
-<tr><td>Sub-second micropayment settlement</td><td>❌ 12s+ blocks, $0.01-$5 fees</td><td>✅ &lt; 50ms, zero platform fees</td></tr>
-<tr><td>HTTP-native payment in request/response</td><td>❌ Separate tx flow</td><td>✅ Built into HTTP 402 cycle</td></tr>
-<tr><td>Agent identity &amp; namespace resolution</td><td>❌ Raw addresses only</td><td>✅ Hierarchical <code>x402.*</code> namespaces</td></tr>
-<tr><td>Prepaid credit with Ed25519 proofs</td><td>❌ Not native</td><td>✅ Zero-latency payment channels</td></tr>
-<tr><td>Receipt batching with Merkle anchoring</td><td>❌ Must build from scratch</td><td>✅ Native protocol feature</td></tr>
+<tr><td>Sub-second micropayment settlement</td><td>12s+ blocks, $0.01–$5 fees</td><td>&lt; 50ms, zero platform fees</td></tr>
+<tr><td>HTTP-native payment in request/response</td><td>Separate transaction flow</td><td>Built into HTTP 402 cycle</td></tr>
+<tr><td>Agent identity and namespace resolution</td><td>Raw addresses only</td><td>Hierarchical <code>x402.*</code> namespaces</td></tr>
+<tr><td>Prepaid credit with Ed25519 proofs</td><td>Not native</td><td>Zero-latency payment channels</td></tr>
+<tr><td>Receipt batching with Merkle anchoring</td><td>Must build from scratch</td><td>Native protocol feature</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="the-x402-solution"><a class="header" href="#the-x402-solution">The x402 Solution</a></h2>
-<p>x402 uses HTTP 402 to embed payment directly into the API request/response cycle:</p>
-<pre><code>┌──────────┐                    ┌───────────────┐
+<h2 id="the-x402-model"><a class="header" href="#the-x402-model">The x402 Model</a></h2>
+<p>x402 uses HTTP 402 to embed payment directly into the API call:</p>
+<pre><code class="language-text">┌──────────┐                    ┌───────────────┐
 │ AI Agent │ ── GET /api/data → │ x402 Gateway  │
 │          │                    │               │
 │          │ ← HTTP 402 ────── │ Payment       │
@@ -222,17 +223,25 @@
 │          │   + data payload  │               │
 └──────────┘                    └───────────────┘
 </code></pre>
-<p><strong>Protocol Version</strong>: <code>x402/2.0</code></p>
 <p>The entire flow — challenge, payment, verification, settlement, receipt — happens in a single HTTP round-trip. The agent never leaves the API call context.</p>
+<p><strong>Protocol version</strong>: <code>x402/2.0</code></p>
 <h2 id="key-properties"><a class="header" href="#key-properties">Key Properties</a></h2>
-<ul>
-<li><strong>Zero platform fees</strong> — ATP transfers cost nothing beyond chain gas</li>
-<li><strong>Sub-50ms settlement</strong> — prepaid credit channels bypass block confirmation</li>
-<li><strong>Cryptographic receipts</strong> — every payment produces a signed, verifiable receipt</li>
-<li><strong>Merkle-batched anchoring</strong> — receipts are batched into Merkle trees and anchored on-chain</li>
-<li><strong>Machine-first</strong> — no CAPTCHAs, no OAuth flows, no human-in-the-loop</li>
-<li><strong>Auditable</strong> — full chain of custody from request → payment → receipt → anchor</li>
-</ul>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Property</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Zero platform fees</strong></td><td>ATP transfers cost nothing beyond chain gas</td></tr>
+<tr><td><strong>Sub-50ms settlement</strong></td><td>Prepaid credit channels bypass block confirmation</td></tr>
+<tr><td><strong>Cryptographic receipts</strong></td><td>Every payment produces a signed, verifiable receipt</td></tr>
+<tr><td><strong>Merkle-batched anchoring</strong></td><td>Receipts are batched into Merkle trees and anchored on-chain</td></tr>
+<tr><td><strong>Machine-first</strong></td><td>No CAPTCHAs, no OAuth, no human-in-the-loop</td></tr>
+<tr><td><strong>Auditable</strong></td><td>Full chain of custody: request → payment → receipt → anchor</td></tr>
+</tbody>
+</table>
+</div>
+<p>For the full payment lifecycle, see <a href="./payment-flow.html">Payment Flow</a>. For the component architecture behind this model, see <a href="./architecture.html">System Architecture</a>.</p>
 
                     </main>
 

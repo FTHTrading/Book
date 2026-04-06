@@ -1,10 +1,10 @@
 # Security
 
-## Security Model
+Defence-in-depth across every layer of the [x402 protocol](../protocol/what-is-x402.md), the [Apostle Chain](../apostle/overview.md), and the Facilitator.
 
-The x402 protocol implements defense-in-depth across every layer.
+---
 
-### Cryptographic Foundation
+## Cryptographic Foundation
 
 | Component | Algorithm | Key Size | Purpose |
 |-----------|-----------|----------|---------|
@@ -14,9 +14,9 @@ The x402 protocol implements defense-in-depth across every layer.
 | **Nonce** | Monotonic u64 | 64-bit | Replay prevention |
 | **Chain ID** | 7332 | — | Cross-chain replay prevention |
 
-### Transaction Security
+## Transaction Security
 
-Every transaction on the Apostle Chain must satisfy:
+Every transaction on the [Apostle Chain](../apostle/overview.md) must satisfy:
 
 1. **Valid Ed25519 signature** — signed by the `from` agent's private key
 2. **Correct nonce** — must equal the agent's current nonce (monotonically increasing)
@@ -24,19 +24,21 @@ Every transaction on the Apostle Chain must satisfy:
 4. **Sufficient balance** — sender must have enough ATP
 5. **Valid recipient** — `to` agent must exist on-chain
 
-```
-  TxEnvelope {
-    hash: SHA-256(payload),
-    from: agent_uuid,
-    nonce: current_nonce,      ← must match ledger
-    chain_id: 7332,            ← binds to Apostle Chain
-    payload: { ... },
-    signature: Ed25519(hash),  ← proves ownership
-    timestamp: ISO 8601
-  }
+```text
+TxEnvelope {
+  hash: SHA-256(payload),
+  from: agent_uuid,
+  nonce: current_nonce,      ← must match ledger
+  chain_id: 7332,            ← binds to Apostle Chain
+  payload: { ... },
+  signature: Ed25519(hash),  ← proves ownership
+  timestamp: ISO 8601
+}
 ```
 
-### Key Management
+For the full TxEnvelope schema, see [Apostle Chain Overview](../apostle/overview.md#txenvelope-format).
+
+## Key Management
 
 | Key Type | Storage | Access |
 |----------|---------|--------|
@@ -44,7 +46,7 @@ Every transaction on the Apostle Chain must satisfy:
 | SSH keys | `~/.ssh/unykorn-devnet-key.pem` | Local only |
 | Cloudflare API tokens | `.env` files | Per-project scoped |
 
-### Network Security
+## Network Security
 
 | Layer | Protection |
 |-------|-----------|
@@ -53,7 +55,7 @@ Every transaction on the Apostle Chain must satisfy:
 | **EC2** | Amazon Linux 2023, auto-patching |
 | **WebSocket** | Internal network only (3280 not exposed publicly) |
 
-### Invoice Security (Facilitator)
+## Invoice Security (Facilitator)
 
 The x402 Facilitator implements:
 
@@ -63,7 +65,7 @@ The x402 Facilitator implements:
 - **Rate limiting** — per-namespace, configurable per-policy
 - **Namespace isolation** — each service route is scoped to its namespace
 
-### Planned Improvements (Q3 2026)
+## Planned Improvements (Q3 2026)
 
 | Enhancement | Description |
 |-------------|------------|
@@ -72,3 +74,5 @@ The x402 Facilitator implements:
 | **Audit logging** | Immutable audit trail for all admin operations |
 | **Anomaly detection** | Statistical analysis of transaction patterns |
 | **Hardware security** | HSM integration for treasury keys |
+
+For treasury governance controls, see [Treasury and Governance](../chain/treasury.md). For the roadmap timeline, see [Roadmap](./roadmap.md).

@@ -1,32 +1,36 @@
-# Commerce Routing & ATP
+# Commerce Routing and ATP
+
+The [Apostle Chain](./overview.md) is not a test-net with random transfers — every transaction represents a real service interaction between [mesh agents](./agents.md). This page documents the commerce map, service URIs, ATP token properties, and the circular economy that keeps the mesh self-sustaining.
+
+---
 
 ## How Agents Trade
 
-Every transaction on the Apostle Chain represents a real service interaction between agents. Agent A pays Agent B for a specific economic function — not random transfers, but **purpose-driven commerce**.
+Agent A pays Agent B for a specific economic function — purpose-driven commerce, not random transfers.
 
 The commerce map defines **who pays whom for what**:
 
-```
-  settlement       ──→ treasury          (settlement fees)
-  exchange-listing ──→ intelligence      (price intelligence)
-  onboarding       ──→ documentation     (doc lookups)
-  market-monitor   ──→ exchange-listing  (trade signals)
-  wallet-ops       ──→ compliance        (KYC checks)
-  reconciliation   ──→ settlement        (ledger access)
-  incident-response──→ risk              (risk assessments)
-  listing-packet   ──→ settlement        (listing execution)
-  customer-desk    ──→ onboarding        (agent routing)
-  compliance       ──→ policy            (policy queries)
-  risk             ──→ compliance        (risk signoffs)
-  policy           ──→ treasury          (budget approval)
-  treasury         ──→ genesis-treasury  (treasury sweeps)
-  intelligence     ──→ market-monitor    (data feeds)
-  documentation    ──→ listing-packet    (doc packaging)
-  chairman         ──→ treasury          (chairman directives)
-  operator         ──→ x402-credit-pool  (infra payments)
+```text
+settlement       → treasury          (settlement fees)
+exchange-listing → intelligence      (price intelligence)
+onboarding       → documentation     (doc lookups)
+market-monitor   → exchange-listing  (trade signals)
+wallet-ops       → compliance        (KYC checks)
+reconciliation   → settlement        (ledger access)
+incident-response→ risk              (risk assessments)
+listing-packet   → settlement        (listing execution)
+customer-desk    → onboarding        (agent routing)
+compliance       → policy            (policy queries)
+risk             → compliance        (risk signoffs)
+policy           → treasury          (budget approval)
+treasury         → genesis-treasury  (treasury sweeps)
+intelligence     → market-monitor    (data feeds)
+documentation    → listing-packet    (doc packaging)
+chairman         → treasury          (chairman directives)
+operator         → x402-credit-pool  (infra payments)
 ```
 
-Each agent has **multiple possible targets** — one is picked at random per cycle, introducing economic variety while preserving the role-based logic.
+Each agent has multiple possible targets — one is picked at random per cycle, introducing economic variety while preserving the role-based logic.
 
 ## x402 Service URIs
 
@@ -76,7 +80,7 @@ ATP is the native token of the Apostle Chain. It is the unit of exchange for all
 
 A single commerce cycle for an agent:
 
-```
+```text
 1. Agent wakes up (tier-based sleep interval)
 
 2. Pick target from COMMERCE_MAP
@@ -103,27 +107,31 @@ A single commerce cycle for an agent:
    └─ picked up by mesh-pulse → digital twin animation
 
 8. Sleep (tier-based interval)
-   └─ e.g., execution: 10–40 seconds
+   └─ e.g., execution: 10 – 40 seconds
 ```
+
+For endpoint details, see the [API Reference](../live/api-reference.md). For the TxEnvelope schema, see [Apostle Chain Overview](./overview.md#txenvelope-format).
 
 ## Commerce Economics
 
-The mesh creates a **self-sustaining circular economy**:
+The mesh creates a self-sustaining circular economy:
 
-```
-  Operators
-    │
-    ▼ (fund)
-  Control ←──── Policy approval ──── Execution
-    │                                    │
-    ▼ (govern)                           ▼ (work)
-  Treasury ←── Sweeps ── Settlement ← Listing
-    │                                    │
-    ▼ (allocate)                         ▼ (inform)
-  Intelligence ←── Data ── Market Monitor
-    │
-    ▼ (serve)
-  Interface (customer-desk)
+```text
+Operators
+  │
+  ▼ (fund)
+Control ←── Policy approval ── Execution
+  │                                │
+  ▼ (govern)                       ▼ (work)
+Treasury ←── Sweeps ── Settlement ← Listing
+  │                                │
+  ▼ (allocate)                     ▼ (inform)
+Intelligence ←── Data ── Market Monitor
+  │
+  ▼ (serve)
+Interface (customer-desk)
 ```
 
-ATP flows **downward** from operators through control to execution, and **data flows upward** from intelligence through execution to control. The treasury acts as the central monetary authority, receiving fees and sweeping funds to genesis-treasury.
+ATP flows **downward** from operators through control to execution. Data flows **upward** from intelligence through execution to control. The treasury acts as the central monetary authority, receiving fees and sweeping funds to genesis-treasury.
+
+For agent balances and tier economics, see [The Agent Mesh](./agents.md#tier-economics). For the [Digital Twin](../live/digital-twin.md), mesh-pulse transactions drive real-time visualisation. For how commerce data feeds credit underwriting, see [Credit Operating Layer](../credit/overview.md) and [Agent Credit](../credit/models.md#4-agent-credit).

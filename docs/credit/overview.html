@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - x402 — The AI Payment Protocol</title>
-        <base href="/">
+        <title>Credit Operating Layer - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -13,34 +12,34 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon-de23e50b.svg">
-        <link rel="shortcut icon" href="favicon-8114d1fc.png">
-        <link rel="stylesheet" href="css/variables-8adf115d.css">
-        <link rel="stylesheet" href="css/general-2459343d.css">
-        <link rel="stylesheet" href="css/chrome-ae938929.css">
-        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+        <link rel="icon" href="../favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="../favicon-8114d1fc.png">
+        <link rel="stylesheet" href="../css/variables-8adf115d.css">
+        <link rel="stylesheet" href="../css/general-2459343d.css">
+        <link rel="stylesheet" href="../css/chrome-ae938929.css">
+        <link rel="stylesheet" href="../css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+        <link rel="stylesheet" href="../fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
-        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
-        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="../highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="../tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="src/custom-79f7119f.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-3a0bedb2.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-5bb45c68.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -107,7 +106,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
             </noscript>
             <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +141,7 @@
                     <h1 class="menu-title">x402 — The AI Payment Protocol</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/FTHTrading/Book" title="Git repository" aria-label="Git repository">
@@ -179,14 +178,130 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="credit-operating-layer"><a class="header" href="#credit-operating-layer">Credit Operating Layer</a></h1>
+<p>The UnyKorn Commercial Credit OS is a closed-loop credit operating layer built on top of the <a href="../protocol/what-is-x402.html">x402 protocol</a>. It underwrites businesses and agents operating on the network, issues controlled credit lines in stablecoins, and uses x402 receipts and settlement history as underwriting inputs. Repayment happens automatically from incoming network cash flows.</p>
+<p>This is not a consumer credit product. It is <strong>commercial network credit</strong> — purpose-built for businesses, merchants, and AI agents that already transact on the x402 stack.</p>
+<hr>
+<h2 id="why-build-a-credit-company-on-x402"><a class="header" href="#why-build-a-credit-company-on-x402">Why Build a Credit Company on x402</a></h2>
+<p>The x402 protocol already treats payment proof, receipts, settlement rails, and agent commerce as first-class primitives. The system has live data flowing through the <a href="../apostle/overview.html">Apostle Chain</a>, <a href="../chain/overview.html">UnyKorn L1</a>, and cross-chain bridges to Stellar and XRPL. That data — payment timeliness, settlement success rates, treasury balances, commerce volume — is exactly the raw signal a credit underwriter needs.</p>
+<p>Building a credit layer on this stack is not bolting lending onto a blockchain. It is closing the loop: the same system that moves money also decides who gets to borrow it, how much, and under what terms.</p>
+<h2 id="the-four-engines"><a class="header" href="#the-four-engines">The Four Engines</a></h2>
+<p>The credit operating layer is composed of four engines, each with a distinct responsibility.</p>
+<h3 id="identity-engine"><a class="header" href="#identity-engine">Identity Engine</a></h3>
+<p>The identity engine binds a credit entity to a verifiable on-chain identity.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Component</th><th>Purpose</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Wallet</strong></td><td>Cryptographic identity (Ed25519 keypair or multi-sig)</td></tr>
+<tr><td><strong>Namespace</strong></td><td><a href="../live/api-reference.html#namespaces">x402 namespace</a> binding the entity to a service route</td></tr>
+<tr><td><strong>KYB / KYC</strong></td><td>Business or individual verification (closed-network initially)</td></tr>
+<tr><td><strong>Signer History</strong></td><td>Historical key usage, rotation events, signing cadence</td></tr>
+<tr><td><strong>Repayment Entity</strong></td><td>Legal or programmatic entity responsible for repayment</td></tr>
+<tr><td><strong>Allowed Rails</strong></td><td>Which settlement chains the entity may use (Apostle, Stellar, Solana, XRPL)</td></tr>
+</tbody>
+</table>
+</div>
+<p>The identity engine does not replace external identity providers. It maps external identity into the on-chain context so the other three engines can operate without ambiguity about who owes what.</p>
+<h3 id="behavior-engine"><a class="header" href="#behavior-engine">Behavior Engine</a></h3>
+<p>The behavior engine collects and normalises on-network activity into underwriting inputs.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Signal</th><th>Source</th><th>Weight</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>x402 payment history</strong></td><td><a href="../live/api-reference.html#receipts-and-batching">Facilitator receipts</a></td><td>High</td></tr>
+<tr><td><strong>Invoice payment timeliness</strong></td><td>Invoice creation and settlement timestamps</td><td>High</td></tr>
+<tr><td><strong>API usage stability</strong></td><td>Metered consumption patterns via x402 pay-per-request</td><td>Medium</td></tr>
+<tr><td><strong>Treasury balances</strong></td><td><a href="../apostle/overview.html#api-endpoints">On-chain balance queries</a></td><td>Medium</td></tr>
+<tr><td><strong>Settlement success rate</strong></td><td>Ratio of attempted to completed settlements</td><td>High</td></tr>
+<tr><td><strong>Chargeback and dispute events</strong></td><td>Webhook events (<code>payment.received</code>, channel disputes)</td><td>High</td></tr>
+<tr><td><strong>Business revenue flows</strong></td><td>Aggregate inbound payment volume over rolling windows</td><td>Medium</td></tr>
+</tbody>
+</table>
+</div>
+<p>All signals are derived from data the system already produces. No external bureau pull is required for the initial closed-loop product.</p>
+<h3 id="decision-engine"><a class="header" href="#decision-engine">Decision Engine</a></h3>
+<p>The decision engine converts behaviour signals into credit decisions.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Function</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Internal risk grades</strong></td><td>Letter grades (A through F) derived from behaviour engine scores</td></tr>
+<tr><td><strong>Credit limits</strong></td><td>Maximum outstanding balance, per-draw limits, velocity caps</td></tr>
+<tr><td><strong>APR and fees</strong></td><td>Risk-adjusted pricing tied to grade and collateral</td></tr>
+<tr><td><strong>Collateral requirements</strong></td><td>Minimum treasury or locked-asset ratios per grade</td></tr>
+<tr><td><strong>Reserve requirements</strong></td><td>Platform-level reserve pools sized to expected loss rates</td></tr>
+<tr><td><strong>Dynamic throttles</strong></td><td>Real-time limit adjustments based on deteriorating signals</td></tr>
+<tr><td><strong>Adverse-action logging</strong></td><td>Every denial or downgrade logged with specific reasons (required for compliance)</td></tr>
+</tbody>
+</table>
+</div>
+<p>The decision engine is auditable by design. Every approval, denial, limit change, and grade transition is timestamped and stored on-chain or in the credit ledger.</p>
+<h3 id="settlement-engine"><a class="header" href="#settlement-engine">Settlement Engine</a></h3>
+<p>The settlement engine handles the full credit lifecycle.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Stage</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Issuance</strong></td><td>Credit line created, terms set, stablecoin allocation reserved</td></tr>
+<tr><td><strong>Drawdown</strong></td><td>Borrower draws against the line; x402 authorisation gate enforces limits</td></tr>
+<tr><td><strong>Repayment</strong></td><td>Auto-sweep from incoming settlements, or manual repayment via x402 payment proof</td></tr>
+<tr><td><strong>Delinquency</strong></td><td>Missed-payment detection, grace period management, late-fee assessment</td></tr>
+<tr><td><strong>Restructuring</strong></td><td>Term modification for performing-but-stressed borrowers</td></tr>
+<tr><td><strong>Collections routing</strong></td><td>Escalation path: auto-sweep → notification → throttle → suspension → external</td></tr>
+<tr><td><strong>Securitisation pools</strong></td><td>Optional: bundle performing credit into tokenised tranches for capital recycling</td></tr>
+</tbody>
+</table>
+</div>
+<p>The settlement engine uses x402 for drawdown authorisation and repayment triggers. See <a href="./rails.html#how-x402-fits">How x402 Fits</a> for the integration model.</p>
+<h2 id="design-principles"><a class="header" href="#design-principles">Design Principles</a></h2>
+<ol>
+<li><strong>Closed-loop first</strong> — underwrite only entities that transact on the network.</li>
+<li><strong>Commercial only</strong> — no unsecured consumer lending until the compliance stack is locked.</li>
+<li><strong>Data-native</strong> — every underwriting input comes from on-network behaviour, not external bureau data.</li>
+<li><strong>Programmatic enforcement</strong> — credit limits enforced at the protocol level, not by manual review.</li>
+<li><strong>Auditable</strong> — every decision is logged with its inputs and rationale.</li>
+</ol>
+<h2 id="architecture-diagram"><a class="header" href="#architecture-diagram">Architecture Diagram</a></h2>
+<pre><code class="language-text">┌─────────────────────────────────────────────────────────┐
+│                    Credit Operating Layer                │
+│                                                         │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐  │
+│  │ Identity │→│ Behavior │→│ Decision │→│ Settle │  │
+│  │  Engine  │  │  Engine  │  │  Engine  │  │ Engine │  │
+│  └──────────┘  └──────────┘  └──────────┘  └────────┘  │
+│       ↑              ↑              │            │       │
+└───────┼──────────────┼──────────────┼────────────┼──────┘
+        │              │              │            │
+   ┌────┴────┐    ┌────┴────┐   ┌────┴────┐  ┌───┴────┐
+   │ Wallets │    │  x402   │   │ Credit  │  │ Rails  │
+   │   KYB   │    │Receipts │   │ Ledger  │  │Solana  │
+   │Namespace│    │Invoices │   │On-Chain │  │Stellar │
+   └─────────┘    └─────────┘   └─────────┘  │Apostle │
+                                              │  XRPL  │
+                                              └────────┘
+</code></pre>
+<p>For the seven credit models this layer supports, see <a href="./models.html">Credit Models</a>. For the rail strategy, see <a href="./rails.html">Rail Strategy</a>.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../live/api-reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="../credit/models.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -194,7 +309,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../live/api-reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="../credit/models.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>
@@ -212,13 +333,13 @@
         </script>
 
 
-        <script src="elasticlunr-ef4e11c1.min.js"></script>
-        <script src="mark-09e88c2c.min.js"></script>
-        <script src="searcher-c2a407aa.js"></script>
+        <script src="../elasticlunr-ef4e11c1.min.js"></script>
+        <script src="../mark-09e88c2c.min.js"></script>
+        <script src="../searcher-c2a407aa.js"></script>
 
-        <script src="clipboard-1626706a.min.js"></script>
-        <script src="highlight-abc7f01d.js"></script>
-        <script src="book-a0b12cfe.js"></script>
+        <script src="../clipboard-1626706a.min.js"></script>
+        <script src="../highlight-abc7f01d.js"></script>
+        <script src="../book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 

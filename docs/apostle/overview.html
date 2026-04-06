@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Apostle Chain (Chain 7332) - x402 — The AI Payment Protocol</title>
+        <title>Chain 7332 Overview - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,9 +178,9 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="apostle-chain-chain-7332"><a class="header" href="#apostle-chain-chain-7332">Apostle Chain (Chain 7332)</a></h1>
-<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
-<p>The Apostle Chain is a <strong>sovereign Rust/Axum Layer 1 blockchain</strong> purpose-built for autonomous AI agent commerce. While UnyKorn L1 handles USDF stablecoin settlement, the Apostle Chain is where the 20-agent mesh actually runs, transacts, and settles in real-time.</p>
+                        <h1 id="apostle-chain--chain-7332"><a class="header" href="#apostle-chain--chain-7332">Apostle Chain — Chain 7332</a></h1>
+<p>The Apostle Chain is a sovereign Rust/Axum Layer 1 blockchain purpose-built for autonomous AI agent commerce. While <a href="../chain/overview.html">UnyKorn L1</a> handles USDF stablecoin settlement, the Apostle Chain is where the <a href="./agents.html">20-agent mesh</a> transacts and settles in real time.</p>
+<hr>
 <h2 id="chain-specifications"><a class="header" href="#chain-specifications">Chain Specifications</a></h2>
 <div class="table-wrapper">
 <table>
@@ -195,7 +195,7 @@
 <tr><td><strong>Language</strong></td><td>Rust + Axum</td></tr>
 <tr><td><strong>Port</strong></td><td>7332</td></tr>
 <tr><td><strong>Crates</strong></td><td>10 — apostle-{api, types, ledger, consensus, settlement, bridge, mesh} + subcrates</td></tr>
-<tr><td><strong>Status</strong></td><td><strong>LIVE</strong> — production on AWS EC2</td></tr>
+<tr><td><strong>Status</strong></td><td><strong>Live</strong> — production on AWS EC2</td></tr>
 </tbody>
 </table>
 </div>
@@ -228,13 +228,14 @@
 <tr><td><code>/v1/agents/register</code></td><td>POST</td><td>Register new agent</td></tr>
 <tr><td><code>/v1/agents/batch-register</code></td><td>POST</td><td>Batch register agents</td></tr>
 <tr><td><code>/v1/agents/heartbeat</code></td><td>POST</td><td>Agent heartbeat</td></tr>
-<tr><td><code>/v1/agent/{id}/balance</code></td><td>GET</td><td>Query agent balance (accepts bare UUID or agent:UUID)</td></tr>
+<tr><td><code>/v1/agent/{id}/balance</code></td><td>GET</td><td>Query agent balance (accepts bare UUID or <code>agent:UUID</code>)</td></tr>
 <tr><td><code>/v1/receipts</code></td><td>GET</td><td>Query settlement receipts</td></tr>
 </tbody>
 </table>
 </div>
+<p>For full request/response examples, see the <a href="../live/api-reference.html">API Reference</a>.</p>
 <h2 id="txenvelope-format"><a class="header" href="#txenvelope-format">TxEnvelope Format</a></h2>
-<p>Every transaction on Apostle Chain is a signed <code>TxEnvelope</code>:</p>
+<p>Every transaction on the Apostle Chain is a signed <code>TxEnvelope</code>:</p>
 <pre><code class="language-json">{
   "hash": "64-char hex (no 0x prefix)",
   "from": "bare-uuid",
@@ -252,7 +253,7 @@
 }
 </code></pre>
 <blockquote>
-<p><strong>Important</strong>: The <code>amount</code> field must be a <strong>string</strong> in JSON — Rust’s serde internally-tagged enums don’t support u128 even with <code>arbitrary_precision</code>. All amounts use the <code>str_u128</code> serialization module.</p>
+<p><strong>Serialization note</strong>: The <code>amount</code> field must be a <strong>string</strong> in JSON. Rust’s serde internally-tagged enums do not support <code>u128</code> even with <code>arbitrary_precision</code>. All amounts use the <code>str_u128</code> serialization module.</p>
 </blockquote>
 <h2 id="settlement-bridges"><a class="header" href="#settlement-bridges">Settlement Bridges</a></h2>
 <div class="table-wrapper">
@@ -261,13 +262,13 @@
 <tr><th>Bridge</th><th>Asset</th><th>Direction</th><th>Status</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>XRPL</strong></td><td>xUSDF ↔ ATP</td><td>Bidirectional</td><td>BUILT</td></tr>
-<tr><td><strong>Stellar</strong></td><td>sUSDF ↔ ATP</td><td>Bidirectional</td><td>BUILT</td></tr>
+<tr><td><strong>XRPL</strong></td><td>xUSDF / ATP</td><td>Bidirectional</td><td>Built</td></tr>
+<tr><td><strong>Stellar</strong></td><td>sUSDF / ATP</td><td>Bidirectional</td><td>Built</td></tr>
 </tbody>
 </table>
 </div>
 <h2 id="crate-architecture"><a class="header" href="#crate-architecture">Crate Architecture</a></h2>
-<pre><code>apostle-chain/
+<pre><code class="language-text">apostle-chain/
 ├── crates/
 │   ├── apostle-api/          # Axum routes, handlers, middleware
 │   ├── apostle-types/        # Asset enum, TxPayload, AgentId, str_u128
@@ -277,6 +278,7 @@
 │   ├── apostle-bridge/       # XRPL + Stellar bridge adapters
 │   └── apostle-mesh/         # Agent discovery, heartbeat, mesh topology
 </code></pre>
+<p>For the agents running on this chain, see <a href="./agents.html">The Agent Mesh</a>. For commerce routing, see <a href="./commerce.html">Commerce Routing and ATP</a>.</p>
 
                     </main>
 

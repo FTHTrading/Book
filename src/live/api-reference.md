@@ -1,13 +1,17 @@
 # API Reference
 
-> **Facilitator Base URL**: `http://localhost:3100`  
+Complete endpoint reference for both the [Apostle Chain](../apostle/overview.md) (chain 7332) and the [x402 Facilitator](../protocol/architecture.md). All examples use `localhost` — replace with the production host as needed.
+
+---
+
 > **Apostle Chain Base URL**: `http://localhost:7332`
+> **Facilitator Base URL**: `http://localhost:3100`
 
 ---
 
 ## Apostle Chain API (Chain 7332)
 
-### Health & Status
+### Health and Status
 
 #### `GET /health`
 Returns chain health.
@@ -46,7 +50,7 @@ Submit a signed TxEnvelope.
 }
 ```
 
-> **Important**: `amount` MUST be a string. Rust serde internally-tagged enums don't support u128 even with `arbitrary_precision`.
+> **Important**: `amount` MUST be a string. Rust serde internally-tagged enums do not support `u128` even with `arbitrary_precision`. See [Apostle Chain Overview](../apostle/overview.md#txenvelope-format) for full details.
 
 **Response 200**:
 ```json
@@ -117,7 +121,7 @@ Query settlement receipts.
 
 ## x402 Facilitator API (Port 3100)
 
-### Health & Admin
+### Health and Admin
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -179,7 +183,7 @@ Verify a payment proof and settle.
 | `/channels/:id` | GET | Channel state |
 | `/channels/:id/close` | POST | Close channel |
 
-### Receipts & Batching
+### Receipts and Batching
 
 | Endpoint | Method | Purpose |
 |----------|--------|---------|
@@ -217,3 +221,5 @@ Verify a payment proof and settle.
 **Webhook Events**: `payment.received`, `payment.batched`, `channel.opened`, `channel.closed`, `credit.deposited`, `anchor.confirmed`
 
 **Verification**: HMAC-SHA256 — `HMAC(body, secret) === X-402-Signature`
+
+For the protocol design behind these endpoints, see [Payment Flow](../protocol/payment-flow.md) and [System Architecture](../protocol/architecture.md).

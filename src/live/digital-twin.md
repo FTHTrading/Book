@@ -1,8 +1,6 @@
-# Digital Twin — Live Dashboard
+# Digital Twin
 
-## What You're Looking At
-
-The Digital Twin is a **real-time 2D network visualization** of every agent and transaction on the Apostle Chain. It connects to the mesh-pulse WebSocket and animates commerce as it happens.
+The Digital Twin is a real-time 2D network visualisation of every agent and transaction on the [Apostle Chain](../apostle/overview.md). It connects to the mesh-pulse WebSocket and animates [commerce](../apostle/commerce.md) as it happens.
 
 <div class="twin-embed">
   <iframe src="https://twin.unykorn.org/" width="100%" height="700" frameborder="0" loading="lazy"></iframe>
@@ -13,19 +11,19 @@ The Digital Twin is a **real-time 2D network visualization** of every agent and 
 ## Features
 
 ### Agent Network Graph
-- **20 labeled nodes** arranged in a force-directed layout
-- **Color-coded by tier**: blue (control), green (execution), purple (intelligence), orange (interface), gold (operators)
+- **20 labelled nodes** arranged in a force-directed layout
+- **Colour-coded by tier**: blue (control), green (execution), purple (intelligence), orange (interface), gold (operators)
 - **Edges** show commerce relationships from the COMMERCE_MAP
 - **Click any node** to see its detail panel: agent ID, tier, balance, transaction history
 
 ### Transaction Animations
 - Real-time **animated particles** flow along edges as transactions settle
-- Particle color matches the sender's tier
+- Particle colour matches the sender's tier
 - Particle speed indicates transaction amount (larger = faster)
-- Each animation corresponds to a real `POST /v1/tx` settlement
+- Each animation corresponds to a real `POST /v1/tx` settlement on the [Apostle Chain](../apostle/overview.md)
 
 ### Activity Feed
-- Right-side panel shows the **live transaction stream**
+- Right-side panel shows the live transaction stream
 - Each entry: sender → receiver, amount, timestamp, status
 - Scrollable history of the last 100 transactions
 
@@ -47,16 +45,18 @@ The Digital Twin is a **real-time 2D network visualization** of every agent and 
 
 ## Architecture
 
+```text
+Browser → twin.unykorn.org
+           │
+           ▼ (Cloudflare DNS proxy)
+      EC2:8402 (aiohttp)
+           │
+           ├→ static/digital_twin.html (served)
+           │
+           └→ ws://EC2:3280/pulse/stream
+                  │
+                  ▼ (live data from agent_runner.py)
+             20 agents → mesh-pulse WS → browser canvas
 ```
-  Browser ──→ twin.unykorn.org
-                │
-                ▼ (Cloudflare DNS proxy)
-           EC2:8402 (aiohttp)
-                │
-                ├─→ static/digital_twin.html (served)
-                │
-                └─→ ws://EC2:3280/pulse/stream
-                        │
-                        ▼ (live data from agent_runner.py)
-                   20 agents → mesh-pulse WS → browser canvas
-```
+
+For the agents powering this view, see [The Agent Mesh](../apostle/agents.md). For the underlying API, see the [API Reference](./api-reference.md).

@@ -1,8 +1,8 @@
-# Apostle Chain (Chain 7332)
+# Apostle Chain — Chain 7332
 
-## Overview
+The Apostle Chain is a sovereign Rust/Axum Layer 1 blockchain purpose-built for autonomous AI agent commerce. While [UnyKorn L1](../chain/overview.md) handles USDF stablecoin settlement, the Apostle Chain is where the [20-agent mesh](./agents.md) transacts and settles in real time.
 
-The Apostle Chain is a **sovereign Rust/Axum Layer 1 blockchain** purpose-built for autonomous AI agent commerce. While UnyKorn L1 handles USDF stablecoin settlement, the Apostle Chain is where the 20-agent mesh actually runs, transacts, and settles in real-time.
+---
 
 ## Chain Specifications
 
@@ -15,7 +15,7 @@ The Apostle Chain is a **sovereign Rust/Axum Layer 1 blockchain** purpose-built 
 | **Language** | Rust + Axum |
 | **Port** | 7332 |
 | **Crates** | 10 — apostle-{api, types, ledger, consensus, settlement, bridge, mesh} + subcrates |
-| **Status** | **LIVE** — production on AWS EC2 |
+| **Status** | **Live** — production on AWS EC2 |
 
 ## Current State (April 2026)
 
@@ -38,12 +38,14 @@ The Apostle Chain is a **sovereign Rust/Axum Layer 1 blockchain** purpose-built 
 | `/v1/agents/register` | POST | Register new agent |
 | `/v1/agents/batch-register` | POST | Batch register agents |
 | `/v1/agents/heartbeat` | POST | Agent heartbeat |
-| `/v1/agent/{id}/balance` | GET | Query agent balance (accepts bare UUID or agent:UUID) |
+| `/v1/agent/{id}/balance` | GET | Query agent balance (accepts bare UUID or `agent:UUID`) |
 | `/v1/receipts` | GET | Query settlement receipts |
+
+For full request/response examples, see the [API Reference](../live/api-reference.md).
 
 ## TxEnvelope Format
 
-Every transaction on Apostle Chain is a signed `TxEnvelope`:
+Every transaction on the Apostle Chain is a signed `TxEnvelope`:
 
 ```json
 {
@@ -63,18 +65,18 @@ Every transaction on Apostle Chain is a signed `TxEnvelope`:
 }
 ```
 
-> **Important**: The `amount` field must be a **string** in JSON — Rust's serde internally-tagged enums don't support u128 even with `arbitrary_precision`. All amounts use the `str_u128` serialization module.
+> **Serialization note**: The `amount` field must be a **string** in JSON. Rust's serde internally-tagged enums do not support `u128` even with `arbitrary_precision`. All amounts use the `str_u128` serialization module.
 
 ## Settlement Bridges
 
 | Bridge | Asset | Direction | Status |
 |--------|-------|-----------|--------|
-| **XRPL** | xUSDF ↔ ATP | Bidirectional | BUILT |
-| **Stellar** | sUSDF ↔ ATP | Bidirectional | BUILT |
+| **XRPL** | xUSDF / ATP | Bidirectional | Built |
+| **Stellar** | sUSDF / ATP | Bidirectional | Built |
 
 ## Crate Architecture
 
-```
+```text
 apostle-chain/
 ├── crates/
 │   ├── apostle-api/          # Axum routes, handlers, middleware
@@ -85,3 +87,5 @@ apostle-chain/
 │   ├── apostle-bridge/       # XRPL + Stellar bridge adapters
 │   └── apostle-mesh/         # Agent discovery, heartbeat, mesh topology
 ```
+
+For the agents running on this chain, see [The Agent Mesh](./agents.md). For commerce routing, see [Commerce Routing and ATP](./commerce.md).

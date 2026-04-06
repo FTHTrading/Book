@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>UNY Token &amp; Tokenomics - x402 — The AI Payment Protocol</title>
+        <title>UNY Tokenomics - x402 — The AI Payment Protocol</title>
 
 
         <!-- Custom HTML head -->
@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -178,33 +178,31 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="uny-token--tokenomics"><a class="header" href="#uny-token--tokenomics">UNY Token &amp; Tokenomics</a></h1>
-<h2 id="token-fundamentals"><a class="header" href="#token-fundamentals">Token Fundamentals</a></h2>
+                        <h1 id="uny-tokenomics"><a class="header" href="#uny-tokenomics">UNY Tokenomics</a></h1>
+<p>UNY is the native token of UnyKorn L1 (Chain 7331). It is hard-capped, immutable, and non-inflationary. This page covers supply, distribution, the revenue flywheel, and the relationship to ATP on the <a href="../apostle/overview.html">Apostle Chain</a>.</p>
+<hr>
+<h2 id="token-properties"><a class="header" href="#token-properties">Token Properties</a></h2>
 <div class="table-wrapper">
 <table>
 <thead>
-<tr><th>Property</th><th>Value</th><th>Status</th></tr>
+<tr><th>Property</th><th>Value</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Name</strong></td><td>UnyKorn Token</td><td>LIVE</td></tr>
-<tr><td><strong>Symbol</strong></td><td>UNY</td><td>LIVE</td></tr>
-<tr><td><strong>Blockchain</strong></td><td>UnyKorn L1 (Chain ID 7331)</td><td>BUILT</td></tr>
-<tr><td><strong>Decimals</strong></td><td>18</td><td>LIVE</td></tr>
-<tr><td><strong>Total Supply</strong></td><td>1,000,000,000 (1 billion)</td><td>LIVE</td></tr>
-<tr><td><strong>Max Supply</strong></td><td>1,000,000,000 (hard-capped)</td><td>LIVE</td></tr>
-<tr><td><strong>Inflation</strong></td><td>0% — no new tokens can ever be created</td><td>LIVE</td></tr>
-<tr><td><strong>Mintable</strong></td><td>No</td><td>LIVE</td></tr>
-<tr><td><strong>Pausable</strong></td><td>No</td><td>LIVE</td></tr>
-<tr><td><strong>Upgradeable</strong></td><td>No</td><td>LIVE</td></tr>
+<tr><td><strong>Name</strong></td><td>UnyKorn Token</td></tr>
+<tr><td><strong>Symbol</strong></td><td>UNY</td></tr>
+<tr><td><strong>Blockchain</strong></td><td>UnyKorn L1 (Chain ID 7331)</td></tr>
+<tr><td><strong>Decimals</strong></td><td>18</td></tr>
+<tr><td><strong>Total Supply</strong></td><td>1,000,000,000 (1 billion)</td></tr>
+<tr><td><strong>Max Supply</strong></td><td>1,000,000,000 (hard-capped)</td></tr>
+<tr><td><strong>Inflation</strong></td><td>0% — no new tokens can be created</td></tr>
+<tr><td><strong>Mintable</strong></td><td>No</td></tr>
+<tr><td><strong>Pausable</strong></td><td>No</td></tr>
+<tr><td><strong>Upgradeable</strong></td><td>No</td></tr>
 </tbody>
 </table>
 </div>
 <blockquote>
-<p><strong>Architecture Note</strong>: UNY exists in two forms:</p>
-<ol>
-<li><strong>Native L1 UNY</strong> — gas token on UnyKorn L1 (Chain 7331)</li>
-<li><strong>Wrapped UNY (wUNY)</strong> — planned ERC-20 for CEX listings and cross-chain interoperability</li>
-</ol>
+<p>UNY exists in two forms: <strong>Native L1 UNY</strong> (gas token on Chain 7331) and <strong>Wrapped UNY (wUNY)</strong> (planned ERC-20 for CEX listings and cross-chain interoperability).</p>
 </blockquote>
 <h2 id="token-distribution"><a class="header" href="#token-distribution">Token Distribution</a></h2>
 <div class="table-wrapper">
@@ -213,46 +211,46 @@
 <tr><th>Category</th><th>%</th><th>Tokens</th><th>Vesting</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>ICO / Public Sale</strong></td><td>20%</td><td>200,000,000</td><td>Seed: 6mo cliff + 12mo linear</td></tr>
-<tr><td><strong>Infrastructure &amp; Validators</strong></td><td>35%</td><td>350,000,000</td><td>48 months gradual</td></tr>
-<tr><td><strong>AI Compute Subsidies</strong></td><td>10%</td><td>100,000,000</td><td>On-demand as agents onboard</td></tr>
-<tr><td><strong>Protocol Treasury</strong></td><td>15%</td><td>150,000,000</td><td>Multi-sig, 6mo timelock</td></tr>
-<tr><td><strong>Ecosystem Grants</strong></td><td>10%</td><td>100,000,000</td><td>Per-grant (6-24 months)</td></tr>
-<tr><td><strong>Team &amp; Advisors</strong></td><td>10%</td><td>100,000,000</td><td>12mo cliff + 36mo linear</td></tr>
+<tr><td>ICO / Public Sale</td><td>20%</td><td>200,000,000</td><td>Seed: 6-month cliff + 12-month linear</td></tr>
+<tr><td>Infrastructure and Validators</td><td>35%</td><td>350,000,000</td><td>48 months gradual</td></tr>
+<tr><td>AI Compute Subsidies</td><td>10%</td><td>100,000,000</td><td>On-demand as agents onboard</td></tr>
+<tr><td>Protocol Treasury</td><td>15%</td><td>150,000,000</td><td>Multi-sig, 6-month timelock</td></tr>
+<tr><td>Ecosystem Grants</td><td>10%</td><td>100,000,000</td><td>Per-grant (6–24 months)</td></tr>
+<tr><td>Team and Advisors</td><td>10%</td><td>100,000,000</td><td>12-month cliff + 36-month linear</td></tr>
 </tbody>
 </table>
 </div>
-<pre><code>████████████████████░░░░░░░░░░░░░░░░░░░░  20%  ICO / Public Sale
-█████████████████████████████████████░░░░  35%  Infrastructure
-██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  AI Compute
-████████████████░░░░░░░░░░░░░░░░░░░░░░░░  15%  Treasury
-██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  Ecosystem
-██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  10%  Team
-</code></pre>
 <h2 id="revenue-flywheel"><a class="header" href="#revenue-flywheel">Revenue Flywheel</a></h2>
-<p>All x402 protocol fees are distributed:</p>
+<p>All x402 protocol fees are distributed according to a fixed allocation:</p>
 <div class="table-wrapper">
 <table>
 <thead>
 <tr><th>Allocation</th><th>%</th><th>Mechanism</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>Buyback &amp; Burn</strong></td><td>40%</td><td>Market buy → permanent burn</td></tr>
-<tr><td><strong>LP Provision</strong></td><td>20%</td><td>Protocol-owned AMM liquidity</td></tr>
-<tr><td><strong>Treasury</strong></td><td>20%</td><td>Operational reserve</td></tr>
-<tr><td><strong>Staking Rewards</strong></td><td>15%</td><td>Distributed to UNY stakers</td></tr>
-<tr><td><strong>Insurance Fund</strong></td><td>5%</td><td>Incident recovery reserve</td></tr>
+<tr><td>Buyback and Burn</td><td>40%</td><td>Market buy then permanent burn</td></tr>
+<tr><td>LP Provision</td><td>20%</td><td>Protocol-owned AMM liquidity</td></tr>
+<tr><td>Treasury</td><td>20%</td><td>Operational reserve</td></tr>
+<tr><td>Staking Rewards</td><td>15%</td><td>Distributed to UNY stakers</td></tr>
+<tr><td>Insurance Fund</td><td>5%</td><td>Incident recovery reserve</td></tr>
 </tbody>
 </table>
 </div>
-<h2 id="existing-liquidity"><a class="header" href="#existing-liquidity">Existing Liquidity</a></h2>
-<p>UNY is currently listed on:</p>
-<ul>
-<li><strong>LFJ (TraderJoe)</strong> — UNY/USDC pool on Avalanche C-Chain</li>
-<li><strong>LFJ (TraderJoe)</strong> — UNY/WAVAX pool on Avalanche C-Chain</li>
-</ul>
+<h2 id="current-liquidity"><a class="header" href="#current-liquidity">Current Liquidity</a></h2>
+<p>UNY is listed on:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Platform</th><th>Pool</th><th>Chain</th></tr>
+</thead>
+<tbody>
+<tr><td>LFJ (TraderJoe)</td><td>UNY/USDC</td><td>Avalanche C-Chain</td></tr>
+<tr><td>LFJ (TraderJoe)</td><td>UNY/WAVAX</td><td>Avalanche C-Chain</td></tr>
+</tbody>
+</table>
+</div>
 <h2 id="atp-apostle-token-primitive"><a class="header" href="#atp-apostle-token-primitive">ATP (Apostle Token Primitive)</a></h2>
-<p>ATP is the native token of the Apostle Chain (7332), used for agent-to-agent commerce:</p>
+<p>ATP is the native token of the <a href="../apostle/overview.html">Apostle Chain (7332)</a>, used exclusively for agent-to-agent commerce.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -268,6 +266,7 @@
 </tbody>
 </table>
 </div>
+<p>For treasury governance, see <a href="./treasury.html">Treasury Policy</a>.</p>
 
                     </main>
 

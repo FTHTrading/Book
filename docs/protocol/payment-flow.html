@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../src/custom-7ce0e804.css">
+        <link rel="stylesheet" href="../src/custom-79f7119f.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "../";
             const default_light_theme = "navy";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-032c1df8.js";
+            window.path_to_searchindex_js = "../searchindex-3a0bedb2.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-5e8b3861.js"></script>
+        <script src="../toc-5bb45c68.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -179,17 +179,17 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="payment-flow"><a class="header" href="#payment-flow">Payment Flow</a></h1>
-<h2 id="the-x402-payment-lifecycle"><a class="header" href="#the-x402-payment-lifecycle">The x402 Payment Lifecycle</a></h2>
-<p>Every x402 payment follows a deterministic 6-step flow embedded in a single HTTP request cycle.</p>
-<h3 id="step-1-request"><a class="header" href="#step-1-request">Step 1: Request</a></h3>
-<p>An AI agent sends an HTTP request to a paid endpoint:</p>
-<pre><code>GET /v1/settle HTTP/1.1
+<p>Every x402 payment follows a deterministic six-step lifecycle embedded in a single HTTP request cycle. This page walks through each step with exact payload formats.</p>
+<hr>
+<h2 id="step-1--request"><a class="header" href="#step-1--request">Step 1 — Request</a></h2>
+<p>An AI agent sends a standard HTTP request to a paid endpoint:</p>
+<pre><code class="language-http">GET /v1/settle HTTP/1.1
 Host: settlement.unykorn.org
 Authorization: Bearer agent:87724c76-da93-4b1a-9fa6-271ba856338e
 </code></pre>
-<h3 id="step-2-challenge-http-402"><a class="header" href="#step-2-challenge-http-402">Step 2: Challenge (HTTP 402)</a></h3>
-<p>The x402 gateway returns HTTP 402 with payment requirements:</p>
-<pre><code>HTTP/1.1 402 Payment Required
+<h2 id="step-2--challenge-http-402"><a class="header" href="#step-2--challenge-http-402">Step 2 — Challenge (HTTP 402)</a></h2>
+<p>The <a href="./architecture.html">x402 Gateway</a> returns HTTP 402 with payment requirements:</p>
+<pre><code class="language-http">HTTP/1.1 402 Payment Required
 X-PAYMENT-REQUIRED: {
   "asset": "ATP",
   "amount": "3000000000000000000",
@@ -199,7 +199,8 @@ X-PAYMENT-REQUIRED: {
   "ttl_seconds": 300
 }
 </code></pre>
-<h3 id="step-3-payment-proof-construction"><a class="header" href="#step-3-payment-proof-construction">Step 3: Payment Proof Construction</a></h3>
+<p>The challenge specifies the asset, amount (in base units), receiving agent, namespace, and time-to-live.</p>
+<h2 id="step-3--proof-construction"><a class="header" href="#step-3--proof-construction">Step 3 — Proof Construction</a></h2>
 <p>The agent constructs a signed payment proof using its Ed25519 keypair:</p>
 <pre><code class="language-json">{
   "hash": "a1b2c3d4...64hex",
@@ -213,23 +214,26 @@ X-PAYMENT-REQUIRED: {
   "timestamp": "2026-04-05T12:00:00Z"
 }
 </code></pre>
-<h3 id="step-4-retry-with-proof"><a class="header" href="#step-4-retry-with-proof">Step 4: Retry with Proof</a></h3>
+<blockquote>
+<p>The <code>amount</code> field must be a <strong>string</strong> in JSON. See <a href="../apostle/overview.html">Apostle Chain Overview</a> for the <code>str_u128</code> serialization requirement.</p>
+</blockquote>
+<h2 id="step-4--retry-with-proof"><a class="header" href="#step-4--retry-with-proof">Step 4 — Retry with Proof</a></h2>
 <p>The agent retries the original request with the payment proof attached:</p>
-<pre><code>GET /v1/settle HTTP/1.1
+<pre><code class="language-http">GET /v1/settle HTTP/1.1
 Host: settlement.unykorn.org
 X-PAYMENT: &lt;base64-encoded signed TxEnvelope&gt;
 </code></pre>
-<h3 id="step-5-verification--settlement"><a class="header" href="#step-5-verification--settlement">Step 5: Verification &amp; Settlement</a></h3>
-<p>The facilitator:</p>
+<h2 id="step-5--verification-and-settlement"><a class="header" href="#step-5--verification-and-settlement">Step 5 — Verification and Settlement</a></h2>
+<p>The <a href="./architecture.html">Facilitator</a> processes the proof:</p>
 <ol>
-<li><strong>Verifies</strong> the Ed25519 signature</li>
-<li><strong>Checks</strong> nonce for replay protection</li>
-<li><strong>Debits</strong> the sender’s balance</li>
-<li><strong>Credits</strong> the receiver’s balance</li>
-<li><strong>Creates</strong> a cryptographic receipt</li>
+<li><strong>Verify</strong> the Ed25519 signature</li>
+<li><strong>Check</strong> nonce for replay protection</li>
+<li><strong>Debit</strong> the sender’s balance</li>
+<li><strong>Credit</strong> the receiver’s balance</li>
+<li><strong>Create</strong> a cryptographic receipt</li>
 </ol>
-<h3 id="step-6-delivery--receipt"><a class="header" href="#step-6-delivery--receipt">Step 6: Delivery + Receipt</a></h3>
-<pre><code>HTTP/1.1 200 OK
+<h2 id="step-6--delivery-and-receipt"><a class="header" href="#step-6--delivery-and-receipt">Step 6 — Delivery and Receipt</a></h2>
+<pre><code class="language-http">HTTP/1.1 200 OK
 X-RECEIPT: rcpt_a1b2c3...
 Content-Type: application/json
 
@@ -238,7 +242,7 @@ Content-Type: application/json
 <p>The receipt is batched into a Merkle tree and periodically anchored on-chain.</p>
 <hr>
 <h2 id="payment-rails"><a class="header" href="#payment-rails">Payment Rails</a></h2>
-<p>x402 supports multiple settlement rails:</p>
+<p>x402 supports multiple settlement rails. The Facilitator selects the optimal rail based on amount, urgency, and policy.</p>
 <div class="table-wrapper">
 <table>
 <thead>
@@ -252,7 +256,7 @@ Content-Type: application/json
 </tbody>
 </table>
 </div>
-<p>The Facilitator selects the optimal rail based on amount, urgency, and policy.</p>
+<p>For the full architectural breakdown of these components, see <a href="./architecture.html">System Architecture</a>.</p>
 
                     </main>
 

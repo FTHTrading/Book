@@ -1,35 +1,37 @@
-# What is x402?
+# What Is x402?
 
-## The Problem AI Agents Face Today
+x402 embeds payment directly into the HTTP request/response cycle using the long-reserved `402 Payment Required` status code. It gives AI agents a native way to pay for API calls — no human approval, no separate transaction flow, no multi-second block confirmations.
 
-The internet was built on a free-access model. HTTP 200 serves content. HTTP 401/403 handles auth. But **HTTP 402 — "Payment Required"** — was reserved in RFC 7231 for future use and never standardized.
+---
 
-As AI agents proliferate, they need to:
+## The Problem
 
-- **Pay for API calls** autonomously — no human clicking "approve"
-- **Settle micropayments** in real-time (< 1 second, not 3-5 business days)
-- **Negotiate pricing, access tiers, and service levels** machine-to-machine
-- **Operate without human intervention** for each transaction
+HTTP 402 was reserved in RFC 7231 for "future use" and never standardized. Meanwhile, AI agents need to:
 
-No existing blockchain or payment system solves this at the protocol level.
+- Pay for API calls autonomously — no human clicking "approve"
+- Settle micropayments in real time, not in 3–5 business days
+- Negotiate pricing and access tiers machine-to-machine
+- Operate without human intervention per transaction
 
-## Why Existing Chains Don't Work
+No existing blockchain or payment rail solves this at the HTTP layer.
 
-General-purpose chains (Ethereum, Solana, etc.) optimize for DeFi, NFTs, and smart contracts. They are not designed for:
+## Why Existing Chains Fall Short
 
-| Requirement | Ethereum/Solana | x402 |
-|-------------|-----------------|------|
-| Sub-second micropayment settlement | ❌ 12s+ blocks, $0.01-$5 fees | ✅ < 50ms, zero platform fees |
-| HTTP-native payment in request/response | ❌ Separate tx flow | ✅ Built into HTTP 402 cycle |
-| Agent identity & namespace resolution | ❌ Raw addresses only | ✅ Hierarchical `x402.*` namespaces |
-| Prepaid credit with Ed25519 proofs | ❌ Not native | ✅ Zero-latency payment channels |
-| Receipt batching with Merkle anchoring | ❌ Must build from scratch | ✅ Native protocol feature |
+General-purpose chains optimize for DeFi, NFTs, and smart contracts. They are not designed for embedded HTTP commerce.
 
-## The x402 Solution
+| Requirement | Ethereum / Solana | x402 |
+|-------------|-------------------|------|
+| Sub-second micropayment settlement | 12s+ blocks, $0.01–$5 fees | < 50ms, zero platform fees |
+| HTTP-native payment in request/response | Separate transaction flow | Built into HTTP 402 cycle |
+| Agent identity and namespace resolution | Raw addresses only | Hierarchical `x402.*` namespaces |
+| Prepaid credit with Ed25519 proofs | Not native | Zero-latency payment channels |
+| Receipt batching with Merkle anchoring | Must build from scratch | Native protocol feature |
 
-x402 uses HTTP 402 to embed payment directly into the API request/response cycle:
+## The x402 Model
 
-```
+x402 uses HTTP 402 to embed payment directly into the API call:
+
+```text
 ┌──────────┐                    ┌───────────────┐
 │ AI Agent │ ── GET /api/data → │ x402 Gateway  │
 │          │                    │               │
@@ -46,15 +48,19 @@ x402 uses HTTP 402 to embed payment directly into the API request/response cycle
 └──────────┘                    └───────────────┘
 ```
 
-**Protocol Version**: `x402/2.0`
-
 The entire flow — challenge, payment, verification, settlement, receipt — happens in a single HTTP round-trip. The agent never leaves the API call context.
+
+**Protocol version**: `x402/2.0`
 
 ## Key Properties
 
-- **Zero platform fees** — ATP transfers cost nothing beyond chain gas
-- **Sub-50ms settlement** — prepaid credit channels bypass block confirmation
-- **Cryptographic receipts** — every payment produces a signed, verifiable receipt
-- **Merkle-batched anchoring** — receipts are batched into Merkle trees and anchored on-chain
-- **Machine-first** — no CAPTCHAs, no OAuth flows, no human-in-the-loop
-- **Auditable** — full chain of custody from request → payment → receipt → anchor
+| Property | Detail |
+|----------|--------|
+| **Zero platform fees** | ATP transfers cost nothing beyond chain gas |
+| **Sub-50ms settlement** | Prepaid credit channels bypass block confirmation |
+| **Cryptographic receipts** | Every payment produces a signed, verifiable receipt |
+| **Merkle-batched anchoring** | Receipts are batched into Merkle trees and anchored on-chain |
+| **Machine-first** | No CAPTCHAs, no OAuth, no human-in-the-loop |
+| **Auditable** | Full chain of custody: request → payment → receipt → anchor |
+
+For the full payment lifecycle, see [Payment Flow](./payment-flow.md). For the component architecture behind this model, see [System Architecture](./architecture.md).
