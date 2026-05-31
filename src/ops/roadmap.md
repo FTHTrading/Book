@@ -8,11 +8,11 @@ Five-phase plan from foundation through cross-chain and RWA integration.
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Foundation | ✅ Complete |
-| 2 | Registry & Automation | ✅ Complete |
-| 3 | Testing & Verification | 🔄 Current |
-| 4 | Liquidity & Visibility | ⬜ Planned |
-| 5 | Cross-chain & RWA | ⬜ Planned |
+| 1 | Foundation | COMPLETE |
+| 2 | Registry & Automation | COMPLETE |
+| 3 | Testing & Verification | IN PROGRESS |
+| 4 | Liquidity & Visibility | PLANNED |
+| 5 | Cross-chain & RWA | PLANNED |
 
 ---
 
@@ -69,15 +69,15 @@ Current focus:
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
-| Apostle Chain live | Q1 2026 | Complete |
-| 20-agent mesh bootstrapped | Q1 2026 | Complete |
-| Ed25519 signed transactions | Q2 2026 | Complete |
-| Digital twin visualisation | Q2 2026 | Complete |
-| XRPL settlement bridge | Q2 2026 | Built |
-| Stellar settlement bridge | Q2 2026 | Built |
-| [Multi-sig treasury](../chain/treasury.md) | Q3 2026 | Planned |
-| Public agent registration | Q3 2026 | Planned |
-| Cross-chain relay production | Q4 2026 | Planned |
-| [Credit Operating Layer](../credit/overview.md) — Phase 1 commercial | Q4 2026 | Planned |
+| Apostle Chain live | Q1 2026 | COMPLETE |
+| 20-agent mesh bootstrapped | Q1 2026 | COMPLETE |
+| Ed25519 signed transactions | Q2 2026 | COMPLETE |
+| Digital twin visualisation | Q2 2026 | COMPLETE |
+| XRPL settlement bridge | Q2 2026 | COMPLETE |
+| Stellar settlement bridge | Q2 2026 | COMPLETE |
+| [Multi-sig treasury](../chain/treasury.md) | Q3 2026 | PLANNED |
+| Public agent registration | Q3 2026 | PLANNED |
+| Cross-chain relay production | Q4 2026 | PLANNED |
+| [Credit Operating Layer](../credit/overview.md) — Phase 1 commercial | Q4 2026 | PLANNED |
 
 For security hardening items, see [Security](./security.md#planned-improvements-q3-2026).
